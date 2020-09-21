@@ -6,13 +6,24 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "eject": "expo eject",
+    "test": "jest",
     "eslint": "eslint '**/*.js'",
     "prettier": "prettier --write '**/*.js'",
-    "pretest": "prettier --list-different '**/*.js'"
+    "pretest": "prettier --list-different '**/*.js'",
+    "storybook": "expo start --config app.story.json"
   },
   "husky": {
     "hooks": {
       "pre-commit": "yarn run pretest && yarn run eslint"
+    }
+  },
+  "config": {
+    "react-native-storybook-loader": {
+      "searchDir": [
+        "./src"
+      ],
+      "pattern": "**/*.stories.js",
+      "outputFile": "./.storybook/storyLoader.js"
     }
   },
   "dependencies": {
@@ -27,9 +38,15 @@
   },
   "devDependencies": {
     "@babel/core": "^7.8.6",
+    "@storybook/addon-actions": "^6.0.21",
+    "@storybook/addon-essentials": "^6.0.21",
+    "@storybook/addon-links": "^6.0.21",
+    "@storybook/react": "^6.0.21",
+    "@storybook/react-native": "^5.3.21",
     "@testing-library/react-native": "^7.0.2",
     "@twostoryrobot/eslint-config": "^2.2.2",
     "@twostoryrobot/prettier-config": "^2.0.1",
+    "babel-loader": "^8.1.0",
     "babel-preset-expo": "~8.1.0",
     "eslint": "^7.9.0",
     "eslint-config-prettier": "^6.11.0",
@@ -38,6 +55,8 @@
     "eslint-plugin-react-native": "^3.9.1",
     "jest-expo": "^38.0.2",
     "prettier": "^2.1.2",
+    "react-is": "^16.13.1",
+    "react-native-storybook-loader": "^2.0.2",
     "react-test-renderer": "^16.13.1"
   },
   "private": true

@@ -1,0 +1,9 @@
+{
+  "plugins": ["react-native"],
+  "extends": "@twostoryrobot/eslint-config/react",
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  }
+}

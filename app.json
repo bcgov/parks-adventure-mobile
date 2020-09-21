@@ -2,7 +2,7 @@
   "expo": {
     "name": "parks-adventure-mobile",
     "slug": "parks-adventure-mobile",
-    "version": "1.0.0",
+    "version": "0.0.1",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {

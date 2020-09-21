@@ -25,6 +25,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.8.6",
+    "@testing-library/react-native": "^7.0.2",
     "@twostoryrobot/eslint-config": "^2.2.2",
     "@twostoryrobot/prettier-config": "^2.0.1",
     "babel-preset-expo": "~8.1.0",
@@ -34,7 +35,8 @@
     "eslint-plugin-react": "^7.20.6",
     "eslint-plugin-react-native": "^3.9.1",
     "jest-expo": "^38.0.2",
-    "prettier": "^2.1.2"
+    "prettier": "^2.1.2",
+    "react-test-renderer": "^16.13.1"
   },
   "private": true
 }

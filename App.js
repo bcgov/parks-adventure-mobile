@@ -1,20 +1,15 @@
 import React from 'react'
-import styled from 'styled-components/native'
-import { StatusBar } from 'expo-status-bar'
-import { Text, View } from 'react-native'
+import { registerRootComponent } from 'expo'
 
-const Container = styled(View)`
-  flex: 1;
-  background-color: #fff;
-  align-items: center;
-  justify-content: center;
-`
+import Main from './src'
+import { Provider as PaperProvider } from 'react-native-paper'
 
-export default function App() {
-  return (
-    <Container>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </Container>
-  )
-}
+const App = () => (
+  <PaperProvider>
+    <Main />
+  </PaperProvider>
+)
+
+registerRootComponent(App)
+
+export default App

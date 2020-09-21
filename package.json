@@ -5,7 +5,15 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "eject": "expo eject"
+    "eject": "expo eject",
+    "eslint": "eslint '**/*.js'",
+    "prettier": "prettier --write '**/*.js'",
+    "pretest": "prettier --list-different '**/*.js'"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn run pretest && yarn run eslint"
+    }
   },
   "dependencies": {
     "expo": "~38.0.8",
@@ -17,7 +25,16 @@
   },
   "devDependencies": {
     "@babel/core": "^7.8.6",
-    "babel-preset-expo": "~8.1.0"
+    "@twostoryrobot/eslint-config": "^2.2.2",
+    "@twostoryrobot/prettier-config": "^2.0.1",
+    "babel-preset-expo": "~8.1.0",
+    "eslint": "^7.9.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-jest": "^24.0.2",
+    "eslint-plugin-react": "^7.20.6",
+    "eslint-plugin-react-native": "^3.9.1",
+    "jest-expo": "^38.0.2",
+    "prettier": "^2.1.2"
   },
   "private": true
 }

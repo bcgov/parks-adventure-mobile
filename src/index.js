@@ -2,18 +2,10 @@ import React from 'react'
 import styled from 'styled-components/native'
 import { AppLoading } from 'expo'
 import { StatusBar } from 'expo-status-bar'
-import * as Font from 'expo-font'
+import { useFonts } from 'expo-font'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
 import { View } from 'react-native'
 import ParksText from './components/ParksText'
-
-const fonts = {
-  'bcsans': require('../assets/fonts/BCSans-Regular.ttf'),
-  'bcsans-bold': require('../assets/fonts/BCSans-Bold.ttf'),
-  'bcsans-bold-italic': require('../assets/fonts/BCSans-BoldItalic.ttf'),
-  'bcsans-italic-bold': require('../assets/fonts/BCSans-BoldItalic.ttf'),
-  'bcsans-italic': require('../assets/fonts/BCSans-Italic.ttf'),
-}
 
 const Container = styled(View)`
   flex: 1;
@@ -23,21 +15,16 @@ const Container = styled(View)`
 `
 
 const Main = () => {
-  const [fontsLoaded, setFontsLoaded] = React.useState(false)
-
-  async function loadFonts() {
-    await Font.loadAsync(fonts)
-  }
+  const [fontsLoaded] = useFonts({
+    bcsans: require('../assets/fonts/BCSans-Regular.otf'),
+    'bcsans-bold': require('../assets/fonts/BCSans-Bold.otf'),
+    'bcsans-bold-italic': require('../assets/fonts/BCSans-BoldItalic.otf'),
+    'bcsans-italic-bold': require('../assets/fonts/BCSans-BoldItalic.otf'),
+    'bcsans-italic': require('../assets/fonts/BCSans-Italic.otf'),
+  })
 
   if (!fontsLoaded) {
-    return (
-      <AppLoading
-        startAsync={loadFonts}
-        onFinish={() => {
-          setFontsLoaded(true)
-        }}
-      />
-    )
+    return <AppLoading />
   } else {
     return (
       <SafeAreaProvider>

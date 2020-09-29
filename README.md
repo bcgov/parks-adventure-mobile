@@ -1,4 +1,5 @@
 # bc-parks-adventure-mobile
+
 A mobile app to help users find and explore BC Parks.
 
 ## Scripts
@@ -6,37 +7,38 @@ A mobile app to help users find and explore BC Parks.
 ```bash
 # Start or restart a local server for the app and get a URL/QR code to access
 # the Expo Cli
-yarn start
+npm start
 
 # Open the app in the Expo Client on a connected Android device
-yarn run android
+npm run android
 
 # Open the app in the Expo Client in an iOS simulator
-yarn run ios
+npm run ios
 
 # Open the app in a web browser
-yarn run web
+npm run web
 
 # Create Xcode and Android Studio projects for the app
-yarn run eject
+npm run eject
 
 # Run the automated tests (prettier, eslint, and jest)
-yarn test
+npm test
 
 # Verify ESLint rules are being met
-yarn run eslint
+npm run eslint
 
 # Rewrite files using prettier rules
-yarn run prettier
+npm run prettier
 
 # Verify Prettier rules are being met
-yarn run pretest
+npm run pretest
 
 # Generates and runs Prettier on a ./.storybook/storyLoader.js file which
 # contains imports for all the ./src/**/*.stories.js files. It will be
 # automatically executed before storybook launches.
-yarn run prestorybook
+npm run prestorybook
 
 # Start a local server for the storybook stories and get a URL/QR code to access
 # the Expo Cli
-yarn run storybook
+npm run storybook
+```

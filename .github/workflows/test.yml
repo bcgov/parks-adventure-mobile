@@ -4,10 +4,12 @@
 name: Node.js CI
 
 on:
+  # Run when pushed to these branches
   push:
     branches:
       - master
       - integration
+  # Run on all pull requests
   pull_request:
 
 jobs:

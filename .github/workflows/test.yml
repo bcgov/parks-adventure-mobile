@@ -1,0 +1,24 @@
+name: Node.js CI
+
+on:
+  # Run when pushed to these branches
+  push:
+    branches:
+      - master
+      - integration
+  # Run on all pull requests
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+      - run: npm ci
+      - run: npm run eslint
+      - run: npm test

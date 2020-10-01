@@ -16,10 +16,10 @@ const Container = styled(View)`
 
 const Main = () => {
   const [fontsLoaded] = useFonts({
-    bcsans: require('../assets/fonts/BCSans-Regular.otf'),
+    bcsans: require('../assets/fonts/BCSans.otf'),
     'bcsans-bold': require('../assets/fonts/BCSans-Bold.otf'),
-    'bcsans-bold-italic': require('../assets/fonts/BCSans-BoldItalic.otf'),
-    'bcsans-italic-bold': require('../assets/fonts/BCSans-BoldItalic.otf'),
+    'bcsans-bold-italic': require('../assets/fonts/BCSans-Bold-Italic.otf'),
+    'bcsans-italic-bold': require('../assets/fonts/BCSans-Bold-Italic.otf'),
     'bcsans-italic': require('../assets/fonts/BCSans-Italic.otf'),
   })
 

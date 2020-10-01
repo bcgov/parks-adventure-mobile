@@ -10,6 +10,7 @@
     "eslint": "eslint '**/*.js'",
     "prettier": "prettier --write '**/*.js'",
     "pretest": "prettier --list-different '**/*.js'",
+    "prestorybook": "rnstl && prettier --write .storybook/storyLoader.js",
     "storybook": "expo start --config app.story.json"
   },
   "husky": {

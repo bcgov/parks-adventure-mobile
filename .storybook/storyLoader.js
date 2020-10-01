@@ -1,5 +1,15 @@
-function loadStories() {}
+// Auto-generated file created by react-native-storybook-loader
+// Do not edit.
+//
+// https://github.com/elderfo/react-native-storybook-loader.git
 
-const stories = []
+function loadStories() {
+  require('../src/components/CarouselCard.stories')
+}
 
-module.exports = { loadStories, stories }
+const stories = ['../src/components/CarouselCard.stories']
+
+module.exports = {
+  loadStories,
+  stories,
+}

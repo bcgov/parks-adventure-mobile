@@ -5,6 +5,8 @@ import MCIcon from 'react-native-vector-icons/MaterialCommunityIcons'
 import MIcon from 'react-native-vector-icons/MaterialIcons'
 import { Label, CenterView } from './TabNavigator.styles'
 
+/* eslint-disable react/prop-types -- disabling prop validation for inline component declarations */
+
 const Tab = createBottomTabNavigator()
 
 function ComingSoon() {

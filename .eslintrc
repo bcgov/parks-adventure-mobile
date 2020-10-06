@@ -8,7 +8,7 @@
   },
   "overrides": [
     {
-      "files": ["src/components/TabNavigator.js", "*.stories.js"],
+      "files": ["*.stories.js"],
       "rules": {
         "react/prop-types": "off"
       }

@@ -1,30 +1,45 @@
 import React from 'react'
-import styled from 'styled-components/native'
 import PropTypes from 'prop-types'
-import { Card } from 'react-native-paper'
-import ParksText from './ParksText'
+import { useTheme } from 'react-native-paper'
+import MCIcon from 'react-native-vector-icons/MaterialCommunityIcons'
+import { AllHtmlEntities } from 'html-entities'
+import {
+  Carousel,
+  CardCover,
+  ParkTitle,
+  CardContent,
+  ContentLine,
+  ParkDistance,
+} from './CarouselCard.styles.js'
 
-const ParkTitle = styled(ParksText)`
-  margin-top: 15px;
-  font-weight: bold;
-`
+const entities = new AllHtmlEntities()
 
-const CarouselCard = ({ title, uri, distance, warning }) => (
-  <Card>
-    {warning && <ParkTitle>{warning.title}</ParkTitle>}
-    <Card.Cover source={{ uri }} />
-    <Card.Content>
-      <ParkTitle>{title}</ParkTitle>
-      <ParksText>{`${distance}km`}</ParksText>
-    </Card.Content>
-  </Card>
-)
+const CarouselCard = ({ title, uri, distance, favorited = false }) => {
+  const theme = useTheme()
+
+  return (
+    <Carousel>
+      <CardCover source={{ uri }} resizeMode={'contain'} />
+      <CardContent>
+        <ContentLine>
+          <ParkTitle>{entities.decode(title)}</ParkTitle>
+          <MCIcon
+            name="heart"
+            size={20}
+            color={favorited ? theme.colors.favorited : theme.colors.disabled}
+          />
+        </ContentLine>
+        {distance && <ParkDistance>{`${distance}km Away`}</ParkDistance>}
+      </CardContent>
+    </Carousel>
+  )
+}
 
 CarouselCard.propTypes = {
-  title: PropTypes.string,
+  title: PropTypes.string.isRequired,
   uri: PropTypes.string,
-  distance: PropTypes.number,
-  warning: PropTypes.object,
+  distance: PropTypes.string,
+  favorited: PropTypes.bool,
 }
 
 export default CarouselCard

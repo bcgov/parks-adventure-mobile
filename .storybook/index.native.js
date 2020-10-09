@@ -9,6 +9,8 @@ import {
   addDecorator,
 } from '@storybook/react-native'
 import { loadStories } from './storyLoader'
+import { Provider as PaperProvider } from 'react-native-paper'
+import theme from '../src/utils/theme'
 
 const Fonts = ({ storyFn }) => {
   const [fontsLoaded] = useFonts({
@@ -25,8 +27,12 @@ const Fonts = ({ storyFn }) => {
     return <View>{storyFn()}</View>
   }
 }
-
 addDecorator((storyFn) => <Fonts storyFn={storyFn} />)
+
+const ThemeProvider = ({ children }) => (
+  <PaperProvider theme={theme}>{children}</PaperProvider>
+)
+addDecorator((storyFn) => <ThemeProvider>{storyFn()}</ThemeProvider>)
 
 configure(() => {
   loadStories()

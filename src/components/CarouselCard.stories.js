@@ -9,12 +9,23 @@ const StoryView = styled(View)`
   margin: 20px;
 `
 
-storiesOf('CarouselCard', module).add('Default', () => (
-  <StoryView>
-    <CarouselCard
-      title={'BC Parks'}
-      uri={'https://picsum.photos/700'}
-      distance={26}
-    />
-  </StoryView>
-))
+storiesOf('CarouselCard', module)
+  .add('Not favourited', () => (
+    <StoryView>
+      <CarouselCard
+        title={'&#573;&#193;U,WELN&#817;EW&#817;/John Dean Provincial Park'}
+        uri={'https://picsum.photos/id/1043/5184/3456'}
+        distance={'26'}
+      />
+    </StoryView>
+  ))
+  .add('Favourited', () => (
+    <StoryView>
+      <CarouselCard
+        title={'Shuswap Lake Marine Park'}
+        uri={'https://picsum.photos/id/1011/5184/3456'}
+        distance={'304'}
+        favorited={true}
+      />
+    </StoryView>
+  ))

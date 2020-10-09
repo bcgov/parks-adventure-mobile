@@ -1,18 +1,12 @@
 import React from 'react'
-import styled from 'styled-components/native'
 import { AppLoading } from 'expo'
-import { StatusBar } from 'expo-status-bar'
 import { useFonts } from 'expo-font'
+import { StatusBar } from 'expo-status-bar'
+import { Provider as PaperProvider } from 'react-native-paper'
+import theme from './utils/theme'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
-import { View } from 'react-native'
-import ParksText from './components/ParksText'
-
-const Container = styled(View)`
-  flex: 1;
-  background-color: #fff;
-  align-items: center;
-  justify-content: center;
-`
+import { NavigationContainer } from '@react-navigation/native'
+import TabNavigator from './components/TabNavigator'
 
 const Main = () => {
   const [fontsLoaded] = useFonts({
@@ -27,14 +21,14 @@ const Main = () => {
     return <AppLoading />
   } else {
     return (
-      <SafeAreaProvider>
-        <Container>
-          <StatusBar style="auto" />
-          <ParksText>
-            An exciting adventure awaits you in the BC Parks!
-          </ParksText>
-        </Container>
-      </SafeAreaProvider>
+      <PaperProvider theme={theme}>
+        <NavigationContainer>
+          <SafeAreaProvider>
+            <StatusBar style="dark" />
+            <TabNavigator />
+          </SafeAreaProvider>
+        </NavigationContainer>
+      </PaperProvider>
     )
   }
 }

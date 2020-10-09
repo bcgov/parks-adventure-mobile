@@ -5,5 +5,13 @@
     "react": {
       "version": "detect"
     }
-  }
+  },
+  "overrides": [
+    {
+      "files": ["*.stories.js"],
+      "rules": {
+        "react/prop-types": "off"
+      }
+    }
+  ]
 }

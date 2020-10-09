@@ -1,15 +1,7 @@
-import { DefaultTheme } from 'react-native-paper'
+import { DefaultTheme, configureFonts } from 'react-native-paper'
 
-const theme = {
-  ...DefaultTheme,
-  colors: {
-    ...DefaultTheme.colors,
-    background: '#FFF',
-    selected: '#309D9C',
-    favorited: '#DA71B7',
-    error: '#FF0C3E',
-  },
-  fonts: {
+const fontConfig = {
+  default: {
     regular: {
       fontFamily: 'bcsans',
       fontWeight: 'normal',
@@ -27,6 +19,18 @@ const theme = {
       fontWeight: 'normal',
     },
   },
+}
+
+const theme = {
+  ...DefaultTheme,
+  colors: {
+    ...DefaultTheme.colors,
+    background: '#FFF',
+    selected: '#309D9C',
+    favorited: '#DA71B7',
+    error: '#FF0C3E',
+  },
+  fonts: configureFonts(fontConfig),
 }
 
 export default theme

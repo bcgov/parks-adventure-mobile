@@ -1,8 +1,6 @@
 import styled from 'styled-components/native'
 import { View } from 'react-native'
 import { Text, Card } from 'react-native-paper'
-import MCIcon from 'react-native-vector-icons/MaterialCommunityIcons'
-import theme from '../utils/theme'
 
 export const Carousel = styled(Card)`
   border-radius: 13px;

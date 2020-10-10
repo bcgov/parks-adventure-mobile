@@ -6,7 +6,7 @@ import styled from 'styled-components/native'
 import CarouselCard from './CarouselCard'
 
 const StoryView = styled(View)`
-  margin: 20px;
+  margin: 40px 20px;
 `
 
 storiesOf('CarouselCard', module)
@@ -19,11 +19,10 @@ storiesOf('CarouselCard', module)
       />
     </StoryView>
   ))
-  .add('Favourited', () => (
+  .add('Favourited with no image', () => (
     <StoryView>
       <CarouselCard
         title={'Shuswap Lake Marine Park'}
-        uri={'https://picsum.photos/id/1011/5184/3456'}
         distance={'304'}
         favorited={true}
       />

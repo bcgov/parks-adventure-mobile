@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { useTheme } from 'react-native-paper'
 import MCIcon from 'react-native-vector-icons/MaterialCommunityIcons'
 import { AllHtmlEntities } from 'html-entities'
+import defaultParkImage from '../../assets/defaultParkImage.jpg'
 import {
   Carousel,
   CardCover,
@@ -19,7 +20,10 @@ const CarouselCard = ({ title, uri, distance, favorited = false }) => {
 
   return (
     <Carousel>
-      <CardCover source={{ uri }} resizeMode={'contain'} />
+      <CardCover
+        source={uri ? { uri } : defaultParkImage}
+        resizeMode={'contain'}
+      />
       <CardContent>
         <ContentLine>
           <ParkTitle>{entities.decode(title)}</ParkTitle>

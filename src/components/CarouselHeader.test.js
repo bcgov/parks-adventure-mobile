@@ -4,7 +4,11 @@ import CarouselHeader from './CarouselHeader'
 
 test('Should render using props', () => {
   const { getByText } = render(
-    <CarouselHeader title="Test Title" subheading="Test subheading" />
+    <CarouselHeader
+      title="Test Title"
+      subheading="Test subheading"
+      icon={require('../images/icons/activity/hiking.png')}
+    />
   )
 
   const title = getByText('Test Title')

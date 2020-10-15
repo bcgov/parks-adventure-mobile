@@ -6,7 +6,7 @@ test('Verify fetchPark() calls AsyncStorage.setItem', async () => {
   expect(AsyncStorage.setItem).toHaveBeenCalledWith('parks', expect.anything())
 })
 
-test('Verify getParks() calls AsyncStorage.setItem', async () => {
+test('Verify getParks() calls AsyncStorage.getItem', async () => {
   await getParks()
   expect(AsyncStorage.getItem).toHaveBeenCalled()
 })

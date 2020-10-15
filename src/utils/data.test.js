@@ -1,7 +1,7 @@
 import AsyncStorage from '@react-native-community/async-storage'
 import { fetchParks, getParks } from './data'
 
-test('Verify fetchPark() calles AsyncStorage.setItem', async () => {
+test('Verify fetchPark() calls AsyncStorage.setItem', async () => {
   await fetchParks()
   expect(AsyncStorage.setItem).toHaveBeenCalledWith('parks', expect.anything())
 })

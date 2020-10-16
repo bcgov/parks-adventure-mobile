@@ -4,11 +4,13 @@ import { useFonts } from 'expo-font'
 import { StatusBar } from 'expo-status-bar'
 import { Provider as PaperProvider } from 'react-native-paper'
 import theme from './utils/theme'
+import { fetchParks } from './utils/data'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
 import { NavigationContainer } from '@react-navigation/native'
 import TabNavigator from './components/TabNavigator'
 
 const Main = () => {
+  const [isLoading, setLoading] = React.useState(true)
   const [fontsLoaded] = useFonts({
     bcsans: require('../assets/fonts/BCSans.otf'),
     'bcsans-bold': require('../assets/fonts/BCSans-Bold.otf'),
@@ -17,7 +19,16 @@ const Main = () => {
     'bcsans-italic': require('../assets/fonts/BCSans-Italic.otf'),
   })
 
-  if (!fontsLoaded) {
+  React.useEffect(() => {
+    async function loadData() {
+      await fetchParks()
+      setLoading(false)
+    }
+
+    loadData()
+  }, [])
+
+  if (!fontsLoaded || isLoading) {
     return <AppLoading />
   } else {
     return (

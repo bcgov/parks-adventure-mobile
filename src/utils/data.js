@@ -44,10 +44,7 @@ export async function fetchParks() {
     facilities['protected-lands-facility-xref'].forEach((entry) => {
       if (!entry.ORCSSite || !parks[entry.ORCSSite]) return
 
-      parks[entry.ORCSSite] = {
-        ...parks[entry.ORCSSite],
-        Facilities: [...parks[entry.ORCSSite].Facilities, entry.FacilityID],
-      }
+      parks[entry.ORCSSite].Facilities.push(entry.FacilityID)
     })
 
     await AsyncStorage.setItem(KEYS.parks, JSON.stringify(Object.values(parks)))

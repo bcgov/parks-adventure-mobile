@@ -9,12 +9,6 @@ const KEYS = {
 
 export async function fetchParks() {
   try {
-    /*const response = await fetch(
-      'http://bcparks.ca/_shared/json/protected-lands-status.json'
-    )
-    const protectedLands = await response.json()
-    if (!protectedLands) return*/
-
     /**
      * Get unique parks and sort by the parks basic name
      */

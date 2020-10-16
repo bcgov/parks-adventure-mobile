@@ -15,7 +15,7 @@ import {
 
 const entities = new AllHtmlEntities()
 
-const CarouselCard = ({ title, uri, distance, favorited = false }) => {
+const CarouselCard = ({ title, distance, uri, favorited = false }) => {
   const theme = useTheme()
 
   return (
@@ -41,8 +41,8 @@ const CarouselCard = ({ title, uri, distance, favorited = false }) => {
 
 CarouselCard.propTypes = {
   title: PropTypes.string.isRequired,
-  uri: PropTypes.string,
   distance: PropTypes.string,
+  uri: PropTypes.string,
   favorited: PropTypes.bool,
 }
 

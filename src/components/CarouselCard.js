@@ -19,7 +19,7 @@ const CarouselCard = ({ title, distance, uri, favorited = false }) => {
   const theme = useTheme()
 
   return (
-    <Carousel>
+    <Carousel elevation={6}>
       <CardCover
         source={uri ? { uri } : defaultParkImage}
         resizeMode={'contain'}

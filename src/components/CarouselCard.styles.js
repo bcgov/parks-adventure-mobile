@@ -4,15 +4,15 @@ import { Text, Card } from 'react-native-paper'
 
 export const Carousel = styled(Card)`
   border-radius: 13px;
-  overflow: hidden;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  elevation: 6;
   height: 220px;
   width: 260px;
 `
 
 export const CardCover = styled(Card.Cover)`
   height: 135px;
+  border-top-left-radius: 13px;
+  border-top-right-radius: 13px;
 `
 
 export const ParkTitle = styled(Text)`

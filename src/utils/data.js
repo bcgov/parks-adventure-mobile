@@ -35,10 +35,7 @@ export async function fetchParks() {
     activities['protected-lands-activity-xref'].forEach((entry) => {
       if (!entry.ORCSSite || !parks[entry.ORCSSite]) return
 
-      parks[entry.ORCSSite] = {
-        ...parks[entry.ORCSSite],
-        Activities: [...parks[entry.ORCSSite].Activities, entry.ActivityID],
-      }
+      parks[entry.ORCSSite].Activities.push(entry.ActivityID)
     })
 
     /**

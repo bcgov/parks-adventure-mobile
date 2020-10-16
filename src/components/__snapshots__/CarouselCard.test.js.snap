@@ -8,7 +8,6 @@ exports[`renders with no uri and favourited set to true 1`] = `
       "borderRadius": 13,
       "elevation": 6,
       "height": 220,
-      "overflow": "hidden",
       "shadowColor": "rgba(0, 0, 0, 0.25)",
       "shadowOffset": Object {
         "height": 4,
@@ -51,6 +50,8 @@ exports[`renders with no uri and favourited set to true 1`] = `
           },
           Array [
             Object {
+              "borderTopLeftRadius": 13,
+              "borderTopRightRadius": 13,
               "height": 135,
             },
           ],

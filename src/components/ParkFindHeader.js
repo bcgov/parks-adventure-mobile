@@ -13,7 +13,7 @@ import {
 const ParkFindHeader = ({ searchTerm, onChangeText, onSearch, count = 0 }) => {
   const navigation = useNavigation()
 
-  const parkCountText = `${count} park${count === 1 ? '' : 's'} showing`
+  const parkCountText = `${count} matching park${count === 1 ? '' : 's'}`
 
   return (
     <Header>

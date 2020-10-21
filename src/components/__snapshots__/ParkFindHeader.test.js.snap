@@ -268,7 +268,7 @@ exports[`Matches snapshot 1`] = `
         ]
       }
     >
-      4 parks showing
+      4 matching parks
     </Text>
     <Text
       style={

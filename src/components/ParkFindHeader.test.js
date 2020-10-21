@@ -8,7 +8,7 @@ test('Should render using props', () => {
     <ParkFindHeader count={48} onChangeText={() => {}} onSearch={() => {}} />
   )
 
-  const title = getByText('48 parks showing')
+  const title = getByText('48 matching parks')
 
   expect(title).toBeDefined()
 })
@@ -18,7 +18,7 @@ test('Should use the singular "park"', () => {
     <ParkFindHeader count={1} onChangeText={() => {}} onSearch={() => {}} />
   )
 
-  const title = getByText('1 park showing')
+  const title = getByText('1 matching park')
 
   expect(title).toBeDefined()
 })

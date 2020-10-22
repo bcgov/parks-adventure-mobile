@@ -30,6 +30,7 @@ const theme = {
     selected: '#309D9C',
     favorited: '#DA71B7',
     error: '#FF0C3E',
+    grey3: '#828282',
   },
   fonts: configureFonts(fontConfig),
 }

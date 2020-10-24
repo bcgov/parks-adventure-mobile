@@ -7,4 +7,6 @@ export const CenterView = styled(View)`
   justify-content: center;
   align-items: center;
   background: ${theme.colors.background};
+  padding: 20px;
+  padding-bottom: 0;
 `

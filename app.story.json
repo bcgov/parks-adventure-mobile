@@ -1,7 +1,0 @@
-{
-  "expo": {
-    "name": "parks-adventure-mobile",
-    "entryPoint": "./.storybook/index.native.js",
-    "version": "0.0.1"
-  }
-}

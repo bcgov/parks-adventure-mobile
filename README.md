@@ -32,13 +32,3 @@ npm run prettier
 
 # Verify Prettier rules are being met
 npm run pretest
-
-# Generates and runs Prettier on a ./.storybook/storyLoader.js file which
-# contains imports for all the ./src/**/*.stories.js files. It will be
-# automatically executed before storybook launches.
-npm run prestorybook
-
-# Start a local server for the storybook stories and get a URL/QR code to access
-# the Expo Cli
-npm run storybook
-```

@@ -11,7 +11,7 @@ import {
   CardContent,
   ContentLine,
   ParkDistance,
-} from './CarouselCard.styles.js'
+} from './CarouselCard.styles'
 
 const entities = new AllHtmlEntities()
 

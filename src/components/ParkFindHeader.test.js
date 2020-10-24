@@ -5,7 +5,12 @@ import ParkFindHeader from './ParkFindHeader'
 
 test('Should render using props', () => {
   const { getByText } = render(
-    <ParkFindHeader count={48} onChangeText={() => {}} onSearch={() => {}} />
+    <ParkFindHeader
+      searchTerm={''}
+      count={48}
+      onChangeText={() => {}}
+      onSearch={() => {}}
+    />
   )
 
   const title = getByText('48 matching parks')
@@ -15,7 +20,12 @@ test('Should render using props', () => {
 
 test('Should use the singular "park"', () => {
   const { getByText } = render(
-    <ParkFindHeader count={1} onChangeText={() => {}} onSearch={() => {}} />
+    <ParkFindHeader
+      searchTerm={''}
+      count={1}
+      onChangeText={() => {}}
+      onSearch={() => {}}
+    />
   )
 
   const title = getByText('1 matching park')
@@ -26,7 +36,12 @@ test('Should use the singular "park"', () => {
 test('Matches snapshot', () => {
   const tree = renderSnapshot
     .create(
-      <ParkFindHeader count={4} onChangeText={() => {}} onSearch={() => {}} />
+      <ParkFindHeader
+        searchTerm={'Adams lake'}
+        count={4}
+        onChangeText={() => {}}
+        onSearch={() => {}}
+      />
     )
     .toJSON()
   expect(tree).toMatchSnapshot()

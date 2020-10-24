@@ -147,13 +147,14 @@ exports[`Matches snapshot 1`] = `
         ]
       }
       underlineColorAndroid="transparent"
+      value="Adams lake"
     />
     <View
       accessibilityLabel="clear"
       accessibilityRole="button"
       accessibilityState={
         Object {
-          "disabled": true,
+          "disabled": false,
         }
       }
       accessible={true}
@@ -190,9 +191,7 @@ exports[`Matches snapshot 1`] = `
               "height": 36,
               "width": 36,
             },
-            Object {
-              "opacity": 0.32,
-            },
+            false,
             undefined,
           ],
         ]
@@ -207,7 +206,7 @@ exports[`Matches snapshot 1`] = `
           style={
             Array [
               Object {
-                "color": "rgba(255, 255, 255, 0)",
+                "color": "rgba(0, 0, 0, 0.54)",
                 "fontSize": 24,
               },
               Array [

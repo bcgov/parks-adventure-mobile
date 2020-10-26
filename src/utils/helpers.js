@@ -2,7 +2,12 @@ import haversine from 'haversine'
 
 export const distanceFilter = 50
 
-export function getClosestParksByID(type, id, currentLocation, parks) {
+export function getClosestParksByAmenityTypeAndID(
+  type,
+  id,
+  currentLocation,
+  parks
+) {
   const parksByType = parks.filter(
     (park) =>
       park[type].includes(id) &&
@@ -10,7 +15,7 @@ export function getClosestParksByID(type, id, currentLocation, parks) {
       haversine(currentLocation, {
         latitude: park.Latitude,
         longitude: park.Longitude,
-      }) <= 2000
+      }) <= distanceFilter
   )
 
   if (currentLocation) {

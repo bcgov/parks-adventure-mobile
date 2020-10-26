@@ -2,7 +2,10 @@ import React from 'react'
 import * as Location from 'expo-location'
 import haversine from 'haversine'
 import { getParks } from '../utils/data'
-import { distanceFilter, getClosestParksByID } from '../utils/helpers'
+import {
+  distanceFilter,
+  getClosestParksByAmenityTypeAndID,
+} from '../utils/helpers'
 import CarouselCard from '../components/CarouselCard'
 import CarouselHeader from '../components/CarouselHeader'
 import {
@@ -55,9 +58,19 @@ const Explore = () => {
   }, [])
 
   const subheading = `Within ${distanceFilter}km of your location`
-  const hikingParks = getClosestParksByID('Activities', '1', location, parks)
-  const swimmingParks = getClosestParksByID('Activities', '3', location, parks)
-  const vehicleCampingParks = getClosestParksByID(
+  const hikingParks = getClosestParksByAmenityTypeAndID(
+    'Activities',
+    '1',
+    location,
+    parks
+  )
+  const swimmingParks = getClosestParksByAmenityTypeAndID(
+    'Activities',
+    '3',
+    location,
+    parks
+  )
+  const vehicleCampingParks = getClosestParksByAmenityTypeAndID(
     'Facilities',
     '1',
     location,

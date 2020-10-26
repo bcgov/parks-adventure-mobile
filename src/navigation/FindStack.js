@@ -1,22 +1,24 @@
 import React from 'react'
-import { createStackNavigator } from '@react-navigation/stack'
-import { createDrawerNavigator } from '@react-navigation/drawer'
+import {
+  createStackNavigator,
+  TransitionPresets,
+} from '@react-navigation/stack'
 import headerOptions from './headerOptions'
-import ComingSoon from '../components/ComingSoon'
-
-const FindDrawer = createDrawerNavigator()
-
-const FindDrawerScreen = () => (
-  <FindDrawer.Navigator drawerPosition={'right'} screenOptions={headerOptions}>
-    <FindDrawer.Screen name="Filter" component={ComingSoon} />
-  </FindDrawer.Navigator>
-)
+import ParkFindPage from '../pages/ParkFind'
+import Filter from '../pages/Filter'
 
 const FindStack = createStackNavigator()
 
 const FindStackScreen = () => (
-  <FindStack.Navigator screenOptions={headerOptions}>
-    <FindStack.Screen name="Find" component={FindDrawerScreen} />
+  <FindStack.Navigator initialRouteName={'Find'} screenOptions={headerOptions}>
+    <FindStack.Screen name="Find" component={ParkFindPage} />
+    <FindStack.Screen
+      name="Filter"
+      component={Filter}
+      options={{
+        ...TransitionPresets.SlideFromRightIOS,
+      }}
+    />
   </FindStack.Navigator>
 )
 

@@ -29,7 +29,7 @@ const ParkFindHeader = ({ searchTerm, onChangeText, onSearch, count = 0 }) => {
         <FilterButton
           icon="tune"
           size={18}
-          onPress={navigation.toggleDrawer}
+          onPress={() => navigation.navigate('Filter')}
           accessibilityLabel={'Filter Parks'}
         />
       </Content>

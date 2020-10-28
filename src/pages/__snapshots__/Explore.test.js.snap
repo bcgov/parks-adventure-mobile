@@ -1,0 +1,530 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Explore page matches snapshot 1`] = `
+<RCTSafeAreaView
+  emulateUnlessSupported={true}
+  style={
+    Array [
+      Object {
+        "backgroundColor": "white",
+        "flexBasis": 0,
+        "flexGrow": 1,
+        "flexShrink": 1,
+      },
+    ]
+  }
+>
+  <RCTScrollView
+    style={
+      Array [
+        Object {
+          "flexBasis": 0,
+          "flexGrow": 1,
+          "flexShrink": 1,
+        },
+      ]
+    }
+  >
+    <View>
+      <View
+        style={
+          Array [
+            Object {
+              "paddingTop": 35,
+            },
+          ]
+        }
+      />
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+            },
+          ]
+        }
+      >
+        <Image
+          source={1}
+          style={
+            Array [
+              Object {
+                "height": 43,
+                "marginBottom": 0,
+                "marginLeft": 15,
+                "marginRight": 15,
+                "marginTop": 0,
+                "width": 43,
+              },
+            ]
+          }
+        />
+        <View>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
+                  "textAlign": "left",
+                },
+                Array [
+                  Object {
+                    "color": "rgba(0, 0, 0, 0.87)",
+                    "fontFamily": "System",
+                    "fontWeight": "500",
+                    "textAlign": "left",
+                    "writingDirection": "ltr",
+                  },
+                  Array [
+                    Object {
+                      "fontSize": 20,
+                      "letterSpacing": 0.15,
+                      "lineHeight": 30,
+                      "marginVertical": 2,
+                    },
+                    Array [
+                      Object {
+                        "lineHeight": 23,
+                      },
+                    ],
+                  ],
+                  Array [
+                    Object {
+                      "fontSize": 20,
+                      "letterSpacing": 0.15,
+                      "lineHeight": 30,
+                      "marginVertical": 2,
+                    },
+                    Array [
+                      Object {
+                        "lineHeight": 23,
+                      },
+                    ],
+                  ],
+                ],
+              ]
+            }
+          >
+            Great Hikes Near You
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
+                  "textAlign": "left",
+                },
+                Array [
+                  Object {
+                    "color": "rgba(0, 0, 0, 0.87)",
+                    "fontFamily": "System",
+                    "fontWeight": "400",
+                    "textAlign": "left",
+                    "writingDirection": "ltr",
+                  },
+                  Array [
+                    Object {
+                      "fontSize": 16,
+                      "letterSpacing": 0.5,
+                      "lineHeight": 24,
+                      "marginVertical": 2,
+                    },
+                    Array [
+                      Object {
+                        "fontSize": 14,
+                        "lineHeight": 20,
+                      },
+                    ],
+                  ],
+                  Array [
+                    Object {
+                      "fontSize": 16,
+                      "letterSpacing": 0.5,
+                      "lineHeight": 24,
+                      "marginVertical": 2,
+                    },
+                    Array [
+                      Object {
+                        "fontSize": 14,
+                        "lineHeight": 20,
+                      },
+                    ],
+                  ],
+                ],
+              ]
+            }
+          >
+            Within 50km of your location
+          </Text>
+        </View>
+      </View>
+      <RCTScrollView
+        data={Array []}
+        disableVirtualization={false}
+        getItem={[Function]}
+        getItemCount={[Function]}
+        horizontal={true}
+        initialNumToRender={10}
+        keyExtractor={[Function]}
+        maxToRenderPerBatch={10}
+        onContentSizeChange={[Function]}
+        onEndReachedThreshold={2}
+        onLayout={[Function]}
+        onMomentumScrollEnd={[Function]}
+        onScroll={[Function]}
+        onScrollBeginDrag={[Function]}
+        onScrollEndDrag={[Function]}
+        removeClippedSubviews={false}
+        renderItem={[Function]}
+        scrollEventThrottle={50}
+        stickyHeaderIndices={Array []}
+        style={
+          Array [
+            Object {
+              "marginBottom": 20,
+              "paddingBottom": 5,
+              "paddingTop": 10,
+            },
+          ]
+        }
+        updateCellsBatchingPeriod={50}
+        viewabilityConfigCallbackPairs={Array []}
+        windowSize={21}
+      >
+        <View />
+      </RCTScrollView>
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+            },
+          ]
+        }
+      >
+        <Image
+          source={1}
+          style={
+            Array [
+              Object {
+                "height": 43,
+                "marginBottom": 0,
+                "marginLeft": 15,
+                "marginRight": 15,
+                "marginTop": 0,
+                "width": 43,
+              },
+            ]
+          }
+        />
+        <View>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
+                  "textAlign": "left",
+                },
+                Array [
+                  Object {
+                    "color": "rgba(0, 0, 0, 0.87)",
+                    "fontFamily": "System",
+                    "fontWeight": "500",
+                    "textAlign": "left",
+                    "writingDirection": "ltr",
+                  },
+                  Array [
+                    Object {
+                      "fontSize": 20,
+                      "letterSpacing": 0.15,
+                      "lineHeight": 30,
+                      "marginVertical": 2,
+                    },
+                    Array [
+                      Object {
+                        "lineHeight": 23,
+                      },
+                    ],
+                  ],
+                  Array [
+                    Object {
+                      "fontSize": 20,
+                      "letterSpacing": 0.15,
+                      "lineHeight": 30,
+                      "marginVertical": 2,
+                    },
+                    Array [
+                      Object {
+                        "lineHeight": 23,
+                      },
+                    ],
+                  ],
+                ],
+              ]
+            }
+          >
+            Swimming Holes Near You
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
+                  "textAlign": "left",
+                },
+                Array [
+                  Object {
+                    "color": "rgba(0, 0, 0, 0.87)",
+                    "fontFamily": "System",
+                    "fontWeight": "400",
+                    "textAlign": "left",
+                    "writingDirection": "ltr",
+                  },
+                  Array [
+                    Object {
+                      "fontSize": 16,
+                      "letterSpacing": 0.5,
+                      "lineHeight": 24,
+                      "marginVertical": 2,
+                    },
+                    Array [
+                      Object {
+                        "fontSize": 14,
+                        "lineHeight": 20,
+                      },
+                    ],
+                  ],
+                  Array [
+                    Object {
+                      "fontSize": 16,
+                      "letterSpacing": 0.5,
+                      "lineHeight": 24,
+                      "marginVertical": 2,
+                    },
+                    Array [
+                      Object {
+                        "fontSize": 14,
+                        "lineHeight": 20,
+                      },
+                    ],
+                  ],
+                ],
+              ]
+            }
+          >
+            Within 50km of your location
+          </Text>
+        </View>
+      </View>
+      <RCTScrollView
+        data={Array []}
+        disableVirtualization={false}
+        getItem={[Function]}
+        getItemCount={[Function]}
+        horizontal={true}
+        initialNumToRender={10}
+        keyExtractor={[Function]}
+        maxToRenderPerBatch={10}
+        onContentSizeChange={[Function]}
+        onEndReachedThreshold={2}
+        onLayout={[Function]}
+        onMomentumScrollEnd={[Function]}
+        onScroll={[Function]}
+        onScrollBeginDrag={[Function]}
+        onScrollEndDrag={[Function]}
+        removeClippedSubviews={false}
+        renderItem={[Function]}
+        scrollEventThrottle={50}
+        stickyHeaderIndices={Array []}
+        style={
+          Array [
+            Object {
+              "marginBottom": 20,
+              "paddingBottom": 5,
+              "paddingTop": 10,
+            },
+          ]
+        }
+        updateCellsBatchingPeriod={50}
+        viewabilityConfigCallbackPairs={Array []}
+        windowSize={21}
+      >
+        <View />
+      </RCTScrollView>
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+            },
+          ]
+        }
+      >
+        <Image
+          source={1}
+          style={
+            Array [
+              Object {
+                "height": 43,
+                "marginBottom": 0,
+                "marginLeft": 15,
+                "marginRight": 15,
+                "marginTop": 0,
+                "width": 43,
+              },
+            ]
+          }
+        />
+        <View>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
+                  "textAlign": "left",
+                },
+                Array [
+                  Object {
+                    "color": "rgba(0, 0, 0, 0.87)",
+                    "fontFamily": "System",
+                    "fontWeight": "500",
+                    "textAlign": "left",
+                    "writingDirection": "ltr",
+                  },
+                  Array [
+                    Object {
+                      "fontSize": 20,
+                      "letterSpacing": 0.15,
+                      "lineHeight": 30,
+                      "marginVertical": 2,
+                    },
+                    Array [
+                      Object {
+                        "lineHeight": 23,
+                      },
+                    ],
+                  ],
+                  Array [
+                    Object {
+                      "fontSize": 20,
+                      "letterSpacing": 0.15,
+                      "lineHeight": 30,
+                      "marginVertical": 2,
+                    },
+                    Array [
+                      Object {
+                        "lineHeight": 23,
+                      },
+                    ],
+                  ],
+                ],
+              ]
+            }
+          >
+            Vehicle Camping Near You
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
+                  "textAlign": "left",
+                },
+                Array [
+                  Object {
+                    "color": "rgba(0, 0, 0, 0.87)",
+                    "fontFamily": "System",
+                    "fontWeight": "400",
+                    "textAlign": "left",
+                    "writingDirection": "ltr",
+                  },
+                  Array [
+                    Object {
+                      "fontSize": 16,
+                      "letterSpacing": 0.5,
+                      "lineHeight": 24,
+                      "marginVertical": 2,
+                    },
+                    Array [
+                      Object {
+                        "fontSize": 14,
+                        "lineHeight": 20,
+                      },
+                    ],
+                  ],
+                  Array [
+                    Object {
+                      "fontSize": 16,
+                      "letterSpacing": 0.5,
+                      "lineHeight": 24,
+                      "marginVertical": 2,
+                    },
+                    Array [
+                      Object {
+                        "fontSize": 14,
+                        "lineHeight": 20,
+                      },
+                    ],
+                  ],
+                ],
+              ]
+            }
+          >
+            Within 50km of your location
+          </Text>
+        </View>
+      </View>
+      <RCTScrollView
+        data={Array []}
+        disableVirtualization={false}
+        getItem={[Function]}
+        getItemCount={[Function]}
+        horizontal={true}
+        initialNumToRender={10}
+        keyExtractor={[Function]}
+        maxToRenderPerBatch={10}
+        onContentSizeChange={[Function]}
+        onEndReachedThreshold={2}
+        onLayout={[Function]}
+        onMomentumScrollEnd={[Function]}
+        onScroll={[Function]}
+        onScrollBeginDrag={[Function]}
+        onScrollEndDrag={[Function]}
+        removeClippedSubviews={false}
+        renderItem={[Function]}
+        scrollEventThrottle={50}
+        stickyHeaderIndices={Array []}
+        style={
+          Array [
+            Object {
+              "marginBottom": 20,
+              "paddingBottom": 5,
+              "paddingTop": 10,
+            },
+          ]
+        }
+        updateCellsBatchingPeriod={50}
+        viewabilityConfigCallbackPairs={Array []}
+        windowSize={21}
+      >
+        <View />
+      </RCTScrollView>
+    </View>
+  </RCTScrollView>
+</RCTSafeAreaView>
+`;

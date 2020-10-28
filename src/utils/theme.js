@@ -25,10 +25,13 @@ const theme = {
   ...DefaultTheme,
   colors: {
     ...DefaultTheme.colors,
+    primary: '#294071',
     background: '#FFF',
-    selected: '#309D9C',
+    selected: '#E3A82B',
+    disabled: 'rgba(0,0,0,0.53)',
     favorited: '#DA71B7',
     error: '#FF0C3E',
+    grey3: '#828282',
   },
   fonts: configureFonts(fontConfig),
 }

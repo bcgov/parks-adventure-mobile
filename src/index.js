@@ -7,7 +7,7 @@ import theme from './utils/theme'
 import { fetchParks } from './utils/data'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
 import { NavigationContainer } from '@react-navigation/native'
-import TabNavigator from './components/TabNavigator'
+import TabNavigator from './navigation/TabNavigator'
 
 const Main = () => {
   const [isLoading, setLoading] = React.useState(true)
@@ -35,7 +35,7 @@ const Main = () => {
       <PaperProvider theme={theme}>
         <NavigationContainer>
           <SafeAreaProvider>
-            <StatusBar style="dark" />
+            <StatusBar style="light" />
             <TabNavigator />
           </SafeAreaProvider>
         </NavigationContainer>

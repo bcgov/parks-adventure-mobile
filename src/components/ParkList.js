@@ -12,7 +12,7 @@ import {
   RowContainer,
 } from './ParkList.styles'
 
-const ParkList = ({ parks }) => {
+const ParkList = ({ parks, onFavoritePress }) => {
   const theme = useTheme()
 
   const renderParkItem = ({ item }) => (
@@ -28,7 +28,7 @@ const ParkList = ({ parks }) => {
             color={
               item.favorited ? theme.colors.favorited : theme.colors.disabled
             }
-            onPress={() => console.log('pressed')}
+            onPress={() => onFavoritePress(item)}
           />
         </RowContainer>
         <DistanceText>
@@ -56,6 +56,7 @@ ParkList.propTypes = {
       favorited: PropTypes.bool,
     })
   ).isRequired,
+  onFavoritePress: PropTypes.func,
 }
 
 export default ParkList

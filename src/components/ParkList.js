@@ -1,6 +1,6 @@
 import React from 'react'
 import { useTheme, IconButton } from 'react-native-paper'
-
+import PropTypes from 'prop-types'
 import defaultParkImage from '../../assets/defaultParkImage.jpg'
 import {
   Container,
@@ -12,22 +12,15 @@ import {
   RowContainer,
 } from './ParkList.styles'
 
-const DATA = [
-  { id: '1', favorited: true },
-  { id: '2', favorited: false },
-  { id: '3', favorited: true },
-  { id: '4', favorited: false },
-]
-
-const ParkList = () => {
+const ParkList = ({ parks }) => {
   const theme = useTheme()
 
   const renderParkItem = ({ item }) => (
     <ItemContainer>
-      <ItemImage source={defaultParkImage} />
+      <ItemImage source={item.uri ? { uri: item.uri } : defaultParkImage} />
       <ColumnContainer>
         <RowContainer>
-          <Title>Hello</Title>
+          <Title>{item.title}</Title>
 
           <IconButton
             icon="cards-heart"
@@ -38,18 +31,31 @@ const ParkList = () => {
             onPress={() => console.log('pressed')}
           />
         </RowContainer>
-        <DistanceText>83KM AWAY</DistanceText>
+        <DistanceText>
+          {item.distance ? `${item.distance}KM AWAY` : ''}
+        </DistanceText>
       </ColumnContainer>
     </ItemContainer>
   )
 
   return (
     <Container
-      data={DATA}
+      data={parks}
       renderItem={renderParkItem}
-      keyExtractor={(item) => item.id}
+      keyExtractor={(item) => item.title}
     />
   )
+}
+
+ParkList.propTypes = {
+  parks: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      distance: PropTypes.string,
+      uri: PropTypes.string,
+      favorited: PropTypes.bool,
+    })
+  ).isRequired,
 }
 
 export default ParkList

@@ -29,6 +29,7 @@ const ParkList = ({ parks, onFavoritePress }) => {
               item.favorited ? theme.colors.favorited : theme.colors.disabled
             }
             onPress={() => onFavoritePress(item)}
+            accessibilityLabel="favorite park"
           />
         </RowContainer>
         <DistanceText>

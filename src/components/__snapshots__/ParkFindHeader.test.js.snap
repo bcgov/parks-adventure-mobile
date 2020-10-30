@@ -298,7 +298,7 @@ exports[`Matches snapshot 1`] = `
         }
       }
       accessible={true}
-      focusable={false}
+      focusable={true}
       hitSlop={
         Object {
           "bottom": 6,

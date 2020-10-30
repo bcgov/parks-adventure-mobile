@@ -7,9 +7,10 @@ test('Should render using props', () => {
   const { getByText } = render(
     <ParkFindHeader
       searchTerm={''}
-      count={48}
       onChangeText={() => {}}
       onSearch={() => {}}
+      showFilter={() => {}}
+      count={48}
     />
   )
 
@@ -22,9 +23,10 @@ test('Should use the singular "park"', () => {
   const { getByText } = render(
     <ParkFindHeader
       searchTerm={''}
-      count={1}
       onChangeText={() => {}}
       onSearch={() => {}}
+      showFilter={() => {}}
+      count={1}
     />
   )
 
@@ -38,9 +40,10 @@ test('Matches snapshot', () => {
     .create(
       <ParkFindHeader
         searchTerm={'Adams lake'}
-        count={4}
         onChangeText={() => {}}
         onSearch={() => {}}
+        showFilter={() => {}}
+        count={4}
       />
     )
     .toJSON()

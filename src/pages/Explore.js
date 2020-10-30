@@ -1,7 +1,7 @@
 import React from 'react'
 import haversine from 'haversine'
 import {
-  distanceFilter,
+  defaultDistanceFilter,
   getClosestParksByAmenityTypeAndID,
 } from '../utils/helpers'
 import { DataContext } from '../utils/DataContext'
@@ -18,7 +18,7 @@ import {
 function Explore() {
   const { parks, location } = React.useContext(DataContext)
 
-  const subheading = `Within ${distanceFilter}km of your location`
+  const subheading = `Within ${defaultDistanceFilter}km of your location`
   const hikingParks = getClosestParksByAmenityTypeAndID(
     'Activities',
     '1',

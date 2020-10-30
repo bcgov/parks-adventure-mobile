@@ -1,11 +1,10 @@
 import React from 'react'
-import * as Location from 'expo-location'
 import haversine from 'haversine'
-import { getParks } from '../utils/data'
 import {
   distanceFilter,
   getClosestParksByAmenityTypeAndID,
 } from '../utils/helpers'
+import { DataContext } from '../utils/DataContext'
 import CarouselCard from '../components/CarouselCard'
 import CarouselHeader from '../components/CarouselHeader'
 import {
@@ -16,46 +15,8 @@ import {
   ParkCardContainer,
 } from './Explore.styles.js'
 
-const Explore = () => {
-  const [parks, setParks] = React.useState([])
-  const [location, setLocation] = React.useState(null)
-
-  React.useEffect(() => {
-    let subscription
-    ;(async () => {
-      let { status } = await Location.requestPermissionsAsync()
-      if (status !== 'granted') return
-
-      const location = await Location.getCurrentPositionAsync({})
-      setLocation({
-        latitude: location.coords.latitude,
-        longitude: location.coords.longitude,
-      })
-
-      subscription = await Location.watchPositionAsync({}, (location) =>
-        setLocation({
-          latitude: location.coords.latitude,
-          longitude: location.coords.longitude,
-        })
-      )
-    })()
-
-    return () => {
-      if (subscription) {
-        subscription.remove()
-      }
-    }
-  }, [])
-
-  React.useEffect(() => {
-    async function loadData() {
-      const data = await getParks()
-      if (data) {
-        setParks(data)
-      }
-    }
-    loadData()
-  }, [])
+function Explore() {
+  const { parks, location } = React.useContext(DataContext)
 
   const subheading = `Within ${distanceFilter}km of your location`
   const hikingParks = getClosestParksByAmenityTypeAndID(

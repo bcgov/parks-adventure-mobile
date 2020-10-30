@@ -1,0 +1,191 @@
+{
+  "facility": [
+    {
+      "FacilityID": "11",
+      "Facility": "Accessibility Information",
+      "FacilityCode": "AccessibilityInformation",
+      "Icon": "/_shared/images/26x26icons/facility/handicap.gif",
+      "Note": "",
+      "PNG": "/_shared/images/26x26icons/facility/accessibility-information.png",
+      "SVG": "",
+      "Active": "Y",
+      "Rank": "10"
+    },
+    {
+      "FacilityID": "13",
+      "Facility": "Boat Launch",
+      "FacilityCode": "BoatLaunch",
+      "Icon": "/_shared/images/26x26icons/facility/boatlaunch.gif",
+      "Note": "",
+      "PNG": "/_shared/images/26x26icons/facility/boat-launch.png",
+      "SVG": "/_shared/images/26x26icons/activity/boat-launch.svg",
+      "Active": "Y",
+      "Rank": "120"
+    },
+    {
+      "FacilityID": "17",
+      "Facility": "Cabins/Huts",
+      "FacilityCode": "Cabins",
+      "Icon": "/_shared/images/26x26icons/facility/cabins.gif",
+      "Note": "",
+      "PNG": "/_shared/images/26x26icons/facility/cabins.png",
+      "SVG": "",
+      "Active": "Y",
+      "Rank": "160"
+    },
+    {
+      "FacilityID": "16",
+      "Facility": "Campfires",
+      "FacilityCode": "Campfires",
+      "Icon": "/_shared/images/26x26icons/facility/campfires.gif",
+      "Note": "",
+      "PNG": "/_shared/images/26x26icons/facility/campfires.png",
+      "SVG": "/_shared/images/26x26icons/activity/campfires.svg",
+      "Active": "Y",
+      "Rank": "150"
+    },
+    {
+      "FacilityID": "10",
+      "Facility": "Drinking Water",
+      "FacilityCode": "DrinkingWater",
+      "Icon": "/_shared/images/26x26icons/facility/drinkingwater.gif",
+      "Note": "",
+      "PNG": "/_shared/images/26x26icons/facility/drinking-water.png",
+      "SVG": "/_shared/images/26x26icons/activity/drinking-water.svg",
+      "Active": "Y",
+      "Rank": "100"
+    },
+    {
+      "FacilityID": "15",
+      "Facility": "Electrical Hookups",
+      "FacilityCode": "ElectricalHookups",
+      "Icon": "/_shared/images/26x26icons/facility/electricaloutlets.gif",
+      "Note": "",
+      "PNG": "/_shared/images/26x26icons/facility/electrical-outlets.png",
+      "SVG": "/_shared/images/26x26icons/activity/electrical-outlets.svg",
+      "Active": "Y",
+      "Rank": "140"
+    },
+    {
+      "FacilityID": "3",
+      "Facility": "Group Camping",
+      "FacilityCode": "GroupCamping",
+      "Icon": "/_shared/images/26x26icons/facility/groupcamping.gif",
+      "Note": "",
+      "PNG": "/_shared/images/26x26icons/facility/group-camping.png",
+      "SVG": "/_shared/images/26x26icons/activity/group-camping.svg",
+      "Active": "Y",
+      "Rank": "50"
+    },
+    {
+      "FacilityID": "20",
+      "Facility": "Hot Spring",
+      "FacilityCode": "HotSpring",
+      "Icon": "/_shared/images/26x26icons/facility/hotspring.gif",
+      "Note": "",
+      "PNG": "/_shared/images/26x26icons/facility/hotspring.png",
+      "SVG": "",
+      "Active": "Y",
+      "Rank": "190"
+    },
+    {
+      "FacilityID": "19",
+      "Facility": "Information",
+      "FacilityCode": "Information",
+      "Icon": "/_shared/images/26x26icons/facility/information.gif",
+      "Note": "",
+      "PNG": "/_shared/images/26x26icons/facility/information.png",
+      "SVG": "/_shared/images/26x26icons/activity/information.svg",
+      "Active": "Y",
+      "Rank": "180"
+    },
+    {
+      "FacilityID": "6",
+      "Facility": "Picnic Areas",
+      "FacilityCode": "PicnicAreas",
+      "Icon": "/_shared/images/26x26icons/facility/picnicareas.gif",
+      "Note": "",
+      "PNG": "/_shared/images/26x26icons/facility/picnic-areas.png",
+      "SVG": "/_shared/images/26x26icons/activity/picnic-areas.svg",
+      "Active": "Y",
+      "Rank": "60"
+    },
+    {
+      "FacilityID": "8",
+      "Facility": "Pit or Flush Toilets",
+      "FacilityCode": "Toilets",
+      "Icon": "/_shared/images/26x26icons/facility/toilets.gif",
+      "Note": "",
+      "PNG": "/_shared/images/26x26icons/facility/toilets.png",
+      "SVG": "/_shared/images/26x26icons/activity/toilets.svg",
+      "Active": "Y",
+      "Rank": "80"
+    },
+    {
+      "FacilityID": "12",
+      "Facility": "Playground",
+      "FacilityCode": "Playground",
+      "Icon": "/_shared/images/26x26icons/facility/playground.gif",
+      "Note": "",
+      "PNG": "/_shared/images/26x26icons/facility/playground.png",
+      "SVG": "/_shared/images/26x26icons/activity/playground.svg",
+      "Active": "Y",
+      "Rank": "110"
+    },
+    {
+      "FacilityID": "14",
+      "Facility": "Sani-Station/Dump",
+      "FacilityCode": "SaniStation",
+      "Icon": "/_shared/images/26x26icons/facility/sanistation.gif",
+      "Note": "",
+      "PNG": "/_shared/images/26x26icons/facility/sani-station.png",
+      "SVG": "/_shared/images/26x26icons/activity/sani-station.svg",
+      "Active": "Y",
+      "Rank": "130"
+    },
+    {
+      "FacilityID": "9",
+      "Facility": "Showers",
+      "FacilityCode": "Showers",
+      "Icon": "/_shared/images/26x26icons/facility/showers.gif",
+      "Note": "",
+      "PNG": "/_shared/images/26x26icons/facility/showers.png",
+      "SVG": "/_shared/images/26x26icons/activity/showers.svg",
+      "Active": "Y",
+      "Rank": "90"
+    },
+    {
+      "FacilityID": "1",
+      "Facility": "Vehicle-Accessible Camping",
+      "FacilityCode": "VehicleAccessibleCamping",
+      "Icon": "/_shared/images/26x26icons/facility/campvehicle.gif",
+      "Note": "",
+      "PNG": "/_shared/images/26x26icons/facility/vehicle-accessible-camping.png",
+      "SVG": "/_shared/images/26x26icons/activity/vehicle-accessible-camping.svg",
+      "Active": "Y",
+      "Rank": "20"
+    },
+    {
+      "FacilityID": "2",
+      "Facility": "Walk-In Camping",
+      "FacilityCode": "WalkInCamping",
+      "Icon": "/_shared/images/26x26icons/facility/tenting.gif",
+      "Note": "",
+      "PNG": "/_shared/images/26x26icons/facility/tenting.png",
+      "SVG": "/_shared/images/26x26icons/activity/tenting.svg",
+      "Active": "Y",
+      "Rank": "30"
+    },
+    {
+      "FacilityID": "18",
+      "Facility": "Winter Camping",
+      "FacilityCode": "WinterCamping",
+      "Icon": "/_shared/images/26x26icons/facility/wintercamping.gif",
+      "Note": "",
+      "PNG": "/_shared/images/26x26icons/facility/winter-camping.png",
+      "SVG": "/_shared/images/26x26icons/activity/winter-camping.svg",
+      "Active": "Y",
+      "Rank": "170"
+    }
+  ]
+}

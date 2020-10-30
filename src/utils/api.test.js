@@ -1,5 +1,5 @@
 import AsyncStorage from '@react-native-community/async-storage'
-import { fetchParks, getParks } from './data'
+import { fetchParks, getParks } from './api'
 
 test('Verify fetchPark() calls AsyncStorage.setItem', async () => {
   await fetchParks()

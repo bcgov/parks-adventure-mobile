@@ -57,6 +57,7 @@
     "husky": "^4.3.0",
     "jest": "^26.4.2",
     "jest-expo": "^39.0.0",
+    "jest-svg-transformer": "^1.0.0",
     "prettier": "^2.1.2",
     "react-is": "^16.13.1",
     "react-test-renderer": "^16.13.1"

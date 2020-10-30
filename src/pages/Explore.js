@@ -46,7 +46,7 @@ function Explore() {
         <CarouselHeader
           title="Great Hikes Near You"
           subheading={subheading}
-          icon={require('../images/icons/activity/hiking.png')}
+          icon={'Hiking'}
         />
         <ExploreSection
           horizontal={true}
@@ -76,7 +76,7 @@ function Explore() {
         <CarouselHeader
           title="Swimming Holes Near You"
           subheading={subheading}
-          icon={require('../images/icons/activity/swimming.png')}
+          icon={'Swimming'}
         />
         <ExploreSection
           horizontal={true}
@@ -106,7 +106,7 @@ function Explore() {
         <CarouselHeader
           title="Vehicle Camping Near You"
           subheading={subheading}
-          icon={require('../images/icons/facility/vehicle-accessible-camping.png')}
+          icon={'Vehicle-Accessible Camping'}
         />
         <ExploreSection
           horizontal={true}

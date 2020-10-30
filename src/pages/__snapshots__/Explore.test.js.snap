@@ -41,26 +41,22 @@ exports[`Explore page matches snapshot 1`] = `
             Object {
               "alignItems": "center",
               "flexDirection": "row",
+              "marginLeft": 20,
             },
           ]
         }
       >
-        <Image
-          source={1}
-          style={
-            Array [
-              Object {
-                "height": 43,
-                "marginBottom": 0,
-                "marginLeft": 15,
-                "marginRight": 15,
-                "marginTop": 0,
-                "width": 43,
-              },
-            ]
-          }
+        <SvgMock
+          height={43}
+          width={43}
         />
-        <View>
+        <View
+          style={
+            Object {
+              "paddingLeft": 8,
+            }
+          }
+        >
           <Text
             style={
               Array [
@@ -204,26 +200,22 @@ exports[`Explore page matches snapshot 1`] = `
             Object {
               "alignItems": "center",
               "flexDirection": "row",
+              "marginLeft": 20,
             },
           ]
         }
       >
-        <Image
-          source={1}
-          style={
-            Array [
-              Object {
-                "height": 43,
-                "marginBottom": 0,
-                "marginLeft": 15,
-                "marginRight": 15,
-                "marginTop": 0,
-                "width": 43,
-              },
-            ]
-          }
+        <SvgMock
+          height={43}
+          width={43}
         />
-        <View>
+        <View
+          style={
+            Object {
+              "paddingLeft": 8,
+            }
+          }
+        >
           <Text
             style={
               Array [
@@ -367,26 +359,22 @@ exports[`Explore page matches snapshot 1`] = `
             Object {
               "alignItems": "center",
               "flexDirection": "row",
+              "marginLeft": 20,
             },
           ]
         }
       >
-        <Image
-          source={1}
-          style={
-            Array [
-              Object {
-                "height": 43,
-                "marginBottom": 0,
-                "marginLeft": 15,
-                "marginRight": 15,
-                "marginTop": 0,
-                "width": 43,
-              },
-            ]
-          }
+        <SvgMock
+          height={43}
+          width={43}
         />
-        <View>
+        <View
+          style={
+            Object {
+              "paddingLeft": 8,
+            }
+          }
+        >
           <Text
             style={
               Array [

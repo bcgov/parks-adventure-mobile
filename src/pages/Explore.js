@@ -11,10 +11,14 @@ import CarouselHeader from '../components/CarouselHeader'
 import {
   ExplorePage,
   ExploreScrollView,
-  ExploreHeader,
   ExploreSection,
   ParkCardContainer,
+  ExploreHeader,
+  RisingSun,
 } from './Explore.styles.js'
+import headerBackgroundSrc from '../../assets/exploreHeader.jpeg'
+import ExploreSvg from '../../assets/exploreTitle.svg'
+import risingSunSrc from '../../assets/sunWithShadow.png'
 
 const Explore = () => {
   const [parks, setParks] = React.useState([])
@@ -80,8 +84,11 @@ const Explore = () => {
   return (
     <ExplorePage>
       <ExploreScrollView>
+        <ExploreHeader source={headerBackgroundSrc}>
+          <ExploreSvg width="234" height="28" />
+          <RisingSun source={risingSunSrc} />
+        </ExploreHeader>
         {/* Hiking - ActivityID = 1 */}
-        <ExploreHeader />
         <CarouselHeader
           title="Great Hikes Near You"
           subheading={subheading}

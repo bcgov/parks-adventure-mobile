@@ -15,7 +15,7 @@ import {
 
 const entities = new AllHtmlEntities()
 
-const CarouselCard = ({ title, distance, uri, favorited = false }) => {
+function CarouselCard({ title, distance, uri, favorited = false }) {
   const theme = useTheme()
 
   return (

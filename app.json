@@ -1,8 +1,9 @@
 {
   "expo": {
-    "name": "parks-adventure-mobile",
+    "name": "Parks Adventure Mobile",
     "slug": "parks-adventure-mobile",
     "version": "0.0.1",
+    "platforms": ["ios", "android"],
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
@@ -15,12 +16,20 @@
     },
     "assetBundlePatterns": ["**/*"],
     "ios": {
-      "supportsTablet": true
+      "bundleIdentifier": "ca.bcparks.parks-adventure-mobile",
+      "buildNumber": "0.0.1"
     },
-    "web": {
-      "favicon": "./assets/favicon.png"
+    "android": {
+      "package": "ca.bcparks.parks_adventure_mobile",
+      "permissions": [
+        "ACCESS_COARSE_LOCATION",
+        "ACCESS_FINE_LOCATION",
+        "FOREGROUND_SERVICE"
+      ],
+      "versionCode": 1
     },
     "androidStatusBar": {
+      "barStyle": "light-content",
       "backgroundColor": "#294071",
       "translucent": false
     },

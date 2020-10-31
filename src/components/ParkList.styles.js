@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { View, Image, FlatList } from 'react-native'
-import { Title as PaperTitle, Text } from 'react-native-paper'
+import { Text } from 'react-native-paper'
 
 export const Container = styled(FlatList)`
   height: 100%;
@@ -11,7 +11,7 @@ export const ItemContainer = styled(View)`
   border-top-width: 1px;
   padding: 6px 0;
   flex-direction: row;
-  align-items: stretch;
+  align-items: center;
 `
 
 export const ItemImage = styled(Image)`
@@ -19,11 +19,11 @@ export const ItemImage = styled(Image)`
   height: 68px;
 `
 
-export const Title = styled(PaperTitle)`
+export const Title = styled(Text)`
   font-size: 16px;
   line-height: 24px;
   font-weight: 400;
-  flex-grow: 1;
+  flex: 1;
   margin-left: 12px;
 `
 

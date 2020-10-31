@@ -8,7 +8,7 @@ test('Should render title and distance props', () => {
     title: 'Adventure Park',
     uri: 'https://picsum.photos/id/1043/5184/3456',
     distance: '297',
-    favourited: false,
+    favorited: false,
   }
 
   const { getByText } = render(<CarouselCard {...park} />)
@@ -20,11 +20,11 @@ test('Should render title and distance props', () => {
   expect(distance).toBeDefined()
 })
 
-test('renders with no uri and favourited set to true', () => {
+test('renders with no uri and favorited set to true', () => {
   const park = {
     title: 'Adventure Park',
     distance: '297',
-    favourited: true,
+    favorited: true,
   }
 
   const tree = renderSnapshot.create(<CarouselCard {...park} />).toJSON()

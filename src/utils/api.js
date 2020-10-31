@@ -2,6 +2,7 @@ import AsyncStorage from '@react-native-community/async-storage'
 import * as Location from 'expo-location'
 import move from 'array-move'
 import protectedLands from '../../assets/protected-lands-status.json'
+import photosXref from '../../assets/protected-lands-photos.json'
 import activitiesXref from '../../assets/protected-lands-activity-xref.json'
 import facilitiesXref from '../../assets/protected-lands-facility-xref.json'
 import activities from '../../assets/activity.json'
@@ -16,7 +17,7 @@ const KEYS = {
 
 export async function fetchParks() {
   try {
-    /**
+    /*
      * Get unique parks and sort by the parks basic name
      */
     const keys = []
@@ -24,28 +25,49 @@ export async function fetchParks() {
     protectedLands['protected-lands-status']
       .sort((a, b) => a.ParkSiteNameBasic > b.ParkSiteNameBasic)
       .forEach((park) => {
-        if (keys.includes(park.ORCSSite)) return
+        if (keys.includes(park.ORCSSite) || !park.ParkSiteNameWeb) return
 
         keys.push(park.ORCSSite)
-        parks[park.ORCSSite] = { ...park, Activities: [], Facilities: [] }
+        parks[park.ORCSSite] = {
+          id: park.ORCSSite,
+          title: park.ParkSiteNameWeb,
+          searchableTitle: park.ParkSiteNameBasic,
+          favorited: false,
+          activities: [],
+          facilities: [],
+          location: {
+            latitude: park.Latitude,
+            longitude: park.Longitude,
+          },
+        }
       })
 
-    /**
+    /*
      * Attach associated activities for each park
      */
     activitiesXref['protected-lands-activity-xref'].forEach((entry) => {
       if (!entry.ORCSSite || !parks[entry.ORCSSite]) return
 
-      parks[entry.ORCSSite].Activities.push(entry.ActivityID)
+      parks[entry.ORCSSite].activities.push(entry.ActivityID)
     })
 
-    /**
+    /*
      * Attach associated facilities to each park
      */
     facilitiesXref['protected-lands-facility-xref'].forEach((entry) => {
       if (!entry.ORCSSite || !parks[entry.ORCSSite]) return
 
-      parks[entry.ORCSSite].Facilities.push(entry.FacilityID)
+      parks[entry.ORCSSite].facilities.push(entry.FacilityID)
+    })
+
+    /*
+     * Attach image uri to each park
+     */
+    photosXref['protected-lands-photos'].forEach((entry) => {
+      if (!entry.ORCSSite || !parks[entry.ORCSSite] || entry.Feature === 'N')
+        return
+
+      parks[entry.ORCSSite].uri = entry.Thumbnail
     })
 
     await AsyncStorage.setItem(KEYS.parks, JSON.stringify(Object.values(parks)))

@@ -1,27 +1,27 @@
-import {
-  getClosestParksByAmenityTypeAndID,
-  searchParks,
-  filterParks,
-} from './helpers'
+import { getClosestParksByAmenityTypeAndID, filterParks } from './helpers'
 
 const parks = [
   {
-    ORCSSITE: '361',
-    ParkSiteNameWeb: 'Adams Lake Provincial Park &ndash; Bush Creek Site',
-    ParkSiteNameBasic: 'Adams Lake Provincial Park - Bush Creek Site',
-    Latitude: '50.987578',
-    Longitude: '-119.725971',
-    Activities: ['1'],
-    Facilities: ['3'],
+    id: '361',
+    title: 'Adams Lake Provincial Park &ndash; Bush Creek Site',
+    searchableTitle: 'Adams Lake Provincial Park - Bush Creek Site',
+    location: {
+      latitude: '50.987578',
+      longitude: '-119.725971',
+    },
+    activities: ['1'],
+    facilities: ['3'],
   },
   {
-    ORCSSITE: '9229',
-    ParkSiteNameWeb: 'Gowlland Tod Provincial Park',
-    ParkSiteNameBasic: 'Gowlland Tod Provincial Park',
-    Latitude: '48.546011',
-    Longitude: '-123.509934',
-    Activities: ['1'],
-    Facilities: ['1'],
+    id: '9229',
+    title: 'Gowlland Tod Provincial Park',
+    searchableTitle: 'Gowlland Tod Provincial Park',
+    location: {
+      latitude: '48.546011',
+      longitude: '-123.509934',
+    },
+    activities: ['1'],
+    facilities: ['1'],
   },
 ]
 
@@ -40,7 +40,7 @@ const facilities = [
 test('getClosestParksByAmenityTypeAndID: Get all parks within 100km which have the amenity indicated', () => {
   /* props: type, id, currentLocation, parks */
   const results = getClosestParksByAmenityTypeAndID(
-    'Activities',
+    'activities',
     '1',
     location,
     parks
@@ -51,7 +51,7 @@ test('getClosestParksByAmenityTypeAndID: Get all parks within 100km which have t
 
 test('getClosestParksByAmenityTypeAndID: Does not return parks within 100km if they do not have the activity indicated', () => {
   const results = getClosestParksByAmenityTypeAndID(
-    'Activities',
+    'activities',
     '2',
     { latitude: '48.4557', longitude: '-123.3387' },
     parks
@@ -60,48 +60,104 @@ test('getClosestParksByAmenityTypeAndID: Does not return parks within 100km if t
   expect(results).toHaveLength(0)
 })
 
-test('searchParks: Returns only parks whose name contain the search term', () => {
-  const results = searchParks(parks, 'Adam')
+test('filterParks: Returns only parks whose name contain the search term', () => {
+  const results = filterParks({
+    parks,
+    searchTerm: 'Adam',
+    location,
+    distance: 100,
+    activities: [],
+    facilities: [],
+  })
   expect(results).toHaveLength(1)
   expect(results[0]).toHaveProperty(
-    'ParkSiteNameBasic',
+    'searchableTitle',
     'Adams Lake Provincial Park - Bush Creek Site'
   )
 })
 
 test('filterParks: filters parks based on distance away', () => {
   // Return only parks within 50km
-  const containingParks = filterParks(parks, location, 50, [], [])
+  const containingParks = filterParks({
+    parks,
+    searchTerm: undefined,
+    location,
+    distance: 50,
+    activities: [],
+    facilities: [],
+  })
   expect(containingParks).toHaveLength(1)
 
   // Return no parks if non within the distance bounds
-  const notContainingParks = filterParks(parks, location, 1, [], [])
+  const notContainingParks = filterParks({
+    parks,
+    searchTerm: undefined,
+    location,
+    distance: 1,
+    activities: [],
+    facilities: [],
+  })
   expect(notContainingParks).toHaveLength(0)
 
   // Returns all parks if the distance is greater than 100km
-  const allParks = filterParks(parks, location, 100, [], [])
+  const allParks = filterParks({
+    parks,
+    searchTerm: undefined,
+    location,
+    distance: 100,
+    activities: [],
+    facilities: [],
+  })
   expect(allParks).toHaveLength(2)
 })
 
 /* props: parks, location, distance, activities, facilities */
 test('filterParks: returns only parks which have all indicated activities', () => {
   // Returns parks that contain ALL indicated activities
-  const containingParks = filterParks(parks, location, 100, [activities[0]], [])
+  const containingParks = filterParks({
+    parks,
+    searchTerm: undefined,
+    location,
+    distance: 100,
+    activities: [activities[0]],
+    facilities: [],
+  })
   expect(containingParks).toHaveLength(2)
 })
 
 test('filterParks: does not return parks if they do not contain ALL indicated activities', () => {
-  const notContainingParks = filterParks(parks, location, 100, activities, [])
+  const notContainingParks = filterParks({
+    parks,
+    searchTerm: undefined,
+    location,
+    distance: 100,
+    activities,
+    facilities: [],
+  })
   expect(notContainingParks).toHaveLength(0)
 })
 
 test('filterParks: returns only parks which have all indicated facilities', () => {
   // Returns parks that contain ALL indicated facilities
-  const containingParks = filterParks(parks, location, 100, [], [facilities[0]])
+  const containingParks = filterParks({
+    parks,
+    searchTerm: undefined,
+    location,
+    distance: 100,
+    activities: [],
+    facilities: [facilities[0]],
+  })
   expect(containingParks).toHaveLength(1)
 })
 
 test('filterParks: does not return parks if they do not contain ALL indicated facilities', () => {
-  const notContainingParks = filterParks(parks, location, 100, [], facilities)
+  const notContainingParks = filterParks({
+    parks,
+    searchTerm: undefined,
+    location,
+    distance: 100,
+    activities: [],
+    facilities,
+  })
   expect(notContainingParks).toHaveLength(0)
 })

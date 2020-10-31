@@ -20,19 +20,19 @@ function Explore() {
 
   const subheading = `Within ${defaultDistanceFilter}km of your location`
   const hikingParks = getClosestParksByAmenityTypeAndID(
-    'Activities',
+    'activities',
     '1',
     location,
     parks
   )
   const swimmingParks = getClosestParksByAmenityTypeAndID(
-    'Activities',
+    'activities',
     '3',
     location,
     parks
   )
   const vehicleCampingParks = getClosestParksByAmenityTypeAndID(
-    'Facilities',
+    'facilities',
     '1',
     location,
     parks
@@ -51,20 +51,18 @@ function Explore() {
         <ExploreSection
           horizontal={true}
           data={hikingParks}
-          keyExtractor={(item) => item.ORCSSite}
+          keyExtractor={(item) => item.id}
           renderItem={({ item, index }) => (
             <ParkCardContainer
-              key={item.ORCSSite}
+              key={item.id}
               index={index}
               length={hikingParks.length}>
               <CarouselCard
-                title={item.ParkSiteNameWeb}
+                title={item.title}
+                uri={item.uri}
                 distance={
                   location
-                    ? haversine(location, {
-                        latitude: item.Latitude,
-                        longitude: item.Longitude,
-                      }).toFixed(0)
+                    ? haversine(location, item.location).toFixed(0)
                     : null
                 }
               />
@@ -81,20 +79,17 @@ function Explore() {
         <ExploreSection
           horizontal={true}
           data={swimmingParks}
-          keyExtractor={(item) => item.ORCSSite}
+          keyExtractor={(item) => item.id}
           renderItem={({ item, index }) => (
             <ParkCardContainer
-              key={item.ORCSSite}
+              key={item.id}
               index={index}
               length={swimmingParks.length}>
               <CarouselCard
-                title={item.ParkSiteNameWeb}
+                title={item.title}
                 distance={
                   location
-                    ? haversine(location, {
-                        latitude: item.Latitude,
-                        longitude: item.Longitude,
-                      }).toFixed(0)
+                    ? haversine(location, item.location).toFixed(0)
                     : null
                 }
               />
@@ -111,20 +106,17 @@ function Explore() {
         <ExploreSection
           horizontal={true}
           data={vehicleCampingParks}
-          keyExtractor={(item) => item.ORCSSite}
+          keyExtractor={(item) => item.id}
           renderItem={({ item, index }) => (
             <ParkCardContainer
-              key={item.ORCSSite}
+              key={item.id}
               index={index}
               length={vehicleCampingParks.length}>
               <CarouselCard
-                title={item.ParkSiteNameWeb}
+                title={item.title}
                 distance={
                   location
-                    ? haversine(location, {
-                        latitude: item.Latitude,
-                        longitude: item.Longitude,
-                      }).toFixed(0)
+                    ? haversine(location, item.location).toFixed(0)
                     : null
                 }
               />

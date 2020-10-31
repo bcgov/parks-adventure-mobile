@@ -22,6 +22,7 @@ const ParkFindHeader = ({
       value={searchTerm}
       onChangeText={onChangeText}
       onIconPress={onSearch}
+      onSubmitEditing={onSearch}
     />
     <Content>
       <ParkCount>{`${count} matching park${count === 1 ? '' : 's'}`}</ParkCount>

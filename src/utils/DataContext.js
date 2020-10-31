@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { getParks, getLocation, getActivities, getFacilities } from './api'
-import { defaultDistanceFilter, searchParks, filterParks } from './helpers'
+import { defaultDistanceFilter, filterParks } from './helpers'
 
 export const DataContext = React.createContext()
 
@@ -9,6 +9,7 @@ export function DataProvider({ children }) {
   const [parks, setParks] = React.useState([])
   const [location, setLocation] = React.useState()
   const [distance, setDistance] = React.useState(defaultDistanceFilter)
+  const [searchTerm, updateSearchTerm] = React.useState('')
   const [activities, updateActivities] = React.useState([])
   const [originalActivities, setOriginalActivities] = React.useState([])
   const [facilities, updateFacilities] = React.useState([])
@@ -50,19 +51,19 @@ export function DataProvider({ children }) {
     updateFacilities(newFacilityList)
   }
 
-  function onSearch(searchTerm) {
-    const results = searchParks(filteredList, searchTerm)
-    updateFilteredList(results)
-  }
+  function applyFilters(searchString) {
+    if (searchString !== undefined) {
+      updateSearchTerm(searchString)
+    }
 
-  function applyFilters() {
-    const results = filterParks(
+    const results = filterParks({
       parks,
+      searchTerm: searchString === undefined ? searchTerm : searchString,
       location,
       distance,
       activities,
-      facilities
-    )
+      facilities,
+    })
     updateFilteredList(results)
   }
 
@@ -83,7 +84,6 @@ export function DataProvider({ children }) {
         updateActivities: changeActivitySelectionState,
         facilities,
         updateFacilities: changeFacilitySelectionState,
-        onSearch,
         applyFilters,
         resetFilters,
         filteredList,

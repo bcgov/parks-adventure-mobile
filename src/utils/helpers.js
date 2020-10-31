@@ -13,23 +13,13 @@ export function getClosestParksByAmenityTypeAndID(
     (park) =>
       park[type].includes(id) &&
       currentLocation &&
-      haversine(currentLocation, {
-        latitude: park.Latitude,
-        longitude: park.Longitude,
-      }) <= defaultDistanceFilter
+      haversine(currentLocation, park.location) <= defaultDistanceFilter
   )
 
   if (currentLocation) {
     parksByType.sort((a, b) => {
-      const distanceToA = haversine(currentLocation, {
-        latitude: a.Latitude,
-        longitude: a.Longitude,
-      })
-
-      const distanceToB = haversine(currentLocation, {
-        latitude: b.Latitude,
-        longitude: b.Longitude,
-      })
+      const distanceToA = haversine(currentLocation, a.location)
+      const distanceToB = haversine(currentLocation, b.location)
 
       return distanceToA - distanceToB
     })
@@ -38,21 +28,31 @@ export function getClosestParksByAmenityTypeAndID(
   return parksByType
 }
 
-export function searchParks(parks, searchTerm) {
-  return parks.filter((park) =>
-    park.ParkSiteNameBasic.toLowerCase().includes(searchTerm.toLowerCase())
-  )
-}
+export function filterParks({
+  parks,
+  searchTerm,
+  location,
+  distance,
+  activities,
+  facilities,
+}) {
+  /*
+   * Filter parks based on search string
+   */
+  const searchedParks =
+    searchTerm !== undefined
+      ? parks.filter((park) =>
+          park.searchableTitle.toLowerCase().includes(searchTerm.toLowerCase())
+        )
+      : parks
 
-export function filterParks(parks, location, distance, activities, facilities) {
+  /*
+   * Further filter parks based on distance, activity, and facility filters
+   */
   const filterDistance = distance >= 99 ? maxDistance : distance
-  const filteredParks = parks.filter((park) => {
+  const filteredParks = searchedParks.filter((park) => {
     const matchesLocationCriteria =
-      location &&
-      haversine(location, {
-        latitude: park.Latitude,
-        longitude: park.Longitude,
-      }) <= filterDistance
+      location && haversine(location, park.location) <= filterDistance
 
     /*
      * Activity Filters
@@ -70,7 +70,7 @@ export function filterParks(parks, location, distance, activities, facilities) {
        * those activities to pass the Activity critera
        */
       selectedActivityIDs.forEach(({ id }) => {
-        if (!park.Activities.includes(id)) {
+        if (!park.activities.includes(id)) {
           matchesActivityCriteria = false
         }
       })
@@ -92,7 +92,7 @@ export function filterParks(parks, location, distance, activities, facilities) {
        * those facilities to pass the Facility critera
        */
       selectedFacilityIDs.forEach(({ id }) => {
-        if (!park.Facilities.includes(id)) {
+        if (!park.facilities.includes(id)) {
           matchesFacilityCriteria = false
         }
       })

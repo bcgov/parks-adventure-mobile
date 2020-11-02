@@ -29,6 +29,7 @@ const theme = {
     background: '#FFF',
     selected: '#E3A82B',
     disabled: 'rgba(0,0,0,0.53)',
+    whiteDisabled: 'rgba(255,255,255,0.5)',
     favorited: '#DA71B7',
     error: '#FF0C3E',
     grey3: '#828282',

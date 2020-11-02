@@ -15,6 +15,7 @@ exports[`Explore page matches snapshot 1`] = `
   }
 >
   <RCTScrollView
+    showsVerticalScrollIndicator={false}
     style={
       Array [
         Object {
@@ -227,6 +228,7 @@ exports[`Explore page matches snapshot 1`] = `
         removeClippedSubviews={false}
         renderItem={[Function]}
         scrollEventThrottle={50}
+        showsHorizontalScrollIndicator={false}
         stickyHeaderIndices={Array []}
         style={
           Array [
@@ -390,6 +392,7 @@ exports[`Explore page matches snapshot 1`] = `
         removeClippedSubviews={false}
         renderItem={[Function]}
         scrollEventThrottle={50}
+        showsHorizontalScrollIndicator={false}
         stickyHeaderIndices={Array []}
         style={
           Array [
@@ -553,6 +556,7 @@ exports[`Explore page matches snapshot 1`] = `
         removeClippedSubviews={false}
         renderItem={[Function]}
         scrollEventThrottle={50}
+        showsHorizontalScrollIndicator={false}
         stickyHeaderIndices={Array []}
         style={
           Array [

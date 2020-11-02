@@ -83,7 +83,7 @@ const Explore = () => {
 
   return (
     <ExplorePage>
-      <ExploreScrollView>
+      <ExploreScrollView showsVerticalScrollIndicator={false}>
         <ExploreHeader source={headerBackgroundSrc}>
           <ExploreSvg width="234" height="28" />
           <RisingSun source={risingSunSrc} />
@@ -96,6 +96,7 @@ const Explore = () => {
         />
         <ExploreSection
           horizontal={true}
+          showsHorizontalScrollIndicator={false}
           data={hikingParks}
           keyExtractor={(item) => item.ORCSSite}
           renderItem={({ item, index }) => (
@@ -126,6 +127,7 @@ const Explore = () => {
         />
         <ExploreSection
           horizontal={true}
+          showsHorizontalScrollIndicator={false}
           data={swimmingParks}
           keyExtractor={(item) => item.ORCSSite}
           renderItem={({ item, index }) => (
@@ -156,6 +158,7 @@ const Explore = () => {
         />
         <ExploreSection
           horizontal={true}
+          showsHorizontalScrollIndicator={false}
           data={vehicleCampingParks}
           keyExtractor={(item) => item.ORCSSite}
           renderItem={({ item, index }) => (

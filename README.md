@@ -21,6 +21,26 @@ npm run web
 # Create Xcode and Android Studio projects for the app
 npm run eject
 
+# Build a standalone IPA for your project, signed and ready for submission to
+# the Apple App Store with release-channel set to "prod".  It will be available
+# via your expo dashboard.
+yarn run build-prod-ios
+
+# Build a standalone APK for your project, signed and ready for submission to
+# the Google Play Store with release-channel set to "prod". It will be available
+# via your expo dashboard.
+yarn run build-prod-android
+
+# Build a standalone IPA for your project, signed and ready for submission to
+# the Apple App Store with release-channel set to "dev".  It will be available
+# via your expo dashboard.
+yarn run build-dev-ios
+
+# Build a standalone APK for your project, signed and ready for submission to
+# the Google Play Store with release-channel set to "dev". It will be available
+# via your expo dashboard.
+yarn run build-dev-android
+
 # Run the automated tests (prettier, eslint, and jest)
 npm test
 

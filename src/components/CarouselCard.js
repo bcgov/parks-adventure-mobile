@@ -21,6 +21,7 @@ function CarouselCard({ title, distance, uri, favorited = false }) {
   return (
     <Carousel elevation={6}>
       <CardCover
+        defaultSource={defaultParkImage}
         source={uri ? { uri } : defaultParkImage}
         resizeMode={'contain'}
       />

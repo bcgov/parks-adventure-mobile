@@ -20,7 +20,10 @@ const ParkList = ({ parks, onFavoritePress }) => {
 
   const renderParkItem = ({ item }) => (
     <ItemContainer>
-      <ItemImage source={item.uri ? { uri: item.uri } : defaultParkImage} />
+      <ItemImage
+        source={item.uri ? { uri: item.uri } : defaultParkImage}
+        defaultSource={defaultParkImage}
+      />
       <ColumnContainer>
         <RowContainer>
           <Title>{entities.decode(item.title)}</Title>

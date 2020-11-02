@@ -59,6 +59,7 @@ exports[`renders with no uri and favorited set to true 1`] = `
       }
     >
       <Image
+        defaultSource={1}
         resizeMode="contain"
         siblings={
           Array [

@@ -10,10 +10,14 @@ import CarouselHeader from '../components/CarouselHeader'
 import {
   ExplorePage,
   ExploreScrollView,
-  ExploreHeader,
   ExploreSection,
   ParkCardContainer,
+  ExploreHeader,
+  RisingSun,
 } from './Explore.styles.js'
+import headerBackgroundSrc from '../../assets/exploreHeader.jpeg'
+import ExploreSvg from '../../assets/exploreTitle.svg'
+import risingSunSrc from '../../assets/sunWithShadow.png'
 
 function Explore() {
   const { parks, location } = React.useContext(DataContext)
@@ -40,9 +44,12 @@ function Explore() {
 
   return (
     <ExplorePage>
-      <ExploreScrollView>
+      <ExploreScrollView showsVerticalScrollIndicator={false}>
+        <ExploreHeader source={headerBackgroundSrc}>
+          <ExploreSvg width="234" height="28" />
+          <RisingSun source={risingSunSrc} />
+        </ExploreHeader>
         {/* Hiking - ActivityID = 1 */}
-        <ExploreHeader />
         <CarouselHeader
           title="Great Hikes Near You"
           subheading={subheading}
@@ -50,6 +57,7 @@ function Explore() {
         />
         <ExploreSection
           horizontal={true}
+          showsHorizontalScrollIndicator={false}
           data={hikingParks}
           keyExtractor={(item) => item.id}
           renderItem={({ item, index }) => (
@@ -78,6 +86,7 @@ function Explore() {
         />
         <ExploreSection
           horizontal={true}
+          showsHorizontalScrollIndicator={false}
           data={swimmingParks}
           keyExtractor={(item) => item.id}
           renderItem={({ item, index }) => (
@@ -105,6 +114,7 @@ function Explore() {
         />
         <ExploreSection
           horizontal={true}
+          showsHorizontalScrollIndicator={false}
           data={vehicleCampingParks}
           keyExtractor={(item) => item.id}
           renderItem={({ item, index }) => (

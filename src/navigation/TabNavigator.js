@@ -20,8 +20,10 @@ const TabNavigator = () => {
         tabBarLabel: ({ color }) => <Label color={color}>{route.name}</Label>,
       })}
       tabBarOptions={{
-        activeTintColor: theme.colors.selected,
-        inactiveTintColor: theme.colors.disabled,
+        activeBackgroundColor: theme.colors.primary,
+        inactiveBackgroundColor: theme.colors.primary,
+        activeTintColor: 'white',
+        inactiveTintColor: theme.colors.whiteDisabled,
       }}>
       <Tab.Screen
         name="Explore"

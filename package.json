@@ -6,6 +6,10 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "eject": "expo eject",
+    "build-prod-ios": "expo build:ios --release-channel prod",
+    "build-prod-android": "expo build:android --release-channel prod",
+    "build-dev-ios": "expo build:ios --release-channel dev",
+    "build-dev-android": "expo build:android --release-channel dev",
     "test": "jest",
     "eslint": "eslint '**/*.js'",
     "prettier": "prettier --write '**/*.js'",
@@ -59,6 +63,7 @@
     "husky": "^4.3.0",
     "jest": "^26.4.2",
     "jest-expo": "^39.0.0",
+    "jest-svg-transformer": "^1.0.0",
     "prettier": "^2.1.2",
     "react-is": "^16.13.1",
     "react-test-renderer": "^16.13.1"

@@ -36,74 +36,38 @@ export function filterParks({
   activities,
   facilities,
 }) {
-  /*
-   * Filter parks based on search string
-   */
-  const searchedParks =
-    searchTerm !== undefined
-      ? parks.filter((park) =>
-          park.searchableTitle.toLowerCase().includes(searchTerm.toLowerCase())
-        )
-      : parks
+  let filteredParks = parks
 
-  /*
-   * Further filter parks based on distance, activity, and facility filters
-   */
-  const filterDistance = distance >= 99 ? maxDistance : distance
-  const filteredParks = searchedParks.filter((park) => {
-    const matchesLocationCriteria =
-      location && haversine(location, park.location) <= filterDistance
-
-    /*
-     * Activity Filters
-     */
-    let matchesActivityCriteria = true
-    const selectedActivityIDs = activities.filter(
-      (activity) => activity.selected
+  // Filter parks based on search string
+  if (searchTerm) {
+    filteredParks = filteredParks.filter((park) =>
+      park.searchableTitle.toLowerCase().includes(searchTerm.toLowerCase())
     )
-    if (selectedActivityIDs.length === 0) {
-      // If no activities have been selected, it matches the Activity critera
-      matchesActivityCriteria = true
-    } else {
-      /*
-       * If some activities have been selected, the park must contain all of
-       * those activities to pass the Activity critera
-       */
-      selectedActivityIDs.forEach(({ id }) => {
-        if (!park.activities.includes(id)) {
-          matchesActivityCriteria = false
-        }
-      })
-    }
+  }
 
-    /*
-     * Facility Filters
-     */
-    let matchesFacilityCriteria = true
-    const selectedFacilityIDs = facilities.filter(
-      (facility) => facility.selected
+  // Filter based on location/distance
+  if (location) {
+    const filterDistance = distance >= 99 ? maxDistance : distance
+    filteredParks = filteredParks.filter(
+      (park) => haversine(location, park.location) <= filterDistance
     )
-    if (selectedFacilityIDs.length === 0) {
-      // If no facilities have been selected, it matches the Facility critera
-      matchesFacilityCriteria = true
-    } else {
-      /*
-       * If some facilities have been selected, the park must contain all of
-       * those facilities to pass the Facility critera
-       */
-      selectedFacilityIDs.forEach(({ id }) => {
-        if (!park.facilities.includes(id)) {
-          matchesFacilityCriteria = false
-        }
-      })
-    }
+  }
 
-    return (
-      matchesLocationCriteria &&
-      matchesActivityCriteria &&
-      matchesFacilityCriteria
+  // Filter based on park activities
+  const selectedActivityIDs = activities.filter((activity) => activity.selected)
+  if (selectedActivityIDs.length > 0) {
+    filteredParks = filteredParks.filter((park) =>
+      selectedActivityIDs.every(({ id }) => park.activities.includes(id))
     )
-  })
+  }
+
+  // Filter based on park facilities
+  const selectedFacilityIDs = facilities.filter((facility) => facility.selected)
+  if (selectedFacilityIDs.length > 0) {
+    filteredParks = filteredParks.filter((park) =>
+      selectedFacilityIDs.every(({ id }) => park.facilities.includes(id))
+    )
+  }
 
   return filteredParks
 }

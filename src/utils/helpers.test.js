@@ -111,7 +111,6 @@ test('filterParks: filters parks based on distance away', () => {
   expect(allParks).toHaveLength(2)
 })
 
-/* props: parks, location, distance, activities, facilities */
 test('filterParks: returns only parks which have all indicated activities', () => {
   // Returns parks that contain ALL indicated activities
   const containingParks = filterParks({

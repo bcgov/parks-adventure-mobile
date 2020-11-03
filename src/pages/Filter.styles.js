@@ -5,7 +5,6 @@ import { Text, Button, Surface } from 'react-native-paper'
 export const FilterContainer = styled(SafeAreaView)`
   flex: 1;
   background-color: white;
-  padding-bottom: 70px;
 `
 
 export const Header = styled(View)`
@@ -19,6 +18,7 @@ export const Header = styled(View)`
 
 export const FilterScrollView = styled(ScrollView)`
   padding: 10px;
+  margin-bottom: 70px;
 `
 
 export const Section = styled(View)`

@@ -52,7 +52,7 @@ function Filter({ navigation }) {
         <MCIcon onPress={close} name="window-close" size={25} />
       </Header>
 
-      <FilterScrollView>
+      <FilterScrollView showsVerticalScrollIndicator={false}>
         <Section>
           <FilterTitle>Distance</FilterTitle>
           <MultiSlider

@@ -24,7 +24,7 @@ export const Content = styled(View)`
 `
 
 export const ParkCount = styled(Text)`
-  color: ${theme.colors.grey3};
+  color: ${theme.colors.grey};
   margin-right: auto;
 `
 

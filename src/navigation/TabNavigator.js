@@ -1,7 +1,6 @@
 import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import MCIcon from 'react-native-vector-icons/MaterialCommunityIcons'
-import MIcon from 'react-native-vector-icons/MaterialIcons'
 import { useTheme } from 'react-native-paper'
 import ExploreStack from './ExploreStack'
 import FavouritesStack from './FavouritesStack'
@@ -48,7 +47,7 @@ const TabNavigator = () => {
         component={FindStack}
         options={{
           tabBarIcon: ({ color }) => (
-            <MIcon name="location-on" size={20} color={color} />
+            <MCIcon name="magnify" size={20} color={color} />
           ),
         }}
       />

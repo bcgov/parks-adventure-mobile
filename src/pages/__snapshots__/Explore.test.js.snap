@@ -62,8 +62,7 @@ exports[`Explore page matches snapshot 1`] = `
             ]
           }
         />
-        <svg
-          data-file-name="SvgExploreTitle"
+        <SvgMock
           height="28"
           width="234"
         />
@@ -87,26 +86,22 @@ exports[`Explore page matches snapshot 1`] = `
             Object {
               "alignItems": "center",
               "flexDirection": "row",
+              "marginLeft": 20,
             },
           ]
         }
       >
-        <Image
-          source={1}
-          style={
-            Array [
-              Object {
-                "height": 43,
-                "marginBottom": 0,
-                "marginLeft": 15,
-                "marginRight": 15,
-                "marginTop": 0,
-                "width": 43,
-              },
-            ]
-          }
+        <SvgMock
+          height={43}
+          width={43}
         />
-        <View>
+        <View
+          style={
+            Object {
+              "paddingLeft": 8,
+            }
+          }
+        >
           <Text
             style={
               Array [
@@ -205,7 +200,7 @@ exports[`Explore page matches snapshot 1`] = `
               ]
             }
           >
-            Within 50km of your location
+            Within 100km of your location
           </Text>
         </View>
       </View>
@@ -251,26 +246,22 @@ exports[`Explore page matches snapshot 1`] = `
             Object {
               "alignItems": "center",
               "flexDirection": "row",
+              "marginLeft": 20,
             },
           ]
         }
       >
-        <Image
-          source={1}
-          style={
-            Array [
-              Object {
-                "height": 43,
-                "marginBottom": 0,
-                "marginLeft": 15,
-                "marginRight": 15,
-                "marginTop": 0,
-                "width": 43,
-              },
-            ]
-          }
+        <SvgMock
+          height={43}
+          width={43}
         />
-        <View>
+        <View
+          style={
+            Object {
+              "paddingLeft": 8,
+            }
+          }
+        >
           <Text
             style={
               Array [
@@ -369,7 +360,7 @@ exports[`Explore page matches snapshot 1`] = `
               ]
             }
           >
-            Within 50km of your location
+            Within 100km of your location
           </Text>
         </View>
       </View>
@@ -415,26 +406,22 @@ exports[`Explore page matches snapshot 1`] = `
             Object {
               "alignItems": "center",
               "flexDirection": "row",
+              "marginLeft": 20,
             },
           ]
         }
       >
-        <Image
-          source={1}
-          style={
-            Array [
-              Object {
-                "height": 43,
-                "marginBottom": 0,
-                "marginLeft": 15,
-                "marginRight": 15,
-                "marginTop": 0,
-                "width": 43,
-              },
-            ]
-          }
+        <SvgMock
+          height={43}
+          width={43}
         />
-        <View>
+        <View
+          style={
+            Object {
+              "paddingLeft": 8,
+            }
+          }
+        >
           <Text
             style={
               Array [
@@ -533,7 +520,7 @@ exports[`Explore page matches snapshot 1`] = `
               ]
             }
           >
-            Within 50km of your location
+            Within 100km of your location
           </Text>
         </View>
       </View>

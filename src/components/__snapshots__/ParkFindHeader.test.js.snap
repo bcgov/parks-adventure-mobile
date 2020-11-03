@@ -121,6 +121,7 @@ exports[`Matches snapshot 1`] = `
       allowFontScaling={true}
       keyboardAppearance="light"
       onChangeText={[Function]}
+      onSubmitEditing={[Function]}
       placeholder=""
       placeholderTextColor="rgba(0, 0, 0, 0.54)"
       rejectResponderTermination={true}
@@ -298,7 +299,7 @@ exports[`Matches snapshot 1`] = `
         }
       }
       accessible={true}
-      focusable={false}
+      focusable={true}
       hitSlop={
         Object {
           "bottom": 6,

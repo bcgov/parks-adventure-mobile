@@ -1,5 +1,5 @@
 import styled from 'styled-components/native'
-import { Image, View } from 'react-native'
+import { View } from 'react-native'
 import {
   Title as PaperTitle,
   Subheading as PaperSubheading,
@@ -8,12 +8,7 @@ import {
 export const Container = styled(View)`
   flex-direction: row;
   align-items: center;
-`
-
-export const Icon = styled(Image)`
-  width: 43px;
-  height: 43px;
-  margin: 0 15px;
+  margin-left: 20px;
 `
 
 export const Title = styled(PaperTitle)`

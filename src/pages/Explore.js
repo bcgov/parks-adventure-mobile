@@ -1,11 +1,10 @@
 import React from 'react'
-import * as Location from 'expo-location'
 import haversine from 'haversine'
-import { getParks } from '../utils/data'
 import {
-  distanceFilter,
+  defaultDistanceFilter,
   getClosestParksByAmenityTypeAndID,
 } from '../utils/helpers'
+import { DataContext } from '../utils/DataContext'
 import CarouselCard from '../components/CarouselCard'
 import CarouselHeader from '../components/CarouselHeader'
 import {
@@ -20,62 +19,24 @@ import headerBackgroundSrc from '../../assets/exploreHeader.jpeg'
 import ExploreSvg from '../../assets/exploreTitle.svg'
 import risingSunSrc from '../../assets/sunWithShadow.png'
 
-const Explore = () => {
-  const [parks, setParks] = React.useState([])
-  const [location, setLocation] = React.useState(null)
+function Explore() {
+  const { parks, location } = React.useContext(DataContext)
 
-  React.useEffect(() => {
-    let subscription
-    ;(async () => {
-      let { status } = await Location.requestPermissionsAsync()
-      if (status !== 'granted') return
-
-      const location = await Location.getCurrentPositionAsync({})
-      setLocation({
-        latitude: location.coords.latitude,
-        longitude: location.coords.longitude,
-      })
-
-      subscription = await Location.watchPositionAsync({}, (location) =>
-        setLocation({
-          latitude: location.coords.latitude,
-          longitude: location.coords.longitude,
-        })
-      )
-    })()
-
-    return () => {
-      if (subscription) {
-        subscription.remove()
-      }
-    }
-  }, [])
-
-  React.useEffect(() => {
-    async function loadData() {
-      const data = await getParks()
-      if (data) {
-        setParks(data)
-      }
-    }
-    loadData()
-  }, [])
-
-  const subheading = `Within ${distanceFilter}km of your location`
+  const subheading = `Within ${defaultDistanceFilter}km of your location`
   const hikingParks = getClosestParksByAmenityTypeAndID(
-    'Activities',
+    'activities',
     '1',
     location,
     parks
   )
   const swimmingParks = getClosestParksByAmenityTypeAndID(
-    'Activities',
+    'activities',
     '3',
     location,
     parks
   )
   const vehicleCampingParks = getClosestParksByAmenityTypeAndID(
-    'Facilities',
+    'facilities',
     '1',
     location,
     parks
@@ -92,26 +53,24 @@ const Explore = () => {
         <CarouselHeader
           title="Great Hikes Near You"
           subheading={subheading}
-          icon={require('../images/icons/activity/hiking.png')}
+          icon={'Hiking'}
         />
         <ExploreSection
           horizontal={true}
           showsHorizontalScrollIndicator={false}
           data={hikingParks}
-          keyExtractor={(item) => item.ORCSSite}
+          keyExtractor={(item) => item.id}
           renderItem={({ item, index }) => (
             <ParkCardContainer
-              key={item.ORCSSite}
+              key={item.id}
               index={index}
               length={hikingParks.length}>
               <CarouselCard
-                title={item.ParkSiteNameWeb}
+                title={item.title}
+                uri={item.uri}
                 distance={
                   location
-                    ? haversine(location, {
-                        latitude: item.Latitude,
-                        longitude: item.Longitude,
-                      }).toFixed(0)
+                    ? haversine(location, item.location).toFixed(0)
                     : null
                 }
               />
@@ -123,26 +82,23 @@ const Explore = () => {
         <CarouselHeader
           title="Swimming Holes Near You"
           subheading={subheading}
-          icon={require('../images/icons/activity/swimming.png')}
+          icon={'Swimming'}
         />
         <ExploreSection
           horizontal={true}
           showsHorizontalScrollIndicator={false}
           data={swimmingParks}
-          keyExtractor={(item) => item.ORCSSite}
+          keyExtractor={(item) => item.id}
           renderItem={({ item, index }) => (
             <ParkCardContainer
-              key={item.ORCSSite}
+              key={item.id}
               index={index}
               length={swimmingParks.length}>
               <CarouselCard
-                title={item.ParkSiteNameWeb}
+                title={item.title}
                 distance={
                   location
-                    ? haversine(location, {
-                        latitude: item.Latitude,
-                        longitude: item.Longitude,
-                      }).toFixed(0)
+                    ? haversine(location, item.location).toFixed(0)
                     : null
                 }
               />
@@ -154,26 +110,23 @@ const Explore = () => {
         <CarouselHeader
           title="Vehicle Camping Near You"
           subheading={subheading}
-          icon={require('../images/icons/facility/vehicle-accessible-camping.png')}
+          icon={'Vehicle-Accessible Camping'}
         />
         <ExploreSection
           horizontal={true}
           showsHorizontalScrollIndicator={false}
           data={vehicleCampingParks}
-          keyExtractor={(item) => item.ORCSSite}
+          keyExtractor={(item) => item.id}
           renderItem={({ item, index }) => (
             <ParkCardContainer
-              key={item.ORCSSite}
+              key={item.id}
               index={index}
               length={vehicleCampingParks.length}>
               <CarouselCard
-                title={item.ParkSiteNameWeb}
+                title={item.title}
                 distance={
                   location
-                    ? haversine(location, {
-                        latitude: item.Latitude,
-                        longitude: item.Longitude,
-                      }).toFixed(0)
+                    ? haversine(location, item.location).toFixed(0)
                     : null
                 }
               />

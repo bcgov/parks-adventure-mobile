@@ -1,6 +1,7 @@
 import React from 'react'
 import { useTheme, IconButton } from 'react-native-paper'
 import PropTypes from 'prop-types'
+import { AllHtmlEntities } from 'html-entities'
 import defaultParkImage from '../../assets/defaultParkImage.jpg'
 import {
   Container,
@@ -12,15 +13,20 @@ import {
   RowContainer,
 } from './ParkList.styles'
 
+const entities = new AllHtmlEntities()
+
 const ParkList = ({ parks, onFavoritePress }) => {
   const theme = useTheme()
 
   const renderParkItem = ({ item }) => (
     <ItemContainer>
-      <ItemImage source={item.uri ? { uri: item.uri } : defaultParkImage} />
+      <ItemImage
+        source={item.uri ? { uri: item.uri } : defaultParkImage}
+        defaultSource={defaultParkImage}
+      />
       <ColumnContainer>
         <RowContainer>
-          <Title>{item.title}</Title>
+          <Title>{entities.decode(item.title)}</Title>
 
           <IconButton
             icon="cards-heart"
@@ -44,6 +50,7 @@ const ParkList = ({ parks, onFavoritePress }) => {
       data={parks}
       renderItem={renderParkItem}
       keyExtractor={(item) => item.title}
+      showsVerticalScrollIndicator={false}
     />
   )
 }

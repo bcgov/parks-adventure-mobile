@@ -4,7 +4,13 @@ import { useFonts } from 'expo-font'
 import { StatusBar } from 'expo-status-bar'
 import { Provider as PaperProvider } from 'react-native-paper'
 import theme from './utils/theme'
-import { fetchParks } from './utils/data'
+import {
+  fetchParks,
+  setLocation,
+  fetchActivities,
+  fetchFacilities,
+} from './utils/api'
+import { DataProvider } from './utils/DataContext'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
 import { NavigationContainer } from '@react-navigation/native'
 import TabNavigator from './navigation/TabNavigator'
@@ -22,6 +28,9 @@ const Main = () => {
   React.useEffect(() => {
     async function loadData() {
       await fetchParks()
+      await setLocation()
+      await fetchActivities()
+      await fetchFacilities()
       setLoading(false)
     }
 
@@ -35,8 +44,10 @@ const Main = () => {
       <PaperProvider theme={theme}>
         <NavigationContainer>
           <SafeAreaProvider>
-            <StatusBar style="light" />
-            <TabNavigator />
+            <DataProvider>
+              <StatusBar style="light" />
+              <TabNavigator />
+            </DataProvider>
           </SafeAreaProvider>
         </NavigationContainer>
       </PaperProvider>

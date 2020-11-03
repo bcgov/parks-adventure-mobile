@@ -7,7 +7,7 @@ test('Should render using props', () => {
     <CarouselHeader
       title="Test Title"
       subheading="Test subheading"
-      icon={require('../images/icons/activity/hiking.png')}
+      icon={'Hiking'}
     />
   )
 

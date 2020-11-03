@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders with no uri and favourited set to true 1`] = `
+exports[`renders with no uri and favorited set to true 1`] = `
 <View
   style={
     Object {
@@ -59,6 +59,7 @@ exports[`renders with no uri and favourited set to true 1`] = `
       }
     >
       <Image
+        defaultSource={1}
         resizeMode="contain"
         siblings={
           Array [
@@ -141,7 +142,7 @@ exports[`renders with no uri and favourited set to true 1`] = `
           style={
             Array [
               Object {
-                "color": "rgba(0, 0, 0, 0.26)",
+                "color": undefined,
                 "fontSize": 20,
               },
               undefined,

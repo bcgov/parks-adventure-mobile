@@ -15,12 +15,13 @@ import {
 
 const entities = new AllHtmlEntities()
 
-const CarouselCard = ({ title, distance, uri, favorited = false }) => {
+function CarouselCard({ title, distance, uri, favorited = false }) {
   const theme = useTheme()
 
   return (
     <Carousel elevation={6}>
       <CardCover
+        defaultSource={defaultParkImage}
         source={uri ? { uri } : defaultParkImage}
         resizeMode={'contain'}
       />

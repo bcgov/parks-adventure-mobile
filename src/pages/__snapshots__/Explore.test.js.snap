@@ -62,8 +62,7 @@ exports[`Explore page matches snapshot 1`] = `
             ]
           }
         />
-        <svg
-          data-file-name="SvgExploreTitle"
+        <SvgMock
           height="28"
           width="234"
         />

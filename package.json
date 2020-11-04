@@ -46,7 +46,7 @@
     "react-native-svg": "12.1.0",
     "react-native-svg-transformer": "^0.14.3",
     "react-native-web": "~0.13.7",
-    "react-native-webview": "^10.10.0",
+    "react-native-webview": "10.7.0",
     "styled-components": "^5.2.0"
   },
   "devDependencies": {

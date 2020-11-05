@@ -31,9 +31,7 @@ const ParkList = ({ parks, onFavoritePress }) => {
           <IconButton
             icon={item.favorited ? 'heart' : 'heart-outline'}
             size={24}
-            color={
-              item.favorited ? theme.colors.secondary500 : theme.colors.disabled
-            }
+            color={theme.colors.secondary500}
             onPress={() => onFavoritePress(item)}
             accessibilityLabel="favorite park"
           />

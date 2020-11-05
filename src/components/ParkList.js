@@ -29,7 +29,7 @@ const ParkList = ({ parks, onFavoritePress }) => {
           <Title>{entities.decode(item.title)}</Title>
 
           <IconButton
-            icon="cards-heart"
+            icon={item.favorited ? 'heart' : 'heart-outline'}
             size={24}
             color={
               item.favorited ? theme.colors.secondary500 : theme.colors.disabled

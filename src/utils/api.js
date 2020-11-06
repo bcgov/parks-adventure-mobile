@@ -5,8 +5,10 @@ import protectedLands from '../../assets/protected-lands-status.json'
 import photosXref from '../../assets/protected-lands-photos.json'
 import activitiesXref from '../../assets/protected-lands-activity-xref.json'
 import facilitiesXref from '../../assets/protected-lands-facility-xref.json'
+import advisoriesXref from '../../assets/public-advisory-xref.json'
 import activities from '../../assets/activity.json'
 import facilities from '../../assets/facility.json'
+import advisories from '../../assets/public-advisory.json'
 
 const KEYS = {
   parks: 'parks',
@@ -35,6 +37,7 @@ export async function fetchParks() {
           favorited: false,
           activities: [],
           facilities: [],
+          advisories: [],
           location: {
             latitude: park.Latitude,
             longitude: park.Longitude,
@@ -58,6 +61,20 @@ export async function fetchParks() {
       if (!entry.ORCSSite || !parks[entry.ORCSSite]) return
 
       parks[entry.ORCSSite].facilities.push(entry.FacilityID)
+    })
+
+    /*
+     * Attach associated advisories to each park
+     */
+    advisoriesXref['public-advisory-xref'].forEach((entry) => {
+      if (!entry.ORCSSite || !parks[entry.ORCSSite]) return
+
+      const advisory = advisories['public-advisory'].find(
+        ({ AdvisoryID }) => AdvisoryID === entry.AdvisoryID
+      )
+      if (!advisory) return
+
+      parks[entry.ORCSSite].advisories.push(advisory)
     })
 
     /*

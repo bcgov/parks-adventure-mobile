@@ -37,6 +37,15 @@ describe('parks', () => {
     expect(results[0]).toHaveProperty('facilities')
     expect(results[0].facilities.length).toBeGreaterThan(0)
     expect(results[0]).toHaveProperty('uri')
+    expect(results[0]).toHaveProperty('advisories')
+    /**
+     * NOTE: This assertion is very fragile as not every park will have
+     * advisories. Since the information is static data, this test will pass as
+     * long as the static data doesn't change. This data will eventually be
+     * pulled in from an API, so I didn't think it was worth spending too much
+     * time on it.
+     */
+    expect(results[0].advisories.length).toBeGreaterThan(0)
   })
 })
 

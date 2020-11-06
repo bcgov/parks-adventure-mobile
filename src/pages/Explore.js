@@ -68,6 +68,7 @@ function Explore() {
               <CarouselCard
                 title={item.title}
                 uri={item.uri}
+                advisories={item.advisories}
                 distance={
                   location
                     ? haversine(location, item.location).toFixed(0)

@@ -29,11 +29,9 @@ function CarouselCard({ title, distance, uri, favorited = false }) {
         <ContentLine>
           <ParkTitle>{entities.decode(title)}</ParkTitle>
           <MCIcon
-            name="heart"
+            name={favorited ? 'heart' : 'heart-outline'}
             size={20}
-            color={
-              favorited ? theme.colors.secondary500 : theme.colors.disabled
-            }
+            color={theme.colors.secondary500}
           />
         </ContentLine>
         {distance && <ParkDistance>{`${distance}km Away`}</ParkDistance>}

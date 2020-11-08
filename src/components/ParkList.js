@@ -17,7 +17,9 @@ const ParkList = ({ parks, onPress, onFavoritePress }) => {
   const theme = useTheme()
 
   const renderParkItem = ({ item }) => (
-    <TouchableWithoutFeedback onPress={() => onPress(item)}>
+    <TouchableWithoutFeedback
+      accessibilityLabel={'navigate to park details'}
+      onPress={() => onPress(item)}>
       <ItemContainer>
         <ItemImage
           source={item.uri ? { uri: item.uri } : defaultParkImage}

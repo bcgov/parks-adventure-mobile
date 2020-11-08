@@ -44,7 +44,10 @@ function CarouselCard({
   }
 
   return (
-    <Carousel elevation={6} onPress={onPress}>
+    <Carousel
+      accessibilityLabel={'navigate to park details'}
+      elevation={6}
+      onPress={onPress}>
       <CardCover
         imageStyle={{ borderTopLeftRadius: 13, borderTopRightRadius: 13 }}
         defaultSource={defaultParkImage}

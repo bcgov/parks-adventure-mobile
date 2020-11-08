@@ -30,7 +30,7 @@ const parks = [
 
 test('Should render using props', () => {
   const { getByText } = render(
-    <ParkList parks={parks} onFavoritePress={() => {}} />
+    <ParkList parks={parks} onFavoritePress={() => {}} onPress={() => {}} />
   )
 
   const title = getByText(parks[0].title)
@@ -38,10 +38,27 @@ test('Should render using props', () => {
   expect(title).toBeDefined()
 })
 
+test('Should call onPress when pressed', () => {
+  const onPress = jest.fn()
+  const { getAllByAccessibilityLabel } = render(
+    <ParkList parks={parks} onFavoritePress={() => {}} onPress={onPress} />
+  )
+
+  const parkItems = getAllByAccessibilityLabel('navigate to park details')
+  expect(parkItems).toHaveLength(4)
+  fireEvent.press(parkItems[0])
+
+  expect(onPress).toHaveBeenCalled()
+})
+
 test('Should call onFavoritePress when pressed', () => {
   const onFavoritePress = jest.fn()
   const { getAllByAccessibilityLabel } = render(
-    <ParkList parks={parks} onFavoritePress={onFavoritePress} />
+    <ParkList
+      parks={parks}
+      onFavoritePress={onFavoritePress}
+      onPress={() => {}}
+    />
   )
 
   const favoriteButton = getAllByAccessibilityLabel('favorite park')[0]

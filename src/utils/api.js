@@ -10,6 +10,9 @@ import activities from '../../assets/activity.json'
 import facilities from '../../assets/facility.json'
 import advisories from '../../assets/public-advisory.json'
 
+import { AllHtmlEntities } from 'html-entities'
+const entities = new AllHtmlEntities()
+
 const KEYS = {
   parks: 'parks',
   location: 'userLocation',
@@ -32,7 +35,8 @@ export async function fetchParks() {
         keys.push(park.ORCSSite)
         parks[park.ORCSSite] = {
           id: park.ORCSSite,
-          title: park.ParkSiteNameWeb,
+          title: entities.decode(park.ParkSiteNameWeb),
+          url: park.ParkURL,
           searchableTitle: park.ParkSiteNameBasic,
           favorited: false,
           activities: [],

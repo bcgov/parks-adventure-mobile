@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import haversine from 'haversine'
 import {
   defaultDistanceFilter,
@@ -19,7 +20,7 @@ import headerBackgroundSrc from '../../assets/exploreHeader.jpeg'
 import ExploreSvg from '../../assets/exploreTitle.svg'
 import risingSunSrc from '../../assets/sunWithShadow.png'
 
-function Explore() {
+function Explore({ navigation }) {
   const { parks, location } = React.useContext(DataContext)
 
   const subheading = `Within ${defaultDistanceFilter}km of your location`
@@ -66,6 +67,9 @@ function Explore() {
               index={index}
               length={hikingParks.length}>
               <CarouselCard
+                onPress={() =>
+                  navigation.navigate('ParkDetails', { park: item })
+                }
                 title={item.title}
                 uri={item.uri}
                 alerts={item.alerts}
@@ -93,6 +97,9 @@ function Explore() {
               index={index}
               length={swimmingParks.length}>
               <CarouselCard
+                onPress={() =>
+                  navigation.navigate('ParkDetails', { park: item })
+                }
                 title={item.title}
                 uri={item.uri}
                 alerts={item.alerts}
@@ -120,6 +127,9 @@ function Explore() {
               index={index}
               length={vehicleCampingParks.length}>
               <CarouselCard
+                onPress={() =>
+                  navigation.navigate('ParkDetails', { park: item })
+                }
                 title={item.title}
                 uri={item.uri}
                 alerts={item.alerts}
@@ -132,6 +142,10 @@ function Explore() {
       </ExploreScrollView>
     </ExplorePage>
   )
+}
+
+Explore.propTypes = {
+  navigation: PropTypes.object.isRequired,
 }
 
 export default Explore

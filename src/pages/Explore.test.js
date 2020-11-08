@@ -7,7 +7,7 @@ test('Explore page matches snapshot', () => {
   const tree = renderSnapshot
     .create(
       <DataProvider>
-        <ExplorePage />
+        <ExplorePage navigation={{}} />
       </DataProvider>
     )
     .toJSON()

@@ -15,6 +15,7 @@ import {
 } from './CarouselCard.styles'
 
 function CarouselCard({
+  onPress,
   title,
   distance,
   uri,
@@ -43,7 +44,7 @@ function CarouselCard({
   }
 
   return (
-    <Carousel elevation={6}>
+    <Carousel elevation={6} onPress={onPress}>
       <CardCover
         imageStyle={{ borderTopLeftRadius: 13, borderTopRightRadius: 13 }}
         defaultSource={defaultParkImage}
@@ -73,6 +74,7 @@ function CarouselCard({
 }
 
 CarouselCard.propTypes = {
+  onPress: PropTypes.func.isRequired,
   title: PropTypes.string.isRequired,
   distance: PropTypes.string,
   uri: PropTypes.string,

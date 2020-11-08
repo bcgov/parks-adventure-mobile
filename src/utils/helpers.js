@@ -71,3 +71,7 @@ export function filterParks({
 
   return filteredParks
 }
+
+export function sort(a, b) {
+  return a.Rank.localeCompare(b.Rank) || a.AdvisoryDate - b.AdvisoryDate
+}

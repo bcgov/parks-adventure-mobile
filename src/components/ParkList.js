@@ -1,4 +1,5 @@
 import React from 'react'
+import { TouchableWithoutFeedback } from 'react-native'
 import { useTheme, IconButton } from 'react-native-paper'
 import PropTypes from 'prop-types'
 import defaultParkImage from '../../assets/defaultParkImage.jpg'
@@ -12,34 +13,34 @@ import {
   RowContainer,
 } from './ParkList.styles'
 
-const entities = new AllHtmlEntities()
-
-const ParkList = ({ parks, onFavoritePress }) => {
+const ParkList = ({ parks, onPress, onFavoritePress }) => {
   const theme = useTheme()
 
   const renderParkItem = ({ item }) => (
-    <ItemContainer>
-      <ItemImage
-        source={item.uri ? { uri: item.uri } : defaultParkImage}
-        defaultSource={defaultParkImage}
-      />
-      <ColumnContainer>
-        <RowContainer>
-          <Title>{item.title}</Title>
+    <TouchableWithoutFeedback onPress={() => onPress(item)}>
+      <ItemContainer>
+        <ItemImage
+          source={item.uri ? { uri: item.uri } : defaultParkImage}
+          defaultSource={defaultParkImage}
+        />
+        <ColumnContainer>
+          <RowContainer>
+            <Title>{item.title}</Title>
 
-          <IconButton
-            icon={item.favorited ? 'heart' : 'heart-outline'}
-            size={24}
-            color={theme.colors.secondary500}
-            onPress={() => onFavoritePress(item)}
-            accessibilityLabel="favorite park"
-          />
-        </RowContainer>
-        <DistanceText>
-          {item.distance ? `${item.distance}KM AWAY` : ''}
-        </DistanceText>
-      </ColumnContainer>
-    </ItemContainer>
+            <IconButton
+              icon={item.favorited ? 'heart' : 'heart-outline'}
+              size={24}
+              color={theme.colors.secondary500}
+              onPress={() => onFavoritePress(item)}
+              accessibilityLabel="favorite park"
+            />
+          </RowContainer>
+          <DistanceText>
+            {item.distance ? `${item.distance}KM AWAY` : ''}
+          </DistanceText>
+        </ColumnContainer>
+      </ItemContainer>
+    </TouchableWithoutFeedback>
   )
 
   return (
@@ -61,6 +62,7 @@ ParkList.propTypes = {
       favorited: PropTypes.bool,
     })
   ).isRequired,
+  onPress: PropTypes.func.isRequired,
   onFavoritePress: PropTypes.func,
 }
 

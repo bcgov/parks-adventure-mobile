@@ -38,6 +38,7 @@ const theme = {
     alert: '#FF0C3E',
     grey: '#828282',
     whiteDisabled: 'rgba(255, 255, 255, 0.5)',
+    surface: '#FAFAFA',
   },
   fonts: configureFonts(fontConfig),
 }

@@ -46,7 +46,7 @@ function Explore() {
     <ExplorePage>
       <ExploreScrollView showsVerticalScrollIndicator={false}>
         <ExploreHeader source={headerBackgroundSrc}>
-          <ExploreSvg width="234" height="28" />
+          <ExploreSvg height="70" />
           <RisingSun source={risingSunSrc} />
         </ExploreHeader>
         {/* Hiking - ActivityID = 1 */}

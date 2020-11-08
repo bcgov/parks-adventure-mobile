@@ -7,6 +7,7 @@ import {
   ParkCount,
   FilterText,
   FilterButton,
+  FilterIndicator,
 } from './ParkFindHeader.styles'
 
 const ParkFindHeader = ({
@@ -14,6 +15,7 @@ const ParkFindHeader = ({
   onChangeText,
   onSearch,
   showFilter,
+  filterApplied,
   count = 0,
 }) => (
   <Header>
@@ -33,6 +35,7 @@ const ParkFindHeader = ({
         onPress={showFilter}
         accessibilityLabel={'Filter Parks'}
       />
+      {filterApplied && <FilterIndicator />}
     </Content>
   </Header>
 )
@@ -42,6 +45,7 @@ ParkFindHeader.propTypes = {
   onChangeText: PropTypes.func.isRequired,
   onSearch: PropTypes.func.isRequired,
   showFilter: PropTypes.func.isRequired,
+  filterApplied: PropTypes.bool,
   count: PropTypes.number,
 }
 

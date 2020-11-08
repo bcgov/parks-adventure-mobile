@@ -1,7 +1,6 @@
 import React from 'react'
 import { useTheme, IconButton } from 'react-native-paper'
 import PropTypes from 'prop-types'
-import { AllHtmlEntities } from 'html-entities'
 import defaultParkImage from '../../assets/defaultParkImage.jpg'
 import {
   Container,
@@ -26,7 +25,7 @@ const ParkList = ({ parks, onFavoritePress }) => {
       />
       <ColumnContainer>
         <RowContainer>
-          <Title>{entities.decode(item.title)}</Title>
+          <Title>{item.title}</Title>
 
           <IconButton
             icon={item.favorited ? 'heart' : 'heart-outline'}

@@ -38,14 +38,15 @@ export async function fetchParks() {
           title: entities.decode(park.ParkSiteNameWeb),
           url: park.ParkURL,
           searchableTitle: park.ParkSiteNameBasic,
-          favorited: false,
-          activities: [],
-          facilities: [],
-          advisories: [],
           location: {
             latitude: park.Latitude,
             longitude: park.Longitude,
           },
+          favorited: false,
+          activities: [],
+          facilities: [],
+          alerts: [],
+          advisories: [],
         }
       })
 
@@ -68,20 +69,6 @@ export async function fetchParks() {
     })
 
     /*
-     * Attach associated advisories to each park
-     */
-    advisoriesXref['public-advisory-xref'].forEach((entry) => {
-      if (!entry.ORCSSite || !parks[entry.ORCSSite]) return
-
-      const advisory = advisories['public-advisory'].find(
-        ({ AdvisoryID }) => AdvisoryID === entry.AdvisoryID
-      )
-      if (!advisory) return
-
-      parks[entry.ORCSSite].advisories.push(advisory)
-    })
-
-    /*
      * Attach image uri to each park
      */
     photosXref['protected-lands-photos'].forEach((entry) => {
@@ -89,6 +76,32 @@ export async function fetchParks() {
         return
 
       parks[entry.ORCSSite].uri = entry.Thumbnail
+    })
+
+    /*
+     * Attach associated advisories to each park
+     */
+    const advisoryList = advisories['public-advisory']
+    const advisoryObject = {}
+    advisoryList.forEach((item) => (advisoryObject[item.AdvisoryID] = item))
+
+    advisoriesXref['public-advisory-xref'].forEach((entry) => {
+      if (!entry.ORCSSite || !parks[entry.ORCSSite]) return
+
+      const item = advisoryObject[entry.AdvisoryID]
+      if (!item) return
+
+      if (item.Alert === 'Y') {
+        parks[entry.ORCSSite].alerts.push({
+          ...item,
+          Headline: entities.decode(item.Headline),
+        })
+      } else {
+        parks[entry.ORCSSite].advisories.push({
+          ...item,
+          Headline: entities.decode(item.Headline),
+        })
+      }
     })
 
     await AsyncStorage.setItem(KEYS.parks, JSON.stringify(Object.values(parks)))
@@ -159,6 +172,15 @@ export async function fetchActivities() {
   }
 }
 
+export async function getActivities() {
+  try {
+    const data = await AsyncStorage.getItem(KEYS.activities)
+    return data ? JSON.parse(data) : []
+  } catch (error) {
+    console.warn(error)
+  }
+}
+
 export async function fetchFacilities() {
   try {
     const list = facilities['facility']
@@ -188,15 +210,6 @@ export async function fetchFacilities() {
     await AsyncStorage.setItem(KEYS.facilities, JSON.stringify(selectionList))
   } catch (error) {
     console.log(error)
-  }
-}
-
-export async function getActivities() {
-  try {
-    const data = await AsyncStorage.getItem(KEYS.activities)
-    return data ? JSON.parse(data) : []
-  } catch (error) {
-    console.warn(error)
   }
 }
 

@@ -11,7 +11,7 @@ test('Should render title and distance props', () => {
     favorited: false,
   }
 
-  const { getByText } = render(<CarouselCard {...park} />)
+  const { getByText } = render(<CarouselCard {...park} onPress={jest.fn()} />)
 
   const title = getByText(park.title)
   const distance = getByText(`${park.distance}km Away`)
@@ -27,7 +27,9 @@ test('renders with no uri and favorited set to true', () => {
     favorited: true,
   }
 
-  const tree = renderSnapshot.create(<CarouselCard {...park} />).toJSON()
+  const tree = renderSnapshot
+    .create(<CarouselCard {...park} onPress={jest.fn()} />)
+    .toJSON()
   expect(tree).toMatchSnapshot()
 })
 
@@ -38,10 +40,11 @@ describe('advisory banner', () => {
       title: 'Adventure Park',
       distance: '297',
       favorited: true,
-      advisories: [{ Alert: 'N', Headline: AdvisoryHeadline }],
+      advisories: [{ Headline: AdvisoryHeadline }],
+      alerts: [],
     }
 
-    const { getByText } = render(<CarouselCard {...park} />)
+    const { getByText } = render(<CarouselCard {...park} onPress={jest.fn()} />)
     const message = getByText(AdvisoryHeadline)
 
     expect(message).toBeDefined()
@@ -52,26 +55,29 @@ describe('advisory banner', () => {
       title: 'Adventure Park',
       distance: '297',
       favorited: true,
-      advisories: [
-        { Alert: 'N', Headline: 'Advisory 1' },
-        { Alert: 'N', Headline: 'Advisory 2' },
-      ],
+      advisories: [],
+      alerts: [],
     }
 
     //  Only Advisories
-    const { getByText, rerender } = render(<CarouselCard {...park} />)
+    park.advisories = [{ Headline: 'Advisory 1' }, { Headline: 'Advisory 2' }]
+    const { getByText, rerender } = render(
+      <CarouselCard {...park} onPress={jest.fn()} />
+    )
     let message = getByText('2 Advisories')
     expect(message).toBeDefined()
 
     // One Alert and one Advisory
-    park.advisories[0].Alert = 'Y'
-    rerender(<CarouselCard {...park} />)
+    park.advisories = [{ Headline: 'Advisory 1' }]
+    park.alerts = [{ Headline: 'Alert 1' }]
+    rerender(<CarouselCard {...park} onPress={jest.fn()} />)
     message = getByText('2 Alerts/Advisories')
     expect(message).toBeDefined()
 
     //  Only Alerts
-    park.advisories[1].Alert = 'Y'
-    rerender(<CarouselCard {...park} />)
+    park.advisories = []
+    park.alerts = [{ Headline: 'Alert 1' }, { Headline: 'Alert 2' }]
+    rerender(<CarouselCard {...park} onPress={jest.fn()} />)
     message = getByText('2 Alerts')
     expect(message).toBeDefined()
   })

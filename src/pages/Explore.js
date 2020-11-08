@@ -68,12 +68,9 @@ function Explore() {
               <CarouselCard
                 title={item.title}
                 uri={item.uri}
+                alerts={item.alerts}
                 advisories={item.advisories}
-                distance={
-                  location
-                    ? haversine(location, item.location).toFixed(0)
-                    : null
-                }
+                distance={haversine(location, item.location).toFixed(0)}
               />
             </ParkCardContainer>
           )}
@@ -97,11 +94,10 @@ function Explore() {
               length={swimmingParks.length}>
               <CarouselCard
                 title={item.title}
-                distance={
-                  location
-                    ? haversine(location, item.location).toFixed(0)
-                    : null
-                }
+                uri={item.uri}
+                alerts={item.alerts}
+                advisories={item.advisories}
+                distance={haversine(location, item.location).toFixed(0)}
               />
             </ParkCardContainer>
           )}
@@ -125,11 +121,10 @@ function Explore() {
               length={vehicleCampingParks.length}>
               <CarouselCard
                 title={item.title}
-                distance={
-                  location
-                    ? haversine(location, item.location).toFixed(0)
-                    : null
-                }
+                uri={item.uri}
+                alerts={item.alerts}
+                advisories={item.advisories}
+                distance={haversine(location, item.location).toFixed(0)}
               />
             </ParkCardContainer>
           )}

@@ -31,7 +31,11 @@ exports[`Filter page matches snapshot 1`] = `
       ]
     }
   >
-    <Text />
+    <Icon
+      name="window-close"
+      onPress={[Function]}
+      size={25}
+    />
   </View>
   <RCTScrollView
     showsVerticalScrollIndicator={false}
@@ -208,9 +212,7 @@ exports[`Filter page matches snapshot 1`] = `
                       ]
                     }
                   >
-                    <svg
-                      data-file-name="SvgDistanceMarker"
-                    />
+                    <SvgMock />
                     <Text
                       style={
                         Array [

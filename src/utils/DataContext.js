@@ -87,6 +87,7 @@ export function DataProvider({ children }) {
         applyFilters,
         resetFilters,
         filteredList,
+        filterApplied: parks.length - filteredList.length > 0,
       }}>
       {children}
     </DataContext.Provider>

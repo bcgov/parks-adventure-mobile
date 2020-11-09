@@ -7,7 +7,12 @@ import ParkList from '../components/ParkList'
 import { ParkFindContainer, ParkListContainer } from './ParkFind.styles'
 
 function ParkFind({ navigation }) {
-  const { applyFilters, filteredList, location } = React.useContext(DataContext)
+  const {
+    applyFilters,
+    filteredList,
+    filterApplied,
+    location,
+  } = React.useContext(DataContext)
   const [searchTerm, onChangeSearchTerm] = React.useState('')
 
   /*
@@ -38,6 +43,7 @@ function ParkFind({ navigation }) {
         onChangeText={onChangeSearchTerm}
         onSearch={() => applyFilters(searchTerm)}
         showFilter={() => navigation.navigate('Filter')}
+        filterApplied={filterApplied}
         count={filteredList.length}
       />
       <ParkListContainer>

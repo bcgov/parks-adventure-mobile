@@ -168,7 +168,7 @@ export async function fetchActivities() {
 
     await AsyncStorage.setItem(KEYS.activities, JSON.stringify(selectionList))
   } catch (error) {
-    console.log(error)
+    console.warn(error)
   }
 }
 
@@ -209,7 +209,7 @@ export async function fetchFacilities() {
 
     await AsyncStorage.setItem(KEYS.facilities, JSON.stringify(selectionList))
   } catch (error) {
-    console.log(error)
+    console.warn(error)
   }
 }
 

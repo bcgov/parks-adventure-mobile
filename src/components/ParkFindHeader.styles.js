@@ -21,6 +21,7 @@ export const Content = styled(View)`
   flex-direction: row;
   justify-content: flex-end;
   align-items: center;
+  position: relative;
 `
 
 export const ParkCount = styled(Text)`
@@ -36,4 +37,13 @@ export const FilterText = styled(Text)`
 export const FilterButton = styled(IconButton)`
   opacity: 0.6;
   margin-right: -4px;
+`
+
+export const FilterIndicator = styled(View)`
+  width: 8px;
+  height: 8px;
+  border-radius: 4px;
+  background-color: ${theme.colors.secondary500};
+  position: absolute;
+  bottom: 13px;
 `

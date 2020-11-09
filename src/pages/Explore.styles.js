@@ -31,6 +31,7 @@ export const RisingSun = styled(Image)`
   width: 80px;
   height: 42px;
   align-self: flex-end;
+  margin-top: -20px;
   margin-bottom: 20px;
 `
 

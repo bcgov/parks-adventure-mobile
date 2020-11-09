@@ -4,7 +4,7 @@ import { Dimensions } from 'react-native'
 import { Divider, Button, useTheme } from 'react-native-paper'
 import MultiSlider from '@ptomasroos/react-native-multi-slider'
 import MCIcon from 'react-native-vector-icons/MaterialCommunityIcons'
-import DistanceMarkerSvg from '../../assets/DistanceMarker'
+import DistanceMarkerSvg from '../../assets/DistanceMarker.svg'
 import { DataContext } from '../utils/DataContext'
 import FilterAmenityAccordion from '../components/FilterAmenityAccordion'
 import {
@@ -143,7 +143,6 @@ function Filter({ navigation }) {
 
 Filter.propTypes = {
   navigation: PropTypes.object.isRequired,
-  route: PropTypes.object.isRequired,
 }
 
 export default Filter

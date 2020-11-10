@@ -22,6 +22,11 @@ import {
 
 function Filter({ navigation }) {
   const theme = useTheme()
+  /*
+   * A way of handling the font-scaling of the Large Accessibility Sizes
+   * feature with a relative position footer
+   */
+  const [footerHeight, setFooterHeight] = React.useState(70)
   const {
     distance,
     setDistance,
@@ -52,7 +57,9 @@ function Filter({ navigation }) {
         <MCIcon onPress={close} name="window-close" size={25} />
       </Header>
 
-      <FilterScrollView showsVerticalScrollIndicator={false}>
+      <FilterScrollView
+        showsVerticalScrollIndicator={false}
+        footerHeight={footerHeight}>
         <Section>
           <FilterTitle>Distance</FilterTitle>
           <MultiSlider
@@ -117,7 +124,10 @@ function Filter({ navigation }) {
         </Section>
       </FilterScrollView>
 
-      <Footer>
+      <Footer
+        onLayout={({ nativeEvent }) =>
+          setFooterHeight(nativeEvent.layout.height)
+        }>
         <Button compact={true} onPress={resetFilters}>
           Clear All
         </Button>
@@ -127,7 +137,7 @@ function Filter({ navigation }) {
             mode={'contained'}
             color={theme.colors.primary50}
             contentStyle={{
-              height: 40,
+              minHeight: 40,
             }}
             labelStyle={{
               fontFamily: 'bcsans-bold',

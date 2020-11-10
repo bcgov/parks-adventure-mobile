@@ -18,7 +18,7 @@ export const CardCover = styled(ImageBackground)`
 export const CardBanner = styled(Text)`
   background-color: ${(props) =>
     props.alert ? theme.colors.alert : theme.colors.secondary50};
-  height: 30px;
+  min-height: 30px;
   line-height: 30px;
   text-align: center;
   color: ${(props) => (props.alert ? 'white' : 'black')};

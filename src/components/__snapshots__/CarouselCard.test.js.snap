@@ -109,6 +109,7 @@ exports[`renders with no uri and favorited set to true 1`] = `
         }
       >
         <Text
+          numberOfLines={3}
           style={
             Array [
               Object {

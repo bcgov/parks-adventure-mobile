@@ -38,6 +38,7 @@ exports[`Filter page matches snapshot 1`] = `
     />
   </View>
   <RCTScrollView
+    footerHeight={70}
     showsVerticalScrollIndicator={false}
     style={
       Array [
@@ -208,6 +209,7 @@ exports[`Filter page matches snapshot 1`] = `
                         Object {
                           "alignItems": "center",
                           "position": "relative",
+                          "width": 100,
                         },
                       ]
                     }
@@ -227,6 +229,8 @@ exports[`Filter page matches snapshot 1`] = `
                               "color": "white",
                               "fontSize": 10,
                               "position": "absolute",
+                              "textShadowColor": "'rgba(0, 0, 0, 0.75)'",
+                              "textShadowRadius": 2,
                               "top": 9,
                             },
                           ],
@@ -338,6 +342,7 @@ exports[`Filter page matches snapshot 1`] = `
     </View>
   </RCTScrollView>
   <View
+    onLayout={[Function]}
     style={
       Array [
         Object {
@@ -348,8 +353,9 @@ exports[`Filter page matches snapshot 1`] = `
           "borderTopWidth": 1,
           "bottom": 0,
           "flexDirection": "row",
-          "height": 70,
+          "flexWrap": "wrap",
           "justifyContent": "space-between",
+          "minHeight": 70,
           "paddingBottom": 10,
           "paddingLeft": 10,
           "paddingRight": 10,
@@ -521,7 +527,7 @@ exports[`Filter page matches snapshot 1`] = `
                   "justifyContent": "center",
                 },
                 Object {
-                  "height": 40,
+                  "minHeight": 40,
                 },
               ]
             }

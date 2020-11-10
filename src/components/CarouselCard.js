@@ -54,7 +54,7 @@ function CarouselCard({
       </CardCover>
       <CardContent>
         <ContentLine>
-          <ParkTitle>{entities.decode(title)}</ParkTitle>
+          <ParkTitle numberOfLines={3}>{entities.decode(title)}</ParkTitle>
           <MCIcon
             name={favorited ? 'heart' : 'heart-outline'}
             size={20}

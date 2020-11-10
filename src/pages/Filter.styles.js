@@ -18,7 +18,7 @@ export const Header = styled(View)`
 
 export const FilterScrollView = styled(ScrollView)`
   padding: 10px;
-  margin-bottom: 70px;
+  margin-bottom: ${(props) => props.footerHeight}px;
 `
 
 export const Section = styled(View)`
@@ -34,6 +34,7 @@ export const FilterTitle = styled(Text)`
 export const DistanceMarker = styled(View)`
   align-items: center;
   position: relative;
+  width: 100px;
 `
 
 export const DistanceText = styled(Text)`
@@ -41,10 +42,12 @@ export const DistanceText = styled(Text)`
   position: absolute;
   top: 9px;
   font-size: 10px;
+  text-shadow-color: 'rgba(0, 0, 0, 0.75)';
+  text-shadow-radius: 2px;
 `
 
 export const Footer = styled(View)`
-  height: 70px;
+  min-height: 70px;
   width: 100%;
   border-top-width: 1px;
   border-style: solid;
@@ -53,6 +56,7 @@ export const Footer = styled(View)`
   bottom: 0;
   flex-direction: row;
   align-items: center;
+  flex-wrap: wrap;
   justify-content: space-between;
   padding: 10px;
   background-color: white;

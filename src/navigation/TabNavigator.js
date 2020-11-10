@@ -16,7 +16,11 @@ const TabNavigator = () => {
   return (
     <Tab.Navigator
       screenOptions={({ route }) => ({
-        tabBarLabel: ({ color }) => <Label color={color}>{route.name}</Label>,
+        tabBarLabel: ({ color }) => (
+          <Label allowFontScaling={false} color={color}>
+            {route.name}
+          </Label>
+        ),
       })}
       tabBarOptions={{
         activeBackgroundColor: theme.colors.primary,

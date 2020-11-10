@@ -73,6 +73,13 @@ export function DataProvider({ children }) {
     updateFacilities(originalFacilities)
   }
 
+  function favoritePark(id) {
+    const index = parks.findIndex((park) => park.id === id)
+    const newList = [...parks]
+    newList[index].favorited = !parks[index].favorited
+    setParks(newList)
+  }
+
   return (
     <DataContext.Provider
       value={{
@@ -88,6 +95,7 @@ export function DataProvider({ children }) {
         resetFilters,
         filteredList,
         filterApplied: parks.length - filteredList.length > 0,
+        favoritePark,
       }}>
       {children}
     </DataContext.Provider>

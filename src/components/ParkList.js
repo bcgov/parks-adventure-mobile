@@ -32,7 +32,7 @@ const ParkList = ({ parks, onFavoritePress }) => {
             icon={item.favorited ? 'heart' : 'heart-outline'}
             size={24}
             color={theme.colors.secondary500}
-            onPress={() => onFavoritePress(item)}
+            onPress={() => onFavoritePress(item.id)}
             accessibilityLabel="favorite park"
           />
         </RowContainer>
@@ -49,6 +49,7 @@ const ParkList = ({ parks, onFavoritePress }) => {
       renderItem={renderParkItem}
       keyExtractor={(item) => item.title}
       showsVerticalScrollIndicator={false}
+      contentContainerStyle={{ paddingTop: 10, paddingBottom: 10 }}
     />
   )
 }

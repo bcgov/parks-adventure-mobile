@@ -1,0 +1,188 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Favourites page matches snapshot 1`] = `
+<RCTSafeAreaView
+  emulateUnlessSupported={true}
+  style={
+    Array [
+      Object {
+        "backgroundColor": "white",
+        "flexBasis": 0,
+        "flexGrow": 1,
+        "flexShrink": 1,
+      },
+    ]
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "marginBottom": 0,
+          "marginLeft": 20,
+          "marginRight": 20,
+          "marginTop": 0,
+        },
+      ]
+    }
+  >
+    <RCTScrollView
+      className="sc-bdnylx hmhEvm"
+      contentContainerStyle={
+        Object {
+          "paddingBottom": 10,
+          "paddingTop": 10,
+        }
+      }
+      data={
+        Array [
+          Object {
+            "activities": Array [],
+            "distance": "383",
+            "facilities": Array [],
+            "favorited": true,
+            "id": "361",
+            "location": Object {
+              "latitude": "50.987578",
+              "longitude": "-119.725971",
+            },
+            "searchableTitle": "Adams Lake Provincial Park - Bush Creek Site",
+            "title": "Adams Lake Provincial Park &ndash; Bush Creek Site",
+          },
+        ]
+      }
+      disableVirtualization={false}
+      getItem={[Function]}
+      getItemCount={[Function]}
+      horizontal={false}
+      initialNumToRender={10}
+      keyExtractor={[Function]}
+      maxToRenderPerBatch={10}
+      onContentSizeChange={[Function]}
+      onEndReachedThreshold={2}
+      onLayout={[Function]}
+      onMomentumScrollEnd={[Function]}
+      onScroll={[Function]}
+      onScrollBeginDrag={[Function]}
+      onScrollEndDrag={[Function]}
+      removeClippedSubviews={false}
+      renderItem={[Function]}
+      scrollEventThrottle={50}
+      showsVerticalScrollIndicator={false}
+      stickyHeaderIndices={Array []}
+      updateCellsBatchingPeriod={50}
+      viewabilityConfigCallbackPairs={Array []}
+      windowSize={21}
+    >
+      <View>
+        <View
+          onLayout={[Function]}
+          style={null}
+        >
+          <View
+            className="sc-gtssRu gRVnsh"
+          >
+            <Image
+              className="sc-dlnjPT fmUCMd"
+              defaultSource={1}
+              source={1}
+            />
+            <View
+              className="sc-jSFkmK glLnMI"
+            >
+              <View
+                className="sc-gKAblj bdPEsA"
+              >
+                <Text
+                  className="sc-hKFyIo jvWbbP"
+                  style={
+                    Array [
+                      Object {
+                        "color": "#000000",
+                        "fontFamily": "System",
+                        "fontWeight": "400",
+                        "textAlign": "left",
+                      },
+                      undefined,
+                    ]
+                  }
+                >
+                  Adams Lake Provincial Park – Bush Creek Site
+                </Text>
+                <View
+                  accessibilityLabel="favorite park"
+                  accessibilityRole="button"
+                  accessibilityState={
+                    Object {
+                      "disabled": undefined,
+                    }
+                  }
+                  accessible={true}
+                  focusable={true}
+                  hitSlop={
+                    Object {
+                      "bottom": 6,
+                      "left": 6,
+                      "right": 6,
+                      "top": 6,
+                    }
+                  }
+                  onClick={[Function]}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Array [
+                      Object {
+                        "overflow": "hidden",
+                      },
+                      Array [
+                        Object {
+                          "alignItems": "center",
+                          "justifyContent": "center",
+                          "margin": 6,
+                          "overflow": "hidden",
+                        },
+                        Object {
+                          "borderRadius": 18,
+                          "height": 36,
+                          "width": 36,
+                        },
+                        undefined,
+                        undefined,
+                      ],
+                    ]
+                  }
+                >
+                  <View>
+                    <Text />
+                  </View>
+                </View>
+              </View>
+              <Text
+                className="sc-eCApGN fFLSlQ"
+                style={
+                  Array [
+                    Object {
+                      "color": "#000000",
+                      "fontFamily": "System",
+                      "fontWeight": "400",
+                      "textAlign": "left",
+                    },
+                    undefined,
+                  ]
+                }
+              >
+                383KM AWAY
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+    </RCTScrollView>
+  </View>
+</RCTSafeAreaView>
+`;

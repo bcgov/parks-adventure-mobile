@@ -20,6 +20,7 @@ function CarouselCard({
   title,
   distance,
   uri,
+  onFavoritePress,
   advisories = [],
   favorited = false,
 }) {
@@ -59,6 +60,7 @@ function CarouselCard({
             name={favorited ? 'heart' : 'heart-outline'}
             size={20}
             color={theme.colors.secondary500}
+            onPress={onFavoritePress}
           />
         </ContentLine>
         {distance && <ParkDistance>{`${distance}km Away`}</ParkDistance>}
@@ -71,6 +73,7 @@ CarouselCard.propTypes = {
   title: PropTypes.string.isRequired,
   distance: PropTypes.string,
   uri: PropTypes.string,
+  onFavoritePress: PropTypes.func.isRequired,
   favorited: PropTypes.bool,
   advisories: PropTypes.arrayOf(
     PropTypes.shape({

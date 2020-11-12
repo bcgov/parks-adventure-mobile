@@ -129,26 +129,12 @@ exports[`renders with no uri and favorited set to true 1`] = `
         >
           Adventure Park
         </Text>
-        <Text
-          allowFontScaling={false}
-          style={
-            Array [
-              Object {
-                "color": undefined,
-                "fontSize": 20,
-              },
-              undefined,
-              Object {
-                "fontFamily": "material-community",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-              },
-              Object {},
-            ]
-          }
-        >
-          
-        </Text>
+        <Icon
+          accessibilityLabel="favorite park"
+          icon="heart"
+          onPress={[Function]}
+          size={20}
+        />
       </View>
       <Text
         style={

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import HTML from 'react-native-render-html'
 import { AllHtmlEntities } from 'html-entities'
 import { useTheme } from 'react-native-paper'
-import MCIcon from 'react-native-vector-icons/MaterialCommunityIcons'
+import { MaterialCommunityIcons as Icon } from '@expo/vector-icons'
 import {
   Container,
   Accordion,
@@ -47,7 +47,7 @@ function AlertAccordion({ headline, description, alert = false }) {
               listsPrefixesRenderers={{
                 ul: () => {
                   return (
-                    <MCIcon
+                    <Icon
                       name="circle-medium"
                       color={color}
                       size={12}

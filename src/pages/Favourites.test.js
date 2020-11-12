@@ -1,15 +1,18 @@
 import React from 'react'
-import renderSnapshot from 'react-test-renderer'
+import { create, act } from 'react-test-renderer'
 import FavouritesPage from './Favourites'
 import { DataProvider } from '../utils/DataContext.mock'
 
 test('Favourites page matches snapshot', () => {
-  const tree = renderSnapshot
-    .create(
+  let tree
+
+  act(() => {
+    tree = create(
       <DataProvider>
         <FavouritesPage />
       </DataProvider>
     )
-    .toJSON()
-  expect(tree).toMatchSnapshot()
+  })
+
+  expect(tree.toJSON()).toMatchSnapshot()
 })

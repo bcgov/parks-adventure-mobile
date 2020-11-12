@@ -290,96 +290,20 @@ exports[`Matches snapshot 1`] = `
     >
       Filter
     </Text>
-    <View
+    <Icon
       accessibilityLabel="Filter Parks"
-      accessibilityRole="button"
-      accessibilityState={
-        Object {
-          "disabled": undefined,
-        }
-      }
-      accessible={true}
-      focusable={true}
-      hitSlop={
-        Object {
-          "bottom": 6,
-          "left": 6,
-          "right": 6,
-          "top": 6,
-        }
-      }
-      onClick={[Function]}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
+      icon="tune"
+      onPress={[Function]}
+      size={18}
       style={
         Array [
           Object {
-            "overflow": "hidden",
+            "marginRight": -4,
+            "opacity": 0.6,
           },
-          Array [
-            Object {
-              "alignItems": "center",
-              "justifyContent": "center",
-              "margin": 6,
-              "overflow": "hidden",
-            },
-            Object {
-              "borderRadius": 13.5,
-              "height": 27,
-              "width": 27,
-            },
-            undefined,
-            Array [
-              Object {
-                "marginRight": -4,
-                "opacity": 0.6,
-              },
-            ],
-          ],
         ]
       }
-    >
-      <View>
-        <Text
-          accessibilityElementsHidden={true}
-          allowFontScaling={false}
-          importantForAccessibility="no-hide-descendants"
-          pointerEvents="none"
-          style={
-            Array [
-              Object {
-                "color": "#000000",
-                "fontSize": 18,
-              },
-              Array [
-                Object {
-                  "transform": Array [
-                    Object {
-                      "scaleX": 1,
-                    },
-                  ],
-                },
-                Object {
-                  "backgroundColor": "transparent",
-                },
-              ],
-              Object {
-                "fontFamily": "material-community",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-              },
-              Object {},
-            ]
-          }
-        >
-          
-        </Text>
-      </View>
-    </View>
+    />
   </View>
 </View>
 `;

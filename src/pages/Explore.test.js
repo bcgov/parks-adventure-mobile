@@ -1,15 +1,18 @@
 import React from 'react'
-import renderSnapshot from 'react-test-renderer'
+import { create, act } from 'react-test-renderer'
 import ExplorePage from './Explore'
 import { DataProvider } from '../utils/DataContext.mock'
 
 test('Explore page matches snapshot', () => {
-  const tree = renderSnapshot
-    .create(
+  let tree
+
+  act(() => {
+    tree = create(
       <DataProvider>
         <ExplorePage />
       </DataProvider>
     )
-    .toJSON()
-  expect(tree).toMatchSnapshot()
+  })
+
+  expect(tree.toJSON()).toMatchSnapshot()
 })

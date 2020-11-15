@@ -90,23 +90,37 @@ function ParkDetails({ route }) {
           : null}
 
         <InformationSection>
-          <ClippedText numberOfLines={3} marginTop={park.advisories.length > 0}>
-            {park.description}
-          </ClippedText>
-          <Link onPress={linkToWebsite}>Read More</Link>
+          {park.description.length > 0 && (
+            <>
+              <ClippedText
+                numberOfLines={3}
+                marginTop={park.advisories.length > 0}>
+                {park.description}
+              </ClippedText>
+              <Link onPress={linkToWebsite}>Read More</Link>
+            </>
+          )}
 
-          <SectionDivider />
-          <SectionTitle title="Location" icon="map-marker" />
-          <ClippedText numberOfLines={3}>{park.locationNotes}</ClippedText>
-          <Link onPress={linkToWebsite}>Read More</Link>
-          <MapButton absolute={false} location={park.location} />
+          {park.locationNotes.length > 0 && (
+            <>
+              <SectionDivider />
+              <SectionTitle title="Location" icon="map-marker" />
+              <ClippedText numberOfLines={3}>{park.locationNotes}</ClippedText>
+              <Link onPress={linkToWebsite}>Read More</Link>
+              <MapButton absolute={false} location={park.location} />
+            </>
+          )}
         </InformationSection>
 
-        <FeesDividerTop />
-        <FeesSection>
-          <SectionTitle title="User Fees" icon="map-marker" />
-        </FeesSection>
-        <FeesDividerBottom />
+        {park.fees && (
+          <>
+            <FeesDividerTop />
+            <FeesSection>
+              <SectionTitle title="User Fees" icon="map-marker" />
+            </FeesSection>
+            <FeesDividerBottom />
+          </>
+        )}
 
         <InformationSection>
           <SectionTitle title="Activities" icon="walk" link={park.url} />
@@ -115,15 +129,27 @@ function ParkDetails({ route }) {
           <SectionTitle title="Facilities" icon="home" link={park.url} />
           <AmenityList list={facilities} selected={park.facilities} />
 
-          <SectionTitle title="Park Safety Info" icon="map-marker" />
-          <HTMLContent content={park.safetyInfo} />
+          {park.safetyInfo !== undefined && park.safetyInfo.length > 0 && (
+            <>
+              <SectionTitle title="Park Safety Info" icon="map-marker" />
+              <HTMLContent content={park.safetyInfo} />
+            </>
+          )}
 
-          <SectionDivider />
-          <SectionTitle title="Special Notes" icon="map-marker" />
-          <HTMLContent content={park.specialNotes} />
+          {park.specialNotes.length > 0 && (
+            <>
+              <SectionDivider />
+              <SectionTitle title="Special Notes" icon="map-marker" />
+              <HTMLContent content={park.specialNotes} />
+            </>
+          )}
 
-          <SectionDivider />
-          <SectionTitle title="Nature and Culture" icon="map-marker" />
+          {park.natureAndCulture.length > 0 && (
+            <>
+              <SectionDivider />
+              <SectionTitle title="Nature and Culture" icon="map-marker" />
+            </>
+          )}
         </InformationSection>
       </ScrollView>
     </DetailsPage>

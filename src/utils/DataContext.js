@@ -21,11 +21,14 @@ export function DataProvider({ children }) {
       const parks = await getParks()
       setParks(parks)
       updateFilteredList(parks)
+
       const location = await getLocation()
       setLocation(location)
+
       const activities = await getActivities()
       updateActivities(activities)
       setOriginalActivities(JSON.parse(JSON.stringify(activities)))
+
       const facilities = await getFacilities()
       updateFacilities(JSON.parse(JSON.stringify(facilities)))
       setOriginalFacilities(facilities)

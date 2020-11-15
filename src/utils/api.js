@@ -2,6 +2,7 @@ import AsyncStorage from '@react-native-community/async-storage'
 import * as Location from 'expo-location'
 import move from 'array-move'
 import protectedLands from '../../assets/protected-lands-status.json'
+import parkDetails from '../../assets/protected-land-details.json'
 import photosXref from '../../assets/protected-lands-photos.json'
 import activitiesXref from '../../assets/protected-lands-activity-xref.json'
 import facilitiesXref from '../../assets/protected-lands-facility-xref.json'
@@ -47,8 +48,39 @@ export async function fetchParks() {
           facilities: [],
           alerts: [],
           advisories: [],
+          description: '',
+          locationNotes: '',
+          safetyInfo: '',
+          specialNotes: '',
+          natureAndCulture: '',
         }
       })
+
+    /*
+     * Attach park information
+     */
+    parkDetails['protected-land-details'].forEach((entry) => {
+      if (!entry.ORCSSite || !parks[entry.ORCSSite]) return
+
+      parks[entry.ORCSSite] = {
+        ...parks[entry.ORCSSite],
+        description: entities.decode(
+          entry.Description.replace(/<\/?p[^>]*>/g, '')
+            .replace(/<img[^>]*>/g, '')
+            .replace(/<\/?a[^>]*>/g, '')
+            .replace(/(<([^>]+)>)/g, '')
+            .trim()
+        ),
+        locationNotes: entry.LocationNotes.replace(/<\/?p[^>]*>/g, '')
+          .replace(/<img[^>]*>/g, '')
+          .replace(/<\/?a[^>]*>/g, '')
+          .replace(/(<([^>]+)>)/g, '')
+          .trim(),
+        safetyInfo: entry.SafefyInfo,
+        specialNotes: entry.SpecialNotes,
+        natureAndCulture: entry.NatureAndCulture,
+      }
+    })
 
     /*
      * Attach associated activities for each park

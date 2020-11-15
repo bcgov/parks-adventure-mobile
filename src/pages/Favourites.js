@@ -1,10 +1,20 @@
 import React from 'react'
 import haversine from 'haversine'
+import { MaterialCommunityIcons as Icon } from '@expo/vector-icons'
+import { useTheme } from 'react-native-paper'
 import { DataContext } from '../utils/DataContext'
 import ParkList from '../components/ParkList'
-import { SafeArea, Container } from './Favourites.styles'
+import {
+  SafeArea,
+  Container,
+  Placeholder,
+  Text,
+  FavouriteText,
+  InlineIcon,
+} from './Favourites.styles'
 
 function Favourites() {
+  const theme = useTheme()
   const { parks, location, favoritePark } = React.useContext(DataContext)
 
   const favoriteParks = parks
@@ -23,7 +33,32 @@ function Favourites() {
   return (
     <SafeArea>
       <Container>
-        <ParkList parks={favoriteParks} onFavoritePress={favoritePark} />
+        {favoriteParks.length > 0 ? (
+          <ParkList parks={favoriteParks} onFavoritePress={favoritePark} />
+        ) : (
+          <Placeholder
+            showsVerticalScrollIndicator={false}
+            alwaysBounceVertical={false}
+            contentContainerStyle={{
+              flexGrow: 1,
+              justifyContent: 'center',
+            }}>
+            <Text>
+              <Text>Easily access parks by adding them to your list of </Text>
+              <FavouriteText>Favourites</FavouriteText>
+              <Text>. Add parks by tapping the</Text>
+              <InlineIcon>
+                <Icon
+                  name="heart-outline"
+                  color={theme.colors.secondary500}
+                  size={24}
+                  allowFontScaling={true}
+                />
+              </InlineIcon>
+              <Text>on their cards or details page.</Text>
+            </Text>
+          </Placeholder>
+        )}
       </Container>
     </SafeArea>
   )

@@ -18,6 +18,9 @@ exports[`Favourites page matches snapshot 1`] = `
     style={
       Array [
         Object {
+          "flexBasis": 0,
+          "flexGrow": 1,
+          "flexShrink": 1,
           "marginBottom": 0,
           "marginLeft": 20,
           "marginRight": 20,

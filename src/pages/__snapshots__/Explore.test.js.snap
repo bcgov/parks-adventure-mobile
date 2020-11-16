@@ -15,6 +15,7 @@ exports[`Explore page matches snapshot 1`] = `
   }
 >
   <RCTScrollView
+    locationNotAvailable={false}
     showsVerticalScrollIndicator={false}
     style={
       Array [
@@ -22,6 +23,7 @@ exports[`Explore page matches snapshot 1`] = `
           "flexBasis": 0,
           "flexGrow": 1,
           "flexShrink": 1,
+          "marginTop": 0,
         },
       ]
     }

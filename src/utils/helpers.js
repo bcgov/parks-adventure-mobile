@@ -9,23 +9,16 @@ export function getClosestParksByAmenityTypeAndID(
   currentLocation,
   parks
 ) {
-  const parksByType = parks.filter(
-    (park) =>
-      park[type].includes(id) &&
-      currentLocation &&
-      haversine(currentLocation, park.location) <= defaultDistanceFilter
-  )
+  let parksByType = parks.filter((park) => park[type].includes(id))
 
   if (currentLocation) {
-    parksByType.sort((a, b) => {
-      const distanceToA = haversine(currentLocation, a.location)
-      const distanceToB = haversine(currentLocation, b.location)
-
-      return distanceToA - distanceToB
-    })
+    parksByType = parksByType.filter(
+      (park) =>
+        haversine(currentLocation, park.location) <= defaultDistanceFilter
+    )
   }
 
-  return parksByType
+  return parksByType.sort((a, b) => sortParks(currentLocation, a, b))
 }
 
 export function filterParks({
@@ -70,4 +63,25 @@ export function filterParks({
   }
 
   return filteredParks
+}
+
+export function sortParks(location, a, b) {
+  if (location) {
+    const distanceToA = haversine(location, a.location)
+    const distanceToB = haversine(location, b.location)
+    return distanceToA - distanceToB
+  } else {
+    return a.searchableTitle
+      .toUpperCase()
+      .localeCompare(b.searchableTitle.toUpperCase())
+  }
+}
+
+export function addDistanceToParks(location, park) {
+  return {
+    ...park,
+    distance: location
+      ? haversine(location, park.location).toFixed(0)
+      : 'unknown ',
+  }
 }

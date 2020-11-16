@@ -1,17 +1,11 @@
-import { getClosestParksByAmenityTypeAndID, filterParks } from './helpers'
+import {
+  getClosestParksByAmenityTypeAndID,
+  filterParks,
+  sortParks,
+  addDistanceToParks,
+} from './helpers'
 
 const parks = [
-  {
-    id: '361',
-    title: 'Adams Lake Provincial Park &ndash; Bush Creek Site',
-    searchableTitle: 'Adams Lake Provincial Park - Bush Creek Site',
-    location: {
-      latitude: '50.987578',
-      longitude: '-119.725971',
-    },
-    activities: ['1'],
-    facilities: ['3'],
-  },
   {
     id: '9229',
     title: 'Gowlland Tod Provincial Park',
@@ -22,6 +16,17 @@ const parks = [
     },
     activities: ['1'],
     facilities: ['1'],
+  },
+  {
+    id: '361',
+    title: 'Adams Lake Provincial Park - Bush Creek Site',
+    searchableTitle: 'Adams Lake Provincial Park - Bush Creek Site',
+    location: {
+      latitude: '50.987578',
+      longitude: '-119.725971',
+    },
+    activities: ['1'],
+    facilities: ['3'],
   },
 ]
 
@@ -159,4 +164,36 @@ test('filterParks: does not return parks if they do not contain ALL indicated fa
     facilities,
   })
   expect(notContainingParks).toHaveLength(0)
+})
+
+test('sortParks sorted based on distance if location provided', () => {
+  parks.sort((a, b) => sortParks(location, a, b))
+  expect(parks[0].searchableTitle).toBe('Gowlland Tod Provincial Park')
+})
+
+test('sortParks sorted based on park name if no location provided', () => {
+  parks.sort((a, b) => sortParks(undefined, a, b))
+  expect(parks[0].searchableTitle).toBe(
+    'Adams Lake Provincial Park - Bush Creek Site'
+  )
+})
+
+test('addDistanceToParks adds distance string to park if location provided', () => {
+  const results = parks.map((park) => addDistanceToParks(location, park))
+  expect.assertions(4)
+
+  results.forEach((item) => {
+    expect(item).toHaveProperty('distance')
+    expect(parseInt(item.distance)).toEqual(expect.any(Number))
+  })
+})
+
+test("addDistanceToParks adds 'unknown'  string to park if no location provided", () => {
+  const results = parks.map((park) => addDistanceToParks(null, park))
+  expect.assertions(4)
+
+  results.forEach((item) => {
+    expect(item).toHaveProperty('distance')
+    expect(item.distance).toEqual('unknown ')
+  })
 })

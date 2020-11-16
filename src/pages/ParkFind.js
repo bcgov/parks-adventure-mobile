@@ -1,9 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import haversine from 'haversine'
 import { DataContext } from '../utils/DataContext'
+import { sortParks, addDistanceToParks } from '../utils/helpers'
 import ParkFindHeader from '../components/ParkFindHeader'
 import ParkList from '../components/ParkList'
+import LocationBanner from '../components/LocationBanner'
 import { ParkFindContainer, ParkListContainer } from './ParkFind.styles'
 
 function ParkFind({ navigation }) {
@@ -26,19 +27,12 @@ function ParkFind({ navigation }) {
   }, [searchTerm])
 
   const parks = filteredList
-    .map((park) => ({
-      ...park,
-      distance: haversine(location, park.location).toFixed(0),
-    }))
-    .sort((a, b) => {
-      const distanceToA = haversine(location, a.location)
-      const distanceToB = haversine(location, b.location)
-
-      return distanceToA - distanceToB
-    })
+    .map((park) => addDistanceToParks(location, park))
+    .sort((a, b) => sortParks(location, a, b))
 
   return (
-    <ParkFindContainer>
+    <ParkFindContainer locationNotAvailable={!location}>
+      <LocationBanner />
       <ParkFindHeader
         searchTerm={searchTerm}
         onChangeText={onChangeSearchTerm}

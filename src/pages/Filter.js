@@ -28,6 +28,7 @@ function Filter({ navigation }) {
    */
   const [footerHeight, setFooterHeight] = React.useState(70)
   const {
+    location,
     distance,
     setDistance,
     activities,
@@ -60,12 +61,13 @@ function Filter({ navigation }) {
       <FilterScrollView
         showsVerticalScrollIndicator={false}
         footerHeight={footerHeight}>
-        <Section>
+        <Section disabled={!location}>
           <FilterTitle>Distance</FilterTitle>
           <MultiSlider
             min={1}
             max={100}
             values={[distance]}
+            enabledOne={location}
             onValuesChange={(values) => setDistance(values[0])}
             sliderLength={Dimensions.get('window').width - 55}
             containerStyle={{

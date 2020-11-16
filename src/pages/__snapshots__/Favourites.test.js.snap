@@ -15,6 +15,7 @@ exports[`Favourites page matches snapshot 1`] = `
   }
 >
   <View
+    locationNotAvailable={false}
     style={
       Array [
         Object {

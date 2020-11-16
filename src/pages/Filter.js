@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { Dimensions } from 'react-native'
 import { Divider, Button, useTheme } from 'react-native-paper'
 import MultiSlider from '@ptomasroos/react-native-multi-slider'
-import MCIcon from 'react-native-vector-icons/MaterialCommunityIcons'
+import { MaterialCommunityIcons as Icon } from '@expo/vector-icons'
 import DistanceMarkerSvg from '../../assets/DistanceMarker.svg'
 import { DataContext } from '../utils/DataContext'
 import FilterAmenityAccordion from '../components/FilterAmenityAccordion'
@@ -22,6 +22,11 @@ import {
 
 function Filter({ navigation }) {
   const theme = useTheme()
+  /*
+   * A way of handling the font-scaling of the Large Accessibility Sizes
+   * feature with a relative position footer
+   */
+  const [footerHeight, setFooterHeight] = React.useState(70)
   const {
     distance,
     setDistance,
@@ -49,10 +54,12 @@ function Filter({ navigation }) {
   return (
     <FilterContainer>
       <Header>
-        <MCIcon onPress={close} name="window-close" size={25} />
+        <Icon onPress={close} name="window-close" size={25} />
       </Header>
 
-      <FilterScrollView showsVerticalScrollIndicator={false}>
+      <FilterScrollView
+        showsVerticalScrollIndicator={false}
+        footerHeight={footerHeight}>
         <Section>
           <FilterTitle>Distance</FilterTitle>
           <MultiSlider
@@ -117,7 +124,10 @@ function Filter({ navigation }) {
         </Section>
       </FilterScrollView>
 
-      <Footer>
+      <Footer
+        onLayout={({ nativeEvent }) =>
+          setFooterHeight(nativeEvent.layout.height)
+        }>
         <Button compact={true} onPress={resetFilters}>
           Clear All
         </Button>
@@ -127,7 +137,7 @@ function Filter({ navigation }) {
             mode={'contained'}
             color={theme.colors.primary50}
             contentStyle={{
-              height: 40,
+              minHeight: 40,
             }}
             labelStyle={{
               fontFamily: 'bcsans-bold',

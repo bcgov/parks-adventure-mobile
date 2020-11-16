@@ -21,7 +21,7 @@ import ExploreSvg from '../../assets/exploreTitle.svg'
 import risingSunSrc from '../../assets/sunWithShadow.png'
 
 function Explore({ navigation }) {
-  const { parks, location } = React.useContext(DataContext)
+  const { parks, location, favoritePark } = React.useContext(DataContext)
 
   const subheading = `Within ${defaultDistanceFilter}km of your location`
   const hikingParks = getClosestParksByAmenityTypeAndID(
@@ -75,6 +75,8 @@ function Explore({ navigation }) {
                 alerts={item.alerts}
                 advisories={item.advisories}
                 distance={haversine(location, item.location).toFixed(0)}
+                favorited={item.favorited}
+                onFavoritePress={() => favoritePark(item.id)}
               />
             </ParkCardContainer>
           )}
@@ -105,6 +107,8 @@ function Explore({ navigation }) {
                 alerts={item.alerts}
                 advisories={item.advisories}
                 distance={haversine(location, item.location).toFixed(0)}
+                favorited={item.favorited}
+                onFavoritePress={() => favoritePark(item.id)}
               />
             </ParkCardContainer>
           )}
@@ -135,6 +139,8 @@ function Explore({ navigation }) {
                 alerts={item.alerts}
                 advisories={item.advisories}
                 distance={haversine(location, item.location).toFixed(0)}
+                favorited={item.favorited}
+                onFavoritePress={() => favoritePark(item.id)}
               />
             </ParkCardContainer>
           )}

@@ -22,6 +22,7 @@ export const CardBanner = styled(View)`
 `
 
 export const AdvisoryText = styled(Text)`
+  min-height: 30px;
   line-height: 32px;
   text-align: center;
   color: ${(props) => (props.alert ? 'white' : 'black')};

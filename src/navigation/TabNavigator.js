@@ -1,6 +1,6 @@
 import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-import MCIcon from 'react-native-vector-icons/MaterialCommunityIcons'
+import { MaterialCommunityIcons as Icon } from '@expo/vector-icons'
 import { useTheme } from 'react-native-paper'
 import ExploreStack from './ExploreStack'
 import FavouritesStack from './FavouritesStack'
@@ -16,7 +16,11 @@ const TabNavigator = () => {
   return (
     <Tab.Navigator
       screenOptions={({ route }) => ({
-        tabBarLabel: ({ color }) => <Label color={color}>{route.name}</Label>,
+        tabBarLabel: ({ color }) => (
+          <Label allowFontScaling={false} color={color}>
+            {route.name}
+          </Label>
+        ),
       })}
       tabBarOptions={{
         activeBackgroundColor: theme.colors.primary,
@@ -29,7 +33,7 @@ const TabNavigator = () => {
         component={ExploreStack}
         options={{
           tabBarIcon: ({ color }) => (
-            <MCIcon name="pine-tree-box" size={20} color={color} />
+            <Icon name="pine-tree-box" size={20} color={color} />
           ),
         }}
       />
@@ -38,7 +42,7 @@ const TabNavigator = () => {
         component={FavouritesStack}
         options={{
           tabBarIcon: ({ color }) => (
-            <MCIcon name="cards-heart" size={20} color={color} />
+            <Icon name="cards-heart" size={20} color={color} />
           ),
         }}
       />
@@ -47,7 +51,7 @@ const TabNavigator = () => {
         component={FindStack}
         options={{
           tabBarIcon: ({ color }) => (
-            <MCIcon name="magnify" size={20} color={color} />
+            <Icon name="magnify" size={20} color={color} />
           ),
         }}
       />

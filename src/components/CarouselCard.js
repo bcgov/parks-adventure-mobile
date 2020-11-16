@@ -21,6 +21,7 @@ function CarouselCard({
   uri,
   alerts = [],
   advisories = [],
+  onFavoritePress,
   favorited = false,
 }) {
   const theme = useTheme()
@@ -63,11 +64,13 @@ function CarouselCard({
       </CardCover>
       <CardContent>
         <ContentLine>
-          <ParkTitle>{title}</ParkTitle>
+          <ParkTitle numberOfLines={3}>{title}</ParkTitle>
           <MCIcon
             name={favorited ? 'heart' : 'heart-outline'}
             size={20}
             color={theme.colors.secondary500}
+            onPress={onFavoritePress}
+            accessibilityLabel="favorite park"
           />
         </ContentLine>
         {distance && <ParkDistance>{`${distance}km Away`}</ParkDistance>}
@@ -81,6 +84,7 @@ CarouselCard.propTypes = {
   title: PropTypes.string.isRequired,
   distance: PropTypes.string,
   uri: PropTypes.string,
+  onFavoritePress: PropTypes.func.isRequired,
   favorited: PropTypes.bool,
   alerts: PropTypes.arrayOf(
     PropTypes.shape({

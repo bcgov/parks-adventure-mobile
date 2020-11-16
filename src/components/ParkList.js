@@ -28,12 +28,11 @@ const ParkList = ({ parks, onPress, onFavoritePress }) => {
         <ColumnContainer>
           <RowContainer>
             <Title>{item.title}</Title>
-
             <IconButton
               icon={item.favorited ? 'heart' : 'heart-outline'}
               size={24}
               color={theme.colors.secondary500}
-              onPress={() => onFavoritePress(item)}
+              onPress={() => onFavoritePress(item.id)}
               accessibilityLabel="favorite park"
             />
           </RowContainer>
@@ -51,6 +50,7 @@ const ParkList = ({ parks, onPress, onFavoritePress }) => {
       renderItem={renderParkItem}
       keyExtractor={(item) => item.title}
       showsVerticalScrollIndicator={false}
+      contentContainerStyle={{ paddingTop: 10, paddingBottom: 10 }}
     />
   )
 }

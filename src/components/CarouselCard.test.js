@@ -11,7 +11,9 @@ test('Should render title and distance props', () => {
     favorited: false,
   }
 
-  const { getByText } = render(<CarouselCard {...park} onPress={() => {}} />)
+  const { getByText } = render(
+    <CarouselCard {...park} onPress={() => {}} onFavoritePress={() => {}} />
+  )
 
   const title = getByText(park.title)
   const distance = getByText(`${park.distance}km Away`)
@@ -28,7 +30,9 @@ test('renders with no uri and favorited set to true', () => {
   }
 
   const tree = renderSnapshot
-    .create(<CarouselCard {...park} onPress={() => {}} />)
+    .create(
+      <CarouselCard {...park} onPress={() => {}} onFavoritePress={() => {}} />
+    )
     .toJSON()
   expect(tree).toMatchSnapshot()
 })
@@ -44,7 +48,9 @@ describe('advisory banner', () => {
       alerts: [],
     }
 
-    const { getByText } = render(<CarouselCard {...park} onPress={() => {}} />)
+    const { getByText } = render(
+      <CarouselCard {...park} onPress={() => {}} onFavoritePress={() => {}} />
+    )
     const message = getByText(AdvisoryHeadline)
 
     expect(message).toBeDefined()
@@ -62,7 +68,7 @@ describe('advisory banner', () => {
     //  Only Advisories
     park.advisories = [{ Headline: 'Advisory 1' }, { Headline: 'Advisory 2' }]
     const { getByText, rerender } = render(
-      <CarouselCard {...park} onPress={() => {}} />
+      <CarouselCard {...park} onPress={() => {}} onFavoritePress={() => {}} />
     )
     let message = getByText('2 Advisories')
     expect(message).toBeDefined()
@@ -70,14 +76,18 @@ describe('advisory banner', () => {
     // One Alert and one Advisory
     park.advisories = [{ Headline: 'Advisory 1' }]
     park.alerts = [{ Headline: 'Alert 1' }]
-    rerender(<CarouselCard {...park} onPress={() => {}} />)
+    rerender(
+      <CarouselCard {...park} onPress={() => {}} onFavoritePress={() => {}} />
+    )
     message = getByText('2 Alerts/Advisories')
     expect(message).toBeDefined()
 
     //  Only Alerts
     park.advisories = []
     park.alerts = [{ Headline: 'Alert 1' }, { Headline: 'Alert 2' }]
-    rerender(<CarouselCard {...park} onPress={() => {}} />)
+    rerender(
+      <CarouselCard {...park} onPress={() => {}} onFavoritePress={() => {}} />
+    )
     message = getByText('2 Alerts')
     expect(message).toBeDefined()
   })
@@ -86,11 +96,37 @@ describe('advisory banner', () => {
 test('Should call onPress when pressed', () => {
   const onPress = jest.fn()
   const { getByA11yLabel } = render(
-    <CarouselCard title={'Adventure Park'} onPress={onPress} />
+    <CarouselCard
+      title={'Adventure Park'}
+      onPress={onPress}
+      onFavoritePress={() => {}}
+    />
   )
 
   const button = getByA11yLabel('navigate to park details')
   fireEvent.press(button)
 
   expect(onPress).toHaveBeenCalled()
+})
+
+test('favorites park when heart is pressed', () => {
+  const park = {
+    title: 'Adventure Park',
+    favorited: false,
+  }
+  const onFavoritePress = jest.fn()
+
+  const { getByA11yLabel } = render(
+    <CarouselCard
+      {...park}
+      onPress={() => {}}
+      onFavoritePress={onFavoritePress}
+    />
+  )
+
+  const heart = getByA11yLabel('favorite park')
+  expect(heart).toBeDefined()
+
+  fireEvent.press(heart)
+  expect(onFavoritePress).toHaveBeenCalled()
 })

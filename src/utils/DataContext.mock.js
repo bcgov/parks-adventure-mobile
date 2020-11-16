@@ -9,7 +9,7 @@ export function DataProvider({ children }) {
         parks: [
           {
             id: '361',
-            title: 'Adams Lake Provincial Park &ndash; Bush Creek Site',
+            title: 'Adams Lake Provincial Park - Bush Creek Site',
             searchableTitle: 'Adams Lake Provincial Park - Bush Creek Site',
             location: {
               latitude: '50.987578',
@@ -17,6 +17,7 @@ export function DataProvider({ children }) {
             },
             activities: [],
             facilities: [],
+            favorited: true,
           },
           {
             id: '9229',
@@ -46,6 +47,8 @@ export function DataProvider({ children }) {
         applyFilters: jest.fn(),
         resetFilters: jest.fn(),
         filteredList: [],
+        filterApplied: false,
+        favoritePark: jest.fn(),
       }}>
       {children}
     </DataContext.Provider>

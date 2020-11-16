@@ -1,17 +1,22 @@
 import React from 'react'
-import renderSnapshot from 'react-test-renderer'
+import { create, act } from 'react-test-renderer'
 import FilterPage from './Filter'
 import { DataProvider } from '../utils/DataContext.mock'
 
-jest.mock('react-native-vector-icons/MaterialCommunityIcons', () => 'Icon')
+jest.mock('@expo/vector-icons', () => ({
+  MaterialCommunityIcons: 'Icon',
+}))
 
 test('Filter page matches snapshot', () => {
-  const tree = renderSnapshot
-    .create(
+  let tree
+
+  act(() => {
+    tree = create(
       <DataProvider>
         <FilterPage navigation={{ navigation: {} }} />
       </DataProvider>
     )
-    .toJSON()
-  expect(tree).toMatchSnapshot()
+  })
+
+  expect(tree.toJSON()).toMatchSnapshot()
 })

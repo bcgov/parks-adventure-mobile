@@ -112,6 +112,7 @@ exports[`renders with no uri and favorited set to true 1`] = `
         }
       >
         <Text
+          numberOfLines={3}
           style={
             Array [
               Object {
@@ -132,7 +133,9 @@ exports[`renders with no uri and favorited set to true 1`] = `
           Adventure Park
         </Text>
         <Text
+          accessibilityLabel="favorite park"
           allowFontScaling={false}
+          onPress={[Function]}
           style={
             Array [
               Object {

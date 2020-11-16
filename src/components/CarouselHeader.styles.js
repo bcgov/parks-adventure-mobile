@@ -9,6 +9,7 @@ export const Container = styled(View)`
   flex-direction: row;
   align-items: center;
   margin-left: 20px;
+  flex-wrap: wrap;
 `
 
 export const Title = styled(PaperTitle)`

@@ -5,7 +5,7 @@ import theme from '../utils/theme'
 
 export const Header = styled(View)`
   background-color: white;
-  height: 100px;
+  min-height: 100px;
   padding: 20px 30px 0 30px;
 `
 
@@ -17,7 +17,8 @@ export const Search = styled(Searchbar)`
 `
 
 export const Content = styled(View)`
-  flex: 1;
+  flex-grow: 1;
+  flex-wrap: wrap;
   flex-direction: row;
   justify-content: flex-end;
   align-items: center;

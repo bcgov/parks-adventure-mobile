@@ -349,10 +349,6 @@ Array [
         ]
       }
     >
-      <SvgMock
-        height={36}
-        width={36}
-      />
       <Text
         selected={false}
         style={

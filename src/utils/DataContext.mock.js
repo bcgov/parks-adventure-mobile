@@ -17,6 +17,7 @@ export function DataProvider({ children }) {
             },
             activities: [],
             facilities: [],
+            favorited: true,
           },
           {
             id: '9229',
@@ -46,6 +47,8 @@ export function DataProvider({ children }) {
         applyFilters: jest.fn(),
         resetFilters: jest.fn(),
         filteredList: [],
+        filterApplied: false,
+        favoritePark: jest.fn(),
       }}>
       {children}
     </DataContext.Provider>

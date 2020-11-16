@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { Dimensions } from 'react-native'
 import { Divider, Button, useTheme } from 'react-native-paper'
 import MultiSlider from '@ptomasroos/react-native-multi-slider'
-import MCIcon from 'react-native-vector-icons/MaterialCommunityIcons'
+import { MaterialCommunityIcons as Icon } from '@expo/vector-icons'
 import DistanceMarkerSvg from '../../assets/DistanceMarker.svg'
 import { DataContext } from '../utils/DataContext'
 import FilterAmenityAccordion from '../components/FilterAmenityAccordion'
@@ -54,7 +54,7 @@ function Filter({ navigation }) {
   return (
     <FilterContainer>
       <Header>
-        <MCIcon onPress={close} name="window-close" size={25} />
+        <Icon onPress={close} name="window-close" size={25} />
       </Header>
 
       <FilterScrollView

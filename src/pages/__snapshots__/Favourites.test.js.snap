@@ -1,0 +1,145 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Favourites page matches snapshot 1`] = `
+<RCTSafeAreaView
+  emulateUnlessSupported={true}
+  style={
+    Array [
+      Object {
+        "backgroundColor": "white",
+        "flexBasis": 0,
+        "flexGrow": 1,
+        "flexShrink": 1,
+      },
+    ]
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "flexBasis": 0,
+          "flexGrow": 1,
+          "flexShrink": 1,
+          "marginBottom": 0,
+          "marginLeft": 20,
+          "marginRight": 20,
+          "marginTop": 0,
+        },
+      ]
+    }
+  >
+    <RCTScrollView
+      className="sc-bdnylx hmhEvm"
+      contentContainerStyle={
+        Object {
+          "paddingBottom": 10,
+          "paddingTop": 10,
+        }
+      }
+      data={
+        Array [
+          Object {
+            "activities": Array [],
+            "distance": "383",
+            "facilities": Array [],
+            "favorited": true,
+            "id": "361",
+            "location": Object {
+              "latitude": "50.987578",
+              "longitude": "-119.725971",
+            },
+            "searchableTitle": "Adams Lake Provincial Park - Bush Creek Site",
+            "title": "Adams Lake Provincial Park &ndash; Bush Creek Site",
+          },
+        ]
+      }
+      disableVirtualization={false}
+      getItem={[Function]}
+      getItemCount={[Function]}
+      horizontal={false}
+      initialNumToRender={10}
+      keyExtractor={[Function]}
+      maxToRenderPerBatch={10}
+      onContentSizeChange={[Function]}
+      onEndReachedThreshold={2}
+      onLayout={[Function]}
+      onMomentumScrollEnd={[Function]}
+      onScroll={[Function]}
+      onScrollBeginDrag={[Function]}
+      onScrollEndDrag={[Function]}
+      removeClippedSubviews={false}
+      renderItem={[Function]}
+      scrollEventThrottle={50}
+      showsVerticalScrollIndicator={false}
+      stickyHeaderIndices={Array []}
+      updateCellsBatchingPeriod={50}
+      viewabilityConfigCallbackPairs={Array []}
+      windowSize={21}
+    >
+      <View>
+        <View
+          onLayout={[Function]}
+          style={null}
+        >
+          <View
+            className="sc-gtssRu gRVnsh"
+          >
+            <Image
+              className="sc-dlnjPT fmUCMd"
+              defaultSource={1}
+              source={1}
+            />
+            <View
+              className="sc-jSFkmK glLnMI"
+            >
+              <View
+                className="sc-gKAblj bdPEsA"
+              >
+                <Text
+                  className="sc-hKFyIo jvWbbP"
+                  style={
+                    Array [
+                      Object {
+                        "color": "#000000",
+                        "fontFamily": "System",
+                        "fontWeight": "400",
+                        "textAlign": "left",
+                      },
+                      undefined,
+                    ]
+                  }
+                >
+                  Adams Lake Provincial Park – Bush Creek Site
+                </Text>
+                <Icon
+                  accessibilityLabel="favorite park"
+                  icon="heart"
+                  onPress={[Function]}
+                  size={24}
+                />
+              </View>
+              <Text
+                className="sc-eCApGN fFLSlQ"
+                style={
+                  Array [
+                    Object {
+                      "color": "#000000",
+                      "fontFamily": "System",
+                      "fontWeight": "400",
+                      "textAlign": "left",
+                    },
+                    undefined,
+                  ]
+                }
+              >
+                383KM AWAY
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+    </RCTScrollView>
+  </View>
+</RCTSafeAreaView>
+`;

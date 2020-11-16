@@ -12,6 +12,7 @@ function ParkFind({ navigation }) {
     filteredList,
     filterApplied,
     location,
+    favoritePark,
   } = React.useContext(DataContext)
   const [searchTerm, onChangeSearchTerm] = React.useState('')
 
@@ -47,7 +48,7 @@ function ParkFind({ navigation }) {
         count={filteredList.length}
       />
       <ParkListContainer>
-        <ParkList parks={parks} onFavoritePress={() => {}} />
+        <ParkList parks={parks} onFavoritePress={favoritePark} />
       </ParkListContainer>
     </ParkFindContainer>
   )

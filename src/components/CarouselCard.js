@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { useTheme } from 'react-native-paper'
-import MCIcon from 'react-native-vector-icons/MaterialCommunityIcons'
+import { IconButton, useTheme } from 'react-native-paper'
 import { AllHtmlEntities } from 'html-entities'
 import defaultParkImage from '../../assets/defaultParkImage.jpg'
 import {
@@ -20,6 +19,7 @@ function CarouselCard({
   title,
   distance,
   uri,
+  onFavoritePress,
   advisories = [],
   favorited = false,
 }) {
@@ -55,10 +55,12 @@ function CarouselCard({
       <CardContent>
         <ContentLine>
           <ParkTitle numberOfLines={3}>{entities.decode(title)}</ParkTitle>
-          <MCIcon
-            name={favorited ? 'heart' : 'heart-outline'}
+          <IconButton
+            icon={favorited ? 'heart' : 'heart-outline'}
             size={20}
             color={theme.colors.secondary500}
+            onPress={onFavoritePress}
+            accessibilityLabel="favorite park"
           />
         </ContentLine>
         {distance && <ParkDistance>{`${distance}km Away`}</ParkDistance>}
@@ -71,6 +73,7 @@ CarouselCard.propTypes = {
   title: PropTypes.string.isRequired,
   distance: PropTypes.string,
   uri: PropTypes.string,
+  onFavoritePress: PropTypes.func.isRequired,
   favorited: PropTypes.bool,
   advisories: PropTypes.arrayOf(
     PropTypes.shape({

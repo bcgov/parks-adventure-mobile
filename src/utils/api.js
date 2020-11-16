@@ -64,6 +64,7 @@ export async function fetchParks() {
 
       parks[entry.ORCSSite] = {
         ...parks[entry.ORCSSite],
+        // Remove paragraph, image, anchor, and any other html tags from string
         description: entities.decode(
           entry.Description.replace(/<\/?p[^>]*>/g, '')
             .replace(/<img[^>]*>/g, '')
@@ -71,11 +72,14 @@ export async function fetchParks() {
             .replace(/(<([^>]+)>)/g, '')
             .trim()
         ),
-        locationNotes: entry.LocationNotes.replace(/<\/?p[^>]*>/g, '')
-          .replace(/<img[^>]*>/g, '')
-          .replace(/<\/?a[^>]*>/g, '')
-          .replace(/(<([^>]+)>)/g, '')
-          .trim(),
+        // Remove paragraph, image, anchor, and any other html tags from string
+        locationNotes: entities.decode(
+          entry.LocationNotes.replace(/<\/?p[^>]*>/g, '')
+            .replace(/<img[^>]*>/g, '')
+            .replace(/<\/?a[^>]*>/g, '')
+            .replace(/(<([^>]+)>)/g, '')
+            .trim()
+        ),
         safetyInfo: entry.SafefyInfo,
         specialNotes: entry.SpecialNotes,
         natureAndCulture: entry.NatureAndCulture,

@@ -23,6 +23,7 @@ export const FilterScrollView = styled(ScrollView)`
 
 export const Section = styled(View)`
   margin: 30px 0;
+  opacity: ${(props) => (props.disabled ? 0.5 : 1)};
 `
 
 export const FilterTitle = styled(Text)`

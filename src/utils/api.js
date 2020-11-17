@@ -104,15 +104,24 @@ export async function getParks() {
 
 export async function setLocation() {
   try {
-    const location = await Location.getCurrentPositionAsync({})
+    let permissions = await Location.getPermissionsAsync()
+    if (permissions.status !== 'granted') {
+      permissions = await Location.requestPermissionsAsync()
+    }
 
-    await AsyncStorage.setItem(
-      KEYS.location,
-      JSON.stringify({
-        latitude: location.coords.latitude,
-        longitude: location.coords.longitude,
-      })
-    )
+    if (permissions.status === 'granted') {
+      const location = await Location.getCurrentPositionAsync({})
+
+      await AsyncStorage.setItem(
+        KEYS.location,
+        JSON.stringify({
+          latitude: location.coords.latitude,
+          longitude: location.coords.longitude,
+        })
+      )
+    } else {
+      await AsyncStorage.removeItem(KEYS.location)
+    }
   } catch (error) {
     console.warn(error)
   }

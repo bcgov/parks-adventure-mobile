@@ -11,6 +11,7 @@ export const SafeArea = styled(SafeAreaView)`
 export const Container = styled(View)`
   flex: 1;
   margin: 0 20px;
+  margin-top: ${(props) => (props.locationNotAvailable ? 60 : 0)}px;
 `
 
 export const Placeholder = styled(ScrollView)`

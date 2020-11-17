@@ -7,6 +7,7 @@ import {
 import { DataContext } from '../utils/DataContext'
 import CarouselCard from '../components/CarouselCard'
 import CarouselHeader from '../components/CarouselHeader'
+import LocationBanner from '../components/LocationBanner'
 import {
   ExplorePage,
   ExploreScrollView,
@@ -22,7 +23,9 @@ import risingSunSrc from '../../assets/sunWithShadow.png'
 function Explore() {
   const { parks, location, favoritePark } = React.useContext(DataContext)
 
-  const subheading = `Within ${defaultDistanceFilter}km`
+  const subheading = location
+    ? `Within ${defaultDistanceFilter}km`
+    : 'Within BC'
   const hikingParks = getClosestParksByAmenityTypeAndID(
     'activities',
     '1',
@@ -44,14 +47,19 @@ function Explore() {
 
   return (
     <ExplorePage>
-      <ExploreScrollView showsVerticalScrollIndicator={false}>
+      <LocationBanner />
+
+      <ExploreScrollView
+        showsVerticalScrollIndicator={false}
+        locationNotAvailable={!location}>
         <ExploreHeader source={headerBackgroundSrc}>
           <ExploreSvg height="70" />
           <RisingSun source={risingSunSrc} />
         </ExploreHeader>
+
         {/* Hiking - ActivityID = 1 */}
         <CarouselHeader
-          title="Great Hikes Near Me"
+          title={`Great Hikes${location ? ' Near Me' : ''}`}
           subheading={subheading}
           icon={'Hiking'}
         />
@@ -83,7 +91,7 @@ function Explore() {
 
         {/* Swimming - ActivityID = 3 */}
         <CarouselHeader
-          title="Swimming Holes Near Me"
+          title={`Swimming Holes${location ? ' Near Me' : ''}`}
           subheading={subheading}
           icon={'Swimming'}
         />
@@ -113,7 +121,7 @@ function Explore() {
 
         {/* Vehicle-Accessible Camping - FacilityID = 1 */}
         <CarouselHeader
-          title="Vehicle Camping Near Me"
+          title={`Vehicle Camping${location ? ' Near Me' : ''}`}
           subheading={subheading}
           icon={'Vehicle-Accessible Camping'}
         />

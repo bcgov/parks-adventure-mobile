@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { IconButton, useTheme } from 'react-native-paper'
-import { AllHtmlEntities } from 'html-entities'
+import { useTheme } from 'react-native-paper'
+import MCIcon from 'react-native-vector-icons/MaterialCommunityIcons'
 import defaultParkImage from '../../assets/defaultParkImage.jpg'
 import {
   Carousel,
@@ -11,76 +11,85 @@ import {
   ContentLine,
   ParkDistance,
   CardBanner,
+  AdvisoryText,
 } from './CarouselCard.styles'
 
-const entities = new AllHtmlEntities()
-
-function CarouselCard({
-  title,
-  distance,
-  uri,
-  onFavoritePress,
-  advisories = [],
-  favorited = false,
-}) {
+function CarouselCard({ onPress, onFavoritePress, park, distance }) {
   const theme = useTheme()
+  const { title, imageUri, favorited, alerts, advisories } = park
 
-  const alertCount = advisories.reduce(
-    (sum, advisory) => (advisory.Alert === 'Y' ? sum + 1 : sum),
-    0
-  )
   //  Format advisory banner message text
+  const totalAdvisoryCount = alerts.length + advisories.length
   let advisoryMessage
-  if (advisories.length === 1) advisoryMessage = advisories[0].Headline
-  else if (advisories.length > 0) {
-    if (alertCount === 0) advisoryMessage = `${advisories.length} Advisories`
-    else
-      advisoryMessage = `${advisories.length} ${
-        advisories.length === alertCount ? 'Alerts' : 'Alerts/Advisories'
-      }`
+
+  if (totalAdvisoryCount === 1 && alerts.length === 1) {
+    advisoryMessage = alerts[0].Headline
+  } else if (totalAdvisoryCount === 1 && advisories.length === 1) {
+    advisoryMessage = advisories[0].Headline
+  } else {
+    if (alerts.length === 0) {
+      advisoryMessage = `${advisories.length} Advisories`
+    } else if (advisories.length === 0) {
+      advisoryMessage = `${alerts.length} Alerts`
+    } else {
+      advisoryMessage = `${totalAdvisoryCount} Alerts/Advisories`
+    }
   }
 
   return (
-    <Carousel elevation={6}>
+    <Carousel
+      accessibilityLabel={'navigate to park details'}
+      elevation={6}
+      onPress={onPress}>
       <CardCover
+        imageStyle={{ borderTopLeftRadius: 13, borderTopRightRadius: 13 }}
         defaultSource={defaultParkImage}
-        source={uri ? { uri } : defaultParkImage}
+        source={imageUri ? { uri: imageUri } : defaultParkImage}
         resizeMode="cover">
-        {advisories.length > 0 && (
-          <CardBanner numberOfLines={1} alert={alertCount > 0}>
-            {advisoryMessage}
+        {totalAdvisoryCount > 0 && (
+          <CardBanner alert={alerts.length > 0}>
+            <AdvisoryText numberOfLines={1} alert={alerts.length > 0}>
+              {advisoryMessage}
+            </AdvisoryText>
           </CardBanner>
         )}
       </CardCover>
       <CardContent>
         <ContentLine>
-          <ParkTitle numberOfLines={3}>{entities.decode(title)}</ParkTitle>
-          <IconButton
-            icon={favorited ? 'heart' : 'heart-outline'}
+          <ParkTitle numberOfLines={3}>{title}</ParkTitle>
+          <MCIcon
+            name={favorited ? 'heart' : 'heart-outline'}
             size={20}
             color={theme.colors.secondary500}
             onPress={onFavoritePress}
             accessibilityLabel="favorite park"
           />
         </ContentLine>
-        {distance && <ParkDistance>{`${distance}km Away`}</ParkDistance>}
+        <ParkDistance>{`${distance}km Away`}</ParkDistance>
       </CardContent>
     </Carousel>
   )
 }
 
 CarouselCard.propTypes = {
-  title: PropTypes.string.isRequired,
-  distance: PropTypes.string,
-  uri: PropTypes.string,
+  onPress: PropTypes.func.isRequired,
   onFavoritePress: PropTypes.func.isRequired,
-  favorited: PropTypes.bool,
-  advisories: PropTypes.arrayOf(
-    PropTypes.shape({
-      Alert: PropTypes.string.isRequired,
-      Headline: PropTypes.string.isRequired,
-    })
-  ),
+  distance: PropTypes.string.isRequired,
+  park: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    imageUri: PropTypes.string,
+    favorited: PropTypes.bool,
+    alerts: PropTypes.arrayOf(
+      PropTypes.shape({
+        Headline: PropTypes.string.isRequired,
+      })
+    ),
+    advisories: PropTypes.arrayOf(
+      PropTypes.shape({
+        Headline: PropTypes.string.isRequired,
+      })
+    ),
+  }).isRequired,
 }
 
 export default CarouselCard

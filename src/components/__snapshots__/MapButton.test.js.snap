@@ -1,0 +1,108 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches MapButton snapshot 1`] = `
+<View
+  absolute={true}
+  accessibilityLabel="map-link"
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "white",
+      "borderRadius": 8,
+      "elevation": 6,
+      "height": 64,
+      "paddingTop": 15,
+      "position": "absolute",
+      "right": 16,
+      "shadowColor": "#000000",
+      "shadowOffset": Object {
+        "height": 5,
+        "width": 0,
+      },
+      "shadowOpacity": 0.24,
+      "shadowRadius": 6,
+      "top": 100,
+      "width": 64,
+    }
+  }
+>
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "flexGrow": 1,
+        "flexShrink": 1,
+      }
+    }
+  >
+    <Text
+      allowFontScaling={false}
+      index={0}
+      siblings={
+        Array [
+          "Styled(Icon)",
+          "Styled(withTheme(Text))",
+        ]
+      }
+      style={
+        Array [
+          Object {
+            "color": undefined,
+            "fontSize": 18,
+          },
+          Array [
+            Object {
+              "alignSelf": "center",
+              "opacity": 0.6,
+            },
+          ],
+          Object {
+            "fontFamily": "material-community",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+          Object {},
+        ]
+      }
+      total={2}
+    >
+      女
+    </Text>
+    <Text
+      index={1}
+      siblings={
+        Array [
+          "Styled(Icon)",
+          "Styled(withTheme(Text))",
+        ]
+      }
+      style={
+        Array [
+          Object {
+            "color": "#000000",
+            "fontFamily": "System",
+            "fontWeight": "400",
+            "textAlign": "left",
+          },
+          Array [
+            Object {
+              "opacity": 0.6,
+            },
+          ],
+        ]
+      }
+      total={2}
+    >
+      Maps
+    </Text>
+  </View>
+</View>
+`;

@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { MaterialCommunityIcons as Icon } from '@expo/vector-icons'
 import { useTheme } from 'react-native-paper'
 import { DataContext } from '../utils/DataContext'
@@ -14,7 +15,7 @@ import {
   InlineIcon,
 } from './Favourites.styles'
 
-function Favourites() {
+function Favourites({ navigation }) {
   const theme = useTheme()
   const { parks, location, favoritePark } = React.useContext(DataContext)
 
@@ -29,7 +30,11 @@ function Favourites() {
 
       <Container locationNotAvailable={!location}>
         {favoriteParks.length > 0 ? (
-          <ParkList parks={favoriteParks} onFavoritePress={favoritePark} />
+          <ParkList
+            parks={favoriteParks}
+            onFavoritePress={favoritePark}
+            onPress={(park) => navigation.navigate('ParkDetails', { park })}
+          />
         ) : (
           <Placeholder
             showsVerticalScrollIndicator={false}
@@ -60,6 +65,10 @@ function Favourites() {
       </Container>
     </SafeArea>
   )
+}
+
+Favourites.propTypes = {
+  navigation: PropTypes.object.isRequired,
 }
 
 export default Favourites

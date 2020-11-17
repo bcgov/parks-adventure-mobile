@@ -8,7 +8,7 @@ export const DataProvider = ({ children, value }) => (
       parks: [
         {
           id: '361',
-          title: 'Adams Lake Provincial Park &ndash; Bush Creek Site',
+          title: 'Adams Lake Provincial Park - Bush Creek Site',
           searchableTitle: 'Adams Lake Provincial Park - Bush Creek Site',
           location: {
             latitude: '50.987578',

@@ -65,16 +65,28 @@ export function filterParks({
   return filteredParks
 }
 
+export function sortAdvisories(a, b) {
+  // Sort in ascending Rank order
+  if (a.Rank !== b.Rank) {
+    return parseInt(a.Rank) - parseInt(b.Rank)
+  }
+
+  // If ranks are equal, sort from newest to oldest release date
+  return b.AdvisoryDate.localeCompare(a.AdvisoryDate)
+}
+
 export function sortParks(location, a, b) {
+  // Sort based on proximity to the user
   if (location) {
     const distanceToA = haversine(location, a.location)
     const distanceToB = haversine(location, b.location)
     return distanceToA - distanceToB
-  } else {
-    return a.searchableTitle
-      .toUpperCase()
-      .localeCompare(b.searchableTitle.toUpperCase())
   }
+
+  // If the users location is unknown, sort in alphabetical order
+  return a.searchableTitle
+    .toUpperCase()
+    .localeCompare(b.searchableTitle.toUpperCase())
 }
 
 export function addDistanceToParks(location, park) {

@@ -1,9 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import HTML from 'react-native-render-html'
-import { AllHtmlEntities } from 'html-entities'
-import { useTheme } from 'react-native-paper'
-import { MaterialCommunityIcons as Icon } from '@expo/vector-icons'
+import HTMLContent from './HTMLContent'
 import {
   Container,
   Accordion,
@@ -12,10 +9,7 @@ import {
   HeadlineText,
 } from './AlertAccordion.styles'
 
-const entities = new AllHtmlEntities()
-
 function AlertAccordion({ headline, description, alert = false }) {
-  const theme = useTheme()
   const [expanded, setExpanded] = React.useState(false)
 
   const containsDesciption = description && description.match(/\w/)
@@ -27,7 +21,7 @@ function AlertAccordion({ headline, description, alert = false }) {
         <Accordion
           testID={'accordion'}
           alert={alert}
-          title={entities.decode(headline)}
+          title={headline}
           expanded={expanded}
           onPress={() => setExpanded(!expanded)}
           titleNumberOfLines={3}
@@ -37,26 +31,7 @@ function AlertAccordion({ headline, description, alert = false }) {
             fontFamily: alert ? 'bcsans-bold' : 'bcsans',
           }}>
           <Content alert={alert}>
-            <HTML
-              html={`<div class='description'>${description}</div>`}
-              classesStyles={{ description: { color } }}
-              tagsStyles={{
-                a: { color: theme.colors.primary },
-                li: { paddingTop: 5 },
-              }}
-              listsPrefixesRenderers={{
-                ul: () => {
-                  return (
-                    <Icon
-                      name="circle-medium"
-                      color={color}
-                      size={12}
-                      style={{ paddingTop: 7 }}
-                    />
-                  )
-                },
-              }}
-            />
+            <HTMLContent content={description} color={color} size={14} />
           </Content>
         </Accordion>
       ) : (

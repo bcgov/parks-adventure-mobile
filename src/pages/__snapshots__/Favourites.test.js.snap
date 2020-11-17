@@ -51,7 +51,7 @@ exports[`Favourites page matches snapshot 1`] = `
               "longitude": "-119.725971",
             },
             "searchableTitle": "Adams Lake Provincial Park - Bush Creek Site",
-            "title": "Adams Lake Provincial Park &ndash; Bush Creek Site",
+            "title": "Adams Lake Provincial Park - Bush Creek Site",
           },
         ]
       }
@@ -84,7 +84,17 @@ exports[`Favourites page matches snapshot 1`] = `
           style={null}
         >
           <View
+            accessibilityLabel="navigate to park details"
+            accessible={true}
             className="sc-gtssRu gRVnsh"
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
           >
             <Image
               className="sc-dlnjPT fmUCMd"
@@ -111,7 +121,7 @@ exports[`Favourites page matches snapshot 1`] = `
                     ]
                   }
                 >
-                  Adams Lake Provincial Park – Bush Creek Site
+                  Adams Lake Provincial Park - Bush Creek Site
                 </Text>
                 <Icon
                   accessibilityLabel="favorite park"

@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import haversine from 'haversine'
 import {
   defaultDistanceFilter,
@@ -20,7 +21,7 @@ import headerBackgroundSrc from '../../assets/exploreHeader.jpeg'
 import ExploreSvg from '../../assets/exploreTitle.svg'
 import risingSunSrc from '../../assets/sunWithShadow.png'
 
-function Explore() {
+function Explore({ navigation }) {
   const { parks, location, favoritePark } = React.useContext(DataContext)
 
   const subheading = location
@@ -68,22 +69,20 @@ function Explore() {
           showsHorizontalScrollIndicator={false}
           data={hikingParks}
           keyExtractor={(item) => item.id}
-          renderItem={({ item, index }) => (
+          renderItem={({ item: park, index }) => (
             <ParkCardContainer
-              key={item.id}
+              key={park.id}
               index={index}
               length={hikingParks.length}>
               <CarouselCard
-                title={item.title}
-                uri={item.uri}
-                advisories={item.advisories}
+                onPress={() => navigation.navigate('ParkDetails', { park })}
+                onFavoritePress={() => favoritePark(park.id)}
                 distance={
                   location
-                    ? haversine(location, item.location).toFixed(0)
-                    : null
+                    ? haversine(location, park.location).toFixed(0)
+                    : 'unknown '
                 }
-                favorited={item.favorited}
-                onFavoritePress={() => favoritePark(item.id)}
+                park={park}
               />
             </ParkCardContainer>
           )}
@@ -100,20 +99,20 @@ function Explore() {
           showsHorizontalScrollIndicator={false}
           data={swimmingParks}
           keyExtractor={(item) => item.id}
-          renderItem={({ item, index }) => (
+          renderItem={({ item: park, index }) => (
             <ParkCardContainer
-              key={item.id}
+              key={park.id}
               index={index}
               length={swimmingParks.length}>
               <CarouselCard
-                title={item.title}
+                onPress={() => navigation.navigate('ParkDetails', { park })}
+                onFavoritePress={() => favoritePark(park.id)}
                 distance={
                   location
-                    ? haversine(location, item.location).toFixed(0)
-                    : null
+                    ? haversine(location, park.location).toFixed(0)
+                    : 'unknown '
                 }
-                favorited={item.favorited}
-                onFavoritePress={() => favoritePark(item.id)}
+                park={park}
               />
             </ParkCardContainer>
           )}
@@ -130,20 +129,20 @@ function Explore() {
           showsHorizontalScrollIndicator={false}
           data={vehicleCampingParks}
           keyExtractor={(item) => item.id}
-          renderItem={({ item, index }) => (
+          renderItem={({ item: park, index }) => (
             <ParkCardContainer
-              key={item.id}
+              key={park.id}
               index={index}
               length={vehicleCampingParks.length}>
               <CarouselCard
-                title={item.title}
+                onPress={() => navigation.navigate('ParkDetails', { park })}
+                onFavoritePress={() => favoritePark(park.id)}
                 distance={
                   location
-                    ? haversine(location, item.location).toFixed(0)
-                    : null
+                    ? haversine(location, park.location).toFixed(0)
+                    : 'unknown '
                 }
-                favorited={item.favorited}
-                onFavoritePress={() => favoritePark(item.id)}
+                park={park}
               />
             </ParkCardContainer>
           )}
@@ -151,6 +150,10 @@ function Explore() {
       </ExploreScrollView>
     </ExplorePage>
   )
+}
+
+Explore.propTypes = {
+  navigation: PropTypes.object.isRequired,
 }
 
 export default Explore

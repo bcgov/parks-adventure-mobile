@@ -9,7 +9,7 @@ test('Explore page matches snapshot', () => {
   act(() => {
     tree = create(
       <DataProvider>
-        <ExplorePage />
+        <ExplorePage navigation={{}} />
       </DataProvider>
     )
   })

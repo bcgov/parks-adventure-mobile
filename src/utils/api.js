@@ -2,6 +2,7 @@ import AsyncStorage from '@react-native-community/async-storage'
 import * as Location from 'expo-location'
 import move from 'array-move'
 import protectedLands from '../../assets/protected-lands-status.json'
+import parkDetails from '../../assets/protected-land-details.json'
 import photosXref from '../../assets/protected-lands-photos.json'
 import activitiesXref from '../../assets/protected-lands-activity-xref.json'
 import facilitiesXref from '../../assets/protected-lands-facility-xref.json'
@@ -9,6 +10,9 @@ import advisoriesXref from '../../assets/public-advisory-xref.json'
 import activities from '../../assets/activity.json'
 import facilities from '../../assets/facility.json'
 import advisories from '../../assets/public-advisory.json'
+
+import { AllHtmlEntities } from 'html-entities'
+const entities = new AllHtmlEntities()
 
 const KEYS = {
   parks: 'parks',
@@ -32,18 +36,55 @@ export async function fetchParks() {
         keys.push(park.ORCSSite)
         parks[park.ORCSSite] = {
           id: park.ORCSSite,
-          title: park.ParkSiteNameWeb,
+          title: entities.decode(park.ParkSiteNameWeb),
+          url: park.ParkURL,
           searchableTitle: park.ParkSiteNameBasic,
-          favorited: false,
-          activities: [],
-          facilities: [],
-          advisories: [],
           location: {
             latitude: park.Latitude,
             longitude: park.Longitude,
           },
+          favorited: false,
+          activities: [],
+          facilities: [],
+          alerts: [],
+          advisories: [],
+          description: '',
+          locationNotes: '',
+          safetyInfo: '',
+          specialNotes: '',
+          natureAndCulture: '',
         }
       })
+
+    /*
+     * Attach park information
+     */
+    parkDetails['protected-land-details'].forEach((entry) => {
+      if (!entry.ORCSSite || !parks[entry.ORCSSite]) return
+
+      parks[entry.ORCSSite] = {
+        ...parks[entry.ORCSSite],
+        // Remove paragraph, image, anchor, and any other html tags from string
+        description: entities.decode(
+          entry.Description.replace(/<\/?p[^>]*>/g, '')
+            .replace(/<img[^>]*>/g, '')
+            .replace(/<\/?a[^>]*>/g, '')
+            .replace(/(<([^>]+)>)/g, '')
+            .trim()
+        ),
+        // Remove paragraph, image, anchor, and any other html tags from string
+        locationNotes: entities.decode(
+          entry.LocationNotes.replace(/<\/?p[^>]*>/g, '')
+            .replace(/<img[^>]*>/g, '')
+            .replace(/<\/?a[^>]*>/g, '')
+            .replace(/(<([^>]+)>)/g, '')
+            .trim()
+        ),
+        safetyInfo: entry.SafefyInfo,
+        specialNotes: entry.SpecialNotes,
+        natureAndCulture: entry.NatureAndCulture,
+      }
+    })
 
     /*
      * Attach associated activities for each park
@@ -64,27 +105,39 @@ export async function fetchParks() {
     })
 
     /*
-     * Attach associated advisories to each park
-     */
-    advisoriesXref['public-advisory-xref'].forEach((entry) => {
-      if (!entry.ORCSSite || !parks[entry.ORCSSite]) return
-
-      const advisory = advisories['public-advisory'].find(
-        ({ AdvisoryID }) => AdvisoryID === entry.AdvisoryID
-      )
-      if (!advisory) return
-
-      parks[entry.ORCSSite].advisories.push(advisory)
-    })
-
-    /*
      * Attach image uri to each park
      */
     photosXref['protected-lands-photos'].forEach((entry) => {
       if (!entry.ORCSSite || !parks[entry.ORCSSite] || entry.Feature === 'N')
         return
 
-      parks[entry.ORCSSite].uri = entry.Thumbnail
+      parks[entry.ORCSSite].imageUri = entry.Thumbnail
+    })
+
+    /*
+     * Attach associated advisories to each park
+     */
+    const advisoryList = advisories['public-advisory']
+    const advisoryObject = {}
+    advisoryList.forEach((item) => (advisoryObject[item.AdvisoryID] = item))
+
+    advisoriesXref['public-advisory-xref'].forEach((entry) => {
+      if (!entry.ORCSSite || !parks[entry.ORCSSite]) return
+
+      const item = advisoryObject[entry.AdvisoryID]
+      if (!item) return
+
+      if (item.Alert === 'Y') {
+        parks[entry.ORCSSite].alerts.push({
+          ...item,
+          Headline: entities.decode(item.Headline),
+        })
+      } else {
+        parks[entry.ORCSSite].advisories.push({
+          ...item,
+          Headline: entities.decode(item.Headline),
+        })
+      }
     })
 
     await AsyncStorage.setItem(KEYS.parks, JSON.stringify(Object.values(parks)))
@@ -164,6 +217,15 @@ export async function fetchActivities() {
   }
 }
 
+export async function getActivities() {
+  try {
+    const data = await AsyncStorage.getItem(KEYS.activities)
+    return data ? JSON.parse(data) : []
+  } catch (error) {
+    console.warn(error)
+  }
+}
+
 export async function fetchFacilities() {
   try {
     const list = facilities['facility']
@@ -191,15 +253,6 @@ export async function fetchFacilities() {
     }))
 
     await AsyncStorage.setItem(KEYS.facilities, JSON.stringify(selectionList))
-  } catch (error) {
-    console.warn(error)
-  }
-}
-
-export async function getActivities() {
-  try {
-    const data = await AsyncStorage.getItem(KEYS.activities)
-    return data ? JSON.parse(data) : []
   } catch (error) {
     console.warn(error)
   }

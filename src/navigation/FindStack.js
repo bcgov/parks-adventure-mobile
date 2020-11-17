@@ -6,6 +6,7 @@ import {
 import headerOptions from './headerOptions'
 import ParkFindPage from '../pages/ParkFind'
 import Filter from '../pages/Filter'
+import ParkDetailsPage from '../pages/ParkDetails'
 
 const FindStack = createStackNavigator()
 
@@ -19,6 +20,7 @@ const FindStackScreen = () => (
         ...TransitionPresets.SlideFromRightIOS,
       }}
     />
+    <FindStack.Screen name="ParkDetails" component={ParkDetailsPage} />
   </FindStack.Navigator>
 )
 

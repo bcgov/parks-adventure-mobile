@@ -4,22 +4,26 @@ import { Text, Card } from 'react-native-paper'
 import theme from '../utils/theme'
 
 export const Carousel = styled(Card)`
-  border-radius: 13px;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   height: 220px;
   width: 260px;
-  overflow: hidden;
+  border-radius: 13px;
 `
 
 export const CardCover = styled(ImageBackground)`
   height: 135px;
 `
 
-export const CardBanner = styled(Text)`
+export const CardBanner = styled(View)`
   background-color: ${(props) =>
     props.alert ? theme.colors.alert : theme.colors.secondary50};
+  height: 30px;
+  border-top-left-radius: 13px;
+  border-top-right-radius: 13px;
+`
+
+export const AdvisoryText = styled(Text)`
   min-height: 30px;
-  line-height: 30px;
+  line-height: 32px;
   text-align: center;
   color: ${(props) => (props.alert ? 'white' : 'black')};
   padding: 0 16px;

@@ -42,7 +42,11 @@ function ParkFind({ navigation }) {
         count={filteredList.length}
       />
       <ParkListContainer>
-        <ParkList parks={parks} onFavoritePress={favoritePark} />
+        <ParkList
+          parks={parks}
+          onFavoritePress={favoritePark}
+          onPress={(park) => navigation.navigate('ParkDetails', { park })}
+        />
       </ParkListContainer>
     </ParkFindContainer>
   )

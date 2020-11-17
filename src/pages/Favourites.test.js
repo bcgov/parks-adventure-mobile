@@ -9,7 +9,7 @@ test('Favourites page matches snapshot', () => {
   act(() => {
     tree = create(
       <DataProvider>
-        <FavouritesPage />
+        <FavouritesPage navigation={{}} />
       </DataProvider>
     )
   })

@@ -73,10 +73,10 @@ exports[`Explore page matches snapshot 1`] = `
             Array [
               Object {
                 "alignSelf": "flex-end",
-                "height": 42,
-                "marginBottom": 20,
-                "marginTop": -20,
-                "width": 80,
+                "height": 34,
+                "marginBottom": 5,
+                "marginTop": -5,
+                "width": 64,
               },
             ]
           }
@@ -152,7 +152,7 @@ exports[`Explore page matches snapshot 1`] = `
               ]
             }
           >
-            Great Hikes Near You
+            Great Hikes Near Me
           </Text>
           <Text
             style={
@@ -203,7 +203,7 @@ exports[`Explore page matches snapshot 1`] = `
               ]
             }
           >
-            Within 100km of your location
+            Within 100km
           </Text>
         </View>
       </View>
@@ -313,7 +313,7 @@ exports[`Explore page matches snapshot 1`] = `
               ]
             }
           >
-            Swimming Holes Near You
+            Swimming Holes Near Me
           </Text>
           <Text
             style={
@@ -364,7 +364,7 @@ exports[`Explore page matches snapshot 1`] = `
               ]
             }
           >
-            Within 100km of your location
+            Within 100km
           </Text>
         </View>
       </View>
@@ -474,7 +474,7 @@ exports[`Explore page matches snapshot 1`] = `
               ]
             }
           >
-            Vehicle Camping Near You
+            Vehicle Camping Near Me
           </Text>
           <Text
             style={
@@ -525,7 +525,7 @@ exports[`Explore page matches snapshot 1`] = `
               ]
             }
           >
-            Within 100km of your location
+            Within 100km
           </Text>
         </View>
       </View>

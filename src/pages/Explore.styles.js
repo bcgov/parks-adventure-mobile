@@ -29,11 +29,11 @@ export const ExploreHeader = styled(ImageBackground)`
 `
 
 export const RisingSun = styled(Image)`
-  width: 80px;
-  height: 42px;
+  width: 64px;
+  height: 34px;
   align-self: flex-end;
-  margin-top: -20px;
-  margin-bottom: 20px;
+  margin-top: -5px;
+  margin-bottom: 5px;
 `
 
 export const ExploreSection = styled(FlatList)`

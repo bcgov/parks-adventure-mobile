@@ -34,6 +34,7 @@ const ParkFindHeader = ({
         size={18}
         onPress={showFilter}
         accessibilityLabel={'Filter Parks'}
+        allowFontScaling={true}
       />
       {filterApplied && <FilterIndicator />}
     </Content>

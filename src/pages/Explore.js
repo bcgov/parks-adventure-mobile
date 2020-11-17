@@ -24,7 +24,7 @@ function Explore() {
   const { parks, location, favoritePark } = React.useContext(DataContext)
 
   const subheading = location
-    ? `Within ${defaultDistanceFilter}km of your location`
+    ? `Within ${defaultDistanceFilter}km`
     : 'Within BC'
   const hikingParks = getClosestParksByAmenityTypeAndID(
     'activities',
@@ -59,7 +59,7 @@ function Explore() {
 
         {/* Hiking - ActivityID = 1 */}
         <CarouselHeader
-          title={`Great Hikes${location ? ' Near You' : ''}`}
+          title={`Great Hikes${location ? ' Near Me' : ''}`}
           subheading={subheading}
           icon={'Hiking'}
         />
@@ -91,7 +91,7 @@ function Explore() {
 
         {/* Swimming - ActivityID = 3 */}
         <CarouselHeader
-          title={`Swimming Holes${location ? ' Near You' : ''}`}
+          title={`Swimming Holes${location ? ' Near Me' : ''}`}
           subheading={subheading}
           icon={'Swimming'}
         />
@@ -121,7 +121,7 @@ function Explore() {
 
         {/* Vehicle-Accessible Camping - FacilityID = 1 */}
         <CarouselHeader
-          title={`Vehicle Camping${location ? ' Near You' : ''}`}
+          title={`Vehicle Camping${location ? ' Near Me' : ''}`}
           subheading={subheading}
           icon={'Vehicle-Accessible Camping'}
         />

@@ -10,7 +10,7 @@ function LocationBanner() {
     <Portal>
       {!location && (
         <Banner actions={[]} elevation={10}>
-          <Message>
+          <Message allowFontScaling={false}>
             To explore nearby parks go to Settings and allow Location access for
             this app.
           </Message>

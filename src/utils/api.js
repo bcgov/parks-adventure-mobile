@@ -111,7 +111,7 @@ export async function fetchParks() {
       if (!entry.ORCSSite || !parks[entry.ORCSSite] || entry.Feature === 'N')
         return
 
-      parks[entry.ORCSSite].uri = entry.Thumbnail
+      parks[entry.ORCSSite].imageUri = entry.Thumbnail
     })
 
     /*

@@ -14,17 +14,9 @@ import {
   AdvisoryText,
 } from './CarouselCard.styles'
 
-function CarouselCard({
-  onPress,
-  title,
-  distance,
-  uri,
-  alerts = [],
-  advisories = [],
-  onFavoritePress,
-  favorited = false,
-}) {
+function CarouselCard({ onPress, onFavoritePress, park, distance }) {
   const theme = useTheme()
+  const { title, imageUri, favorited, alerts, advisories } = park
 
   //  Format advisory banner message text
   const totalAdvisoryCount = alerts.length + advisories.length
@@ -52,7 +44,7 @@ function CarouselCard({
       <CardCover
         imageStyle={{ borderTopLeftRadius: 13, borderTopRightRadius: 13 }}
         defaultSource={defaultParkImage}
-        source={uri ? { uri } : defaultParkImage}
+        source={imageUri ? { imageUri } : defaultParkImage}
         resizeMode="cover">
         {totalAdvisoryCount > 0 && (
           <CardBanner alert={alerts.length > 0}>
@@ -73,7 +65,7 @@ function CarouselCard({
             accessibilityLabel="favorite park"
           />
         </ContentLine>
-        {distance && <ParkDistance>{`${distance}km Away`}</ParkDistance>}
+        <ParkDistance>{`${distance}km Away`}</ParkDistance>
       </CardContent>
     </Carousel>
   )
@@ -81,21 +73,23 @@ function CarouselCard({
 
 CarouselCard.propTypes = {
   onPress: PropTypes.func.isRequired,
-  title: PropTypes.string.isRequired,
-  distance: PropTypes.string,
-  uri: PropTypes.string,
   onFavoritePress: PropTypes.func.isRequired,
-  favorited: PropTypes.bool,
-  alerts: PropTypes.arrayOf(
-    PropTypes.shape({
-      Headline: PropTypes.string.isRequired,
-    })
-  ),
-  advisories: PropTypes.arrayOf(
-    PropTypes.shape({
-      Headline: PropTypes.string.isRequired,
-    })
-  ),
+  distance: PropTypes.string.isRequired,
+  park: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    imageUri: PropTypes.string,
+    favorited: PropTypes.bool,
+    alerts: PropTypes.arrayOf(
+      PropTypes.shape({
+        Headline: PropTypes.string.isRequired,
+      })
+    ),
+    advisories: PropTypes.arrayOf(
+      PropTypes.shape({
+        Headline: PropTypes.string.isRequired,
+      })
+    ),
+  }).isRequired,
 }
 
 export default CarouselCard

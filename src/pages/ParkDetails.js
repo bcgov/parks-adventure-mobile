@@ -60,7 +60,7 @@ function ParkDetails({ route }) {
 
         <ParkHeader>
           <ParkImage
-            source={park.uri ? { uri: park.uri } : defaultParkImage}
+            source={park.imageUri ? { uri: park.imageUri } : defaultParkImage}
             defaultSource={defaultParkImage}
           />
           <MapButton absolute={true} location={park.location} />

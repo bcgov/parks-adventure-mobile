@@ -22,7 +22,7 @@ const ParkList = ({ parks, onPress, onFavoritePress }) => {
       onPress={() => onPress(item)}>
       <ItemContainer>
         <ItemImage
-          source={item.uri ? { uri: item.uri } : defaultParkImage}
+          source={item.imageUri ? { uri: item.imageUri } : defaultParkImage}
           defaultSource={defaultParkImage}
         />
         <ColumnContainer>
@@ -60,7 +60,7 @@ ParkList.propTypes = {
     PropTypes.shape({
       title: PropTypes.string.isRequired,
       distance: PropTypes.string,
-      uri: PropTypes.string,
+      imageUri: PropTypes.string,
       favorited: PropTypes.bool,
     })
   ).isRequired,

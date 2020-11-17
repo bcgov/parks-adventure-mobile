@@ -6,17 +6,23 @@ import CarouselCard from './CarouselCard'
 test('Should render title and distance props', () => {
   const park = {
     title: 'Adventure Park',
-    uri: 'https://picsum.photos/id/1043/5184/3456',
-    distance: '297',
+    imageUri: 'https://picsum.photos/id/1043/5184/3456',
     favorited: false,
+    alerts: [],
+    advisories: [],
   }
 
   const { getByText } = render(
-    <CarouselCard {...park} onPress={() => {}} onFavoritePress={() => {}} />
+    <CarouselCard
+      park={park}
+      distance={'297'}
+      onPress={() => {}}
+      onFavoritePress={() => {}}
+    />
   )
 
   const title = getByText(park.title)
-  const distance = getByText(`${park.distance}km Away`)
+  const distance = getByText('297km Away')
 
   expect(title).toBeDefined()
   expect(distance).toBeDefined()
@@ -25,13 +31,19 @@ test('Should render title and distance props', () => {
 test('renders with no uri and favorited set to true', () => {
   const park = {
     title: 'Adventure Park',
-    distance: '297',
     favorited: true,
+    alerts: [],
+    advisories: [],
   }
 
   const tree = renderSnapshot
     .create(
-      <CarouselCard {...park} onPress={() => {}} onFavoritePress={() => {}} />
+      <CarouselCard
+        park={park}
+        distance={'297'}
+        onPress={() => {}}
+        onFavoritePress={() => {}}
+      />
     )
     .toJSON()
   expect(tree).toMatchSnapshot()
@@ -42,14 +54,18 @@ describe('advisory banner', () => {
     const AdvisoryHeadline = 'Advisory Headline'
     const park = {
       title: 'Adventure Park',
-      distance: '297',
       favorited: true,
       advisories: [{ Headline: AdvisoryHeadline }],
       alerts: [],
     }
 
     const { getByText } = render(
-      <CarouselCard {...park} onPress={() => {}} onFavoritePress={() => {}} />
+      <CarouselCard
+        park={park}
+        distance={'297'}
+        onPress={() => {}}
+        onFavoritePress={() => {}}
+      />
     )
     const message = getByText(AdvisoryHeadline)
 
@@ -59,7 +75,6 @@ describe('advisory banner', () => {
   test('more than 1 advisory should condense text', () => {
     const park = {
       title: 'Adventure Park',
-      distance: '297',
       favorited: true,
       advisories: [],
       alerts: [],
@@ -68,7 +83,12 @@ describe('advisory banner', () => {
     //  Only Advisories
     park.advisories = [{ Headline: 'Advisory 1' }, { Headline: 'Advisory 2' }]
     const { getByText, rerender } = render(
-      <CarouselCard {...park} onPress={() => {}} onFavoritePress={() => {}} />
+      <CarouselCard
+        park={park}
+        distance={'297'}
+        onPress={() => {}}
+        onFavoritePress={() => {}}
+      />
     )
     let message = getByText('2 Advisories')
     expect(message).toBeDefined()
@@ -77,7 +97,12 @@ describe('advisory banner', () => {
     park.advisories = [{ Headline: 'Advisory 1' }]
     park.alerts = [{ Headline: 'Alert 1' }]
     rerender(
-      <CarouselCard {...park} onPress={() => {}} onFavoritePress={() => {}} />
+      <CarouselCard
+        park={park}
+        distance={'297'}
+        onPress={() => {}}
+        onFavoritePress={() => {}}
+      />
     )
     message = getByText('2 Alerts/Advisories')
     expect(message).toBeDefined()
@@ -86,7 +111,12 @@ describe('advisory banner', () => {
     park.advisories = []
     park.alerts = [{ Headline: 'Alert 1' }, { Headline: 'Alert 2' }]
     rerender(
-      <CarouselCard {...park} onPress={() => {}} onFavoritePress={() => {}} />
+      <CarouselCard
+        park={park}
+        distance={'297'}
+        onPress={() => {}}
+        onFavoritePress={() => {}}
+      />
     )
     message = getByText('2 Alerts')
     expect(message).toBeDefined()
@@ -97,7 +127,8 @@ test('Should call onPress when pressed', () => {
   const onPress = jest.fn()
   const { getByA11yLabel } = render(
     <CarouselCard
-      title={'Adventure Park'}
+      park={{ title: 'Adventure Park', alerts: [], advisories: [] }}
+      distance={'43'}
       onPress={onPress}
       onFavoritePress={() => {}}
     />
@@ -113,12 +144,15 @@ test('favorites park when heart is pressed', () => {
   const park = {
     title: 'Adventure Park',
     favorited: false,
+    alerts: [],
+    advisories: [],
   }
   const onFavoritePress = jest.fn()
 
   const { getByA11yLabel } = render(
     <CarouselCard
-      {...park}
+      park={park}
+      distance={'43'}
       onPress={() => {}}
       onFavoritePress={onFavoritePress}
     />

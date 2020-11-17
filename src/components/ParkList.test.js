@@ -6,7 +6,7 @@ const parks = [
   {
     title: 'Park 1',
     distance: '25',
-    uri: 'https://picsum.photos/id/1043/5184/3456',
+    imageUri: 'https://picsum.photos/id/1043/5184/3456',
     favorited: false,
   },
   {
@@ -17,13 +17,13 @@ const parks = [
   {
     title: 'Park 3',
     distance: '80',
-    uri: 'https://picsum.photos/id/1043/5184/3456',
+    imageUri: 'https://picsum.photos/id/1043/5184/3456',
     favorited: false,
   },
   {
     title: 'Park 4',
     distance: '90',
-    uri: 'https://picsum.photos/id/1043/5184/3456',
+    imageUri: 'https://picsum.photos/id/1043/5184/3456',
     favorited: true,
   },
 ]

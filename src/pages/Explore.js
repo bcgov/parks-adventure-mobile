@@ -69,22 +69,20 @@ function Explore({ navigation }) {
           showsHorizontalScrollIndicator={false}
           data={hikingParks}
           keyExtractor={(item) => item.id}
-          renderItem={({ item, index }) => (
+          renderItem={({ item: park, index }) => (
             <ParkCardContainer
-              key={item.id}
+              key={park.id}
               index={index}
               length={hikingParks.length}>
               <CarouselCard
-                onPress={() =>
-                  navigation.navigate('ParkDetails', { park: item })
+                onPress={() => navigation.navigate('ParkDetails', { park })}
+                onFavoritePress={() => favoritePark(park.id)}
+                distance={
+                  location
+                    ? haversine(location, park.location).toFixed(0)
+                    : 'unknown '
                 }
-                title={item.title}
-                uri={item.uri}
-                alerts={item.alerts}
-                advisories={item.advisories}
-                distance={haversine(location, item.location).toFixed(0)}
-                favorited={item.favorited}
-                onFavoritePress={() => favoritePark(item.id)}
+                park={park}
               />
             </ParkCardContainer>
           )}
@@ -101,22 +99,20 @@ function Explore({ navigation }) {
           showsHorizontalScrollIndicator={false}
           data={swimmingParks}
           keyExtractor={(item) => item.id}
-          renderItem={({ item, index }) => (
+          renderItem={({ item: park, index }) => (
             <ParkCardContainer
-              key={item.id}
+              key={park.id}
               index={index}
               length={swimmingParks.length}>
               <CarouselCard
-                onPress={() =>
-                  navigation.navigate('ParkDetails', { park: item })
+                onPress={() => navigation.navigate('ParkDetails', { park })}
+                onFavoritePress={() => favoritePark(park.id)}
+                distance={
+                  location
+                    ? haversine(location, park.location).toFixed(0)
+                    : 'unknown '
                 }
-                title={item.title}
-                uri={item.uri}
-                alerts={item.alerts}
-                advisories={item.advisories}
-                distance={haversine(location, item.location).toFixed(0)}
-                favorited={item.favorited}
-                onFavoritePress={() => favoritePark(item.id)}
+                park={park}
               />
             </ParkCardContainer>
           )}
@@ -133,22 +129,20 @@ function Explore({ navigation }) {
           showsHorizontalScrollIndicator={false}
           data={vehicleCampingParks}
           keyExtractor={(item) => item.id}
-          renderItem={({ item, index }) => (
+          renderItem={({ item: park, index }) => (
             <ParkCardContainer
-              key={item.id}
+              key={park.id}
               index={index}
               length={vehicleCampingParks.length}>
               <CarouselCard
-                onPress={() =>
-                  navigation.navigate('ParkDetails', { park: item })
+                onPress={() => navigation.navigate('ParkDetails', { park })}
+                onFavoritePress={() => favoritePark(park.id)}
+                distance={
+                  location
+                    ? haversine(location, park.location).toFixed(0)
+                    : 'unknown '
                 }
-                title={item.title}
-                uri={item.uri}
-                alerts={item.alerts}
-                advisories={item.advisories}
-                distance={haversine(location, item.location).toFixed(0)}
-                favorited={item.favorited}
-                onFavoritePress={() => favoritePark(item.id)}
+                park={park}
               />
             </ParkCardContainer>
           )}

@@ -44,7 +44,7 @@ function CarouselCard({ onPress, onFavoritePress, park, distance }) {
       <CardCover
         imageStyle={{ borderTopLeftRadius: 13, borderTopRightRadius: 13 }}
         defaultSource={defaultParkImage}
-        source={imageUri ? { imageUri } : defaultParkImage}
+        source={imageUri ? { uri: imageUri } : defaultParkImage}
         resizeMode="cover">
         {totalAdvisoryCount > 0 && (
           <CardBanner alert={alerts.length > 0}>

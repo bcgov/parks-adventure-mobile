@@ -1,10 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import haversine from 'haversine'
 import { MaterialCommunityIcons as Icon } from '@expo/vector-icons'
 import { useTheme } from 'react-native-paper'
 import { DataContext } from '../utils/DataContext'
+import { sortParks, addDistanceToParks } from '../utils/helpers'
 import ParkList from '../components/ParkList'
+import LocationBanner from '../components/LocationBanner'
 import {
   SafeArea,
   Container,
@@ -20,20 +21,14 @@ function Favourites({ navigation }) {
 
   const favoriteParks = parks
     .filter((park) => park.favorited)
-    .map((park) => ({
-      ...park,
-      distance: haversine(location, park.location).toFixed(0),
-    }))
-    .sort((a, b) => {
-      const distanceToA = haversine(location, a.location)
-      const distanceToB = haversine(location, b.location)
-
-      return distanceToA - distanceToB
-    })
+    .map((park) => addDistanceToParks(location, park))
+    .sort((a, b) => sortParks(location, a, b))
 
   return (
     <SafeArea>
-      <Container>
+      <LocationBanner />
+
+      <Container locationNotAvailable={!location}>
         {favoriteParks.length > 0 ? (
           <ParkList
             parks={favoriteParks}

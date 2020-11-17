@@ -15,6 +15,7 @@ export const ExplorePage = styled(SafeAreaView)`
 
 export const ExploreScrollView = styled(ScrollView)`
   flex: 1;
+  margin-top: ${(props) => (props.locationNotAvailable ? 60 : 0)}px;
 `
 
 export const ExploreHeader = styled(ImageBackground)`

@@ -5,7 +5,7 @@ import { ScrollView, Linking } from 'react-native'
 import { useTheme } from 'react-native-paper'
 import MCIcon from 'react-native-vector-icons/MaterialCommunityIcons'
 import { DataContext } from '../utils/DataContext'
-import { sort } from '../utils/helpers'
+import { sortAdvisories } from '../utils/helpers'
 import defaultParkImage from '../../assets/defaultParkImage.jpg'
 import AlertAccordion from '../components/AlertAccordion'
 import MapButton from '../components/MapButton'
@@ -34,7 +34,9 @@ function ParkDetails({ route }) {
   const { park } = route.params
   const theme = useTheme()
 
-  const distance = haversine(location, park.location).toFixed(0)
+  const distance = location
+    ? haversine(location, park.location).toFixed(0)
+    : 'unknown '
 
   function linkToWebsite() {
     Linking.openURL(park.url)
@@ -45,7 +47,7 @@ function ParkDetails({ route }) {
       <ScrollView showsVerticalScrollIndicator={false}>
         {park.alerts.length > 0
           ? park.alerts
-              .sort(sort)
+              .sort(sortAdvisories)
               .map((alert) => (
                 <AlertAccordion
                   key={alert.AdvisoryID}
@@ -78,7 +80,7 @@ function ParkDetails({ route }) {
 
         {park.advisories.length > 0
           ? park.advisories
-              .sort(sort)
+              .sort(sortAdvisories)
               .map((advisory) => (
                 <AlertAccordion
                   key={advisory.AdvisoryID}

@@ -36,8 +36,16 @@ describe('parks', () => {
     expect(results[0].activities.length).toBeGreaterThan(0)
     expect(results[0]).toHaveProperty('facilities')
     expect(results[0].facilities.length).toBeGreaterThan(0)
-    expect(results[0]).toHaveProperty('uri')
+    expect(results[0]).toHaveProperty('url')
+    expect(results[0]).toHaveProperty('imageUri')
+    expect(results[0]).toHaveProperty('favorited', false)
+    expect(results[0]).toHaveProperty('description')
+    expect(results[0].description.length).toBeGreaterThan(0)
+    expect(results[0]).toHaveProperty('locationNotes')
+    expect(results[0]).toHaveProperty('specialNotes')
+    expect(results[0]).toHaveProperty('natureAndCulture')
     expect(results[0]).toHaveProperty('advisories')
+    expect(results[0]).toHaveProperty('alerts')
     /**
      * NOTE: This assertion is very fragile as not every park will have
      * advisories. Since the information is static data, this test will pass as
@@ -46,6 +54,7 @@ describe('parks', () => {
      * time on it.
      */
     expect(results[0].advisories.length).toBeGreaterThan(0)
+    expect(results[0].alerts.length).toBeGreaterThan(0)
   })
 })
 

@@ -7,4 +7,10 @@ function getCurrentPositionAsync() {
   }
 }
 
-export { getCurrentPositionAsync }
+function getPermissionsAsync() {
+  return {
+    status: 'granted',
+  }
+}
+
+export { getCurrentPositionAsync, getPermissionsAsync }

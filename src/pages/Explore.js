@@ -23,7 +23,7 @@ import risingSunSrc from '../../assets/sunWithShadow.png'
 function Explore({ navigation }) {
   const { parks, location, favoritePark } = React.useContext(DataContext)
 
-  const subheading = `Within ${defaultDistanceFilter}km of your location`
+  const subheading = `Within ${defaultDistanceFilter}km`
   const hikingParks = getClosestParksByAmenityTypeAndID(
     'activities',
     '1',
@@ -52,7 +52,7 @@ function Explore({ navigation }) {
         </ExploreHeader>
         {/* Hiking - ActivityID = 1 */}
         <CarouselHeader
-          title="Great Hikes Near You"
+          title="Great Hikes Near Me"
           subheading={subheading}
           icon={'Hiking'}
         />
@@ -84,7 +84,7 @@ function Explore({ navigation }) {
 
         {/* Swimming - ActivityID = 3 */}
         <CarouselHeader
-          title="Swimming Holes Near You"
+          title="Swimming Holes Near Me"
           subheading={subheading}
           icon={'Swimming'}
         />
@@ -116,7 +116,7 @@ function Explore({ navigation }) {
 
         {/* Vehicle-Accessible Camping - FacilityID = 1 */}
         <CarouselHeader
-          title="Vehicle Camping Near You"
+          title="Vehicle Camping Near Me"
           subheading={subheading}
           icon={'Vehicle-Accessible Camping'}
         />

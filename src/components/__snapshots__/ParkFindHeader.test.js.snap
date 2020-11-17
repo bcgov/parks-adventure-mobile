@@ -292,6 +292,7 @@ exports[`Matches snapshot 1`] = `
     </Text>
     <Icon
       accessibilityLabel="Filter Parks"
+      allowFontScaling={true}
       icon="tune"
       onPress={[Function]}
       size={18}

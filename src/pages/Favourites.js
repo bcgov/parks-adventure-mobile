@@ -49,9 +49,12 @@ function Favourites({ navigation }) {
               justifyContent: 'center',
             }}>
             <Text>
-              <Text>Easily access parks by adding them to your list of </Text>
-              <FavouriteText>Favourites</FavouriteText>
-              <Text>. Add parks by tapping the</Text>
+              <Text>Your </Text>
+              <FavouriteText>Favourite</FavouriteText>
+              <Text>
+                {' '}
+                parks live here for easy access. Add parks by tapping the
+              </Text>
               <InlineIcon>
                 <Icon
                   name="heart-outline"

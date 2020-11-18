@@ -1,6 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { getParks, getLocation, getActivities, getFacilities } from './api'
+import {
+  getParks,
+  getLocation,
+  getActivities,
+  getFacilities,
+  updateStorageFavorites,
+} from './api'
 import { defaultDistanceFilter, filterParks } from './helpers'
 
 export const DataContext = React.createContext()
@@ -77,6 +83,7 @@ export function DataProvider({ children }) {
   }
 
   function favoritePark(id) {
+    updateStorageFavorites(id)
     const index = parks.findIndex((park) => park.id === id)
     const newList = [...parks]
     newList[index].favorited = !parks[index].favorited

@@ -8,6 +8,8 @@ import {
   getActivities,
   fetchFacilities,
   getFacilities,
+  getStorageFavorites,
+  updateStorageFavorites,
 } from './api'
 
 describe('parks', () => {
@@ -112,5 +114,22 @@ describe('facilities', () => {
   test('Verify getFacilities() calls AsyncStorage.getItem', async () => {
     await getFacilities()
     expect(AsyncStorage.getItem).toHaveBeenCalled()
+  })
+})
+
+describe('favorites', () => {
+  afterAll(() => {
+    jest.resetAllMocks()
+  })
+
+  test('Verify updateStorageFavorites() adds/removes existing favorites', async () => {
+    await updateStorageFavorites('1')
+    expect(AsyncStorage.getItem).toHaveBeenCalledWith('favorites')
+    expect(AsyncStorage.setItem).toHaveBeenCalledWith('favorites', '["1"]')
+  })
+
+  test('Verify getStorageFavorites() calls AsyncStorage.getItem', async () => {
+    await getStorageFavorites()
+    expect(AsyncStorage.getItem).toHaveBeenCalledWith('favorites')
   })
 })

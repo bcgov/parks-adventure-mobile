@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { View } from 'react-native'
-import { getParkSvg } from '../images/svgs'
+import { getAmenityIcon } from '../images/svgs/amenities'
 import { List, Item, Text, Divider } from './AmenityList.styles'
 
 const AmenityList = ({ list = [], selected = [] }) => (
@@ -11,7 +11,7 @@ const AmenityList = ({ list = [], selected = [] }) => (
       return amenity ? (
         <View key={id}>
           <Item>
-            {getParkSvg(amenity.name, true, 30)}
+            {getAmenityIcon(amenity.name, true, 30)}
             <Text>{amenity.name}</Text>
           </Item>
           <Divider />

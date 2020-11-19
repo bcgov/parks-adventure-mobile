@@ -1,12 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { IconButton } from 'react-native-paper'
-import { getParkSvg } from '../images/svgs'
+import { getAmenityIcon } from '../images/svgs/amenities'
 import { Container, Title, Selection } from './FilterAmenityListItem.styles'
 
 const FilterAmenityListItem = ({ name, onSelect, selected }) => (
   <Container>
-    {getParkSvg(name, selected)}
+    {getAmenityIcon(name, selected)}
     <Title selected={selected}>{name}</Title>
     <Selection selected={selected} accessibilityLabel={'select'}>
       <IconButton icon="check" color="white" size={26} onPress={onSelect} />

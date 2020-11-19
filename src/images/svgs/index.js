@@ -10,6 +10,8 @@ import ClimbingNa from './activity/climbing-na.svg'
 import Climbing from './activity/climbing.svg'
 import CyclingNa from './activity/cycling-na.svg'
 import Cycling from './activity/cycling.svg'
+import EBikesNa from './activity/e-bikes-permitted-na.svg'
+import EBikes from './activity/e-bikes-permitted.svg'
 import FishingNa from './activity/fishing-na.svg'
 import Fishing from './activity/fishing.svg'
 import HikingNa from './activity/hiking-na.svg'
@@ -18,6 +20,8 @@ import HorsebackRidingNa from './activity/horseback-riding-na.svg'
 import HorsebackRiding from './activity/horseback-riding.svg'
 import HuntingNa from './activity/hunting-na.svg'
 import Hunting from './activity/hunting.svg'
+import InterpretiveProgramsNa from './activity/interpretive-programs-outside-na.svg'
+import InterpretivePrograms from './activity/interpretive-programs-outside.svg'
 import MarineAccessibleCampingNa from './activity/marine-accessible-camping-na.svg'
 import MarineAccessibleCamping from './activity/marine-accessible-camping.svg'
 import PetsOnLeashNa from './activity/pets-on-leash-na.svg'
@@ -34,6 +38,8 @@ import ViewpointNa from './activity/viewpoint-na.svg'
 import Viewpoint from './activity/viewpoint.svg'
 import WaterskiingNa from './activity/waterskiing-na.svg'
 import Waterskiing from './activity/waterskiing.svg'
+import WildernessCampingNa from './activity/wilderness-camping-na.svg'
+import WildernessCamping from './activity/wilderness-camping.svg'
 import WildlifeViewingNa from './activity/wildlife-viewing-na.svg'
 import WildlifeViewing from './activity/wildlife-viewing.svg'
 import WindSurfingNa from './activity/wind-surfing-na.svg'
@@ -41,6 +47,8 @@ import WindSurfing from './activity/wind-surfing.svg'
 import WinterRecreationNa from './activity/winter-recreation-na.svg'
 import WinterRecreation from './activity/winter-recreation.svg'
 
+import AccessibilityNa from './facility/accessibility-na.svg'
+import Accessibility from './facility/accessibility.svg'
 import AmphitheatreNa from './facility/amphitheatre-na.svg'
 import Amphitheatre from './facility/amphitheatre.svg'
 import BikeParkNa from './facility/bike-park-na.svg'
@@ -63,6 +71,8 @@ import GroupCampingNa from './facility/group-camping-na.svg'
 import GroupCamping from './facility/group-camping.svg'
 import HorseshoesNa from './facility/horseshoes-na.svg'
 import Horseshoes from './facility/horseshoes.svg'
+import HotSpringNa from './facility/hot-spring-na.svg'
+import HotSpring from './facility/hot-spring.svg'
 import InformationNa from './facility/information-na.svg'
 import Information from './facility/information-shelter-na.svg'
 import InformationShelterNa from './facility/information-shelter.svg'
@@ -124,6 +134,12 @@ export function getParkSvg(name, active, iconSize = 36) {
       } else {
         return <CyclingNa height={iconSize} width={iconSize} />
       }
+    case 'e-Biking':
+      if (active) {
+        return <EBikes height={iconSize} width={iconSize} />
+      } else {
+        return <EBikesNa height={iconSize} width={iconSize} />
+      }
     case 'Fishing':
       if (active) {
         return <Fishing height={iconSize} width={iconSize} />
@@ -147,6 +163,12 @@ export function getParkSvg(name, active, iconSize = 36) {
         return <Hunting height={iconSize} width={iconSize} />
       } else {
         return <HuntingNa height={iconSize} width={iconSize} />
+      }
+    case 'Interpretive Programs':
+      if (active) {
+        return <InterpretivePrograms height={iconSize} width={iconSize} />
+      } else {
+        return <InterpretiveProgramsNa height={iconSize} width={iconSize} />
       }
     case 'Marine-Accessible Camping':
       if (active) {
@@ -196,6 +218,12 @@ export function getParkSvg(name, active, iconSize = 36) {
       } else {
         return <WaterskiingNa height={iconSize} width={iconSize} />
       }
+    case 'Wilderness Camping':
+      if (active) {
+        return <WildernessCamping height={iconSize} width={iconSize} />
+      } else {
+        return <WildernessCampingNa height={iconSize} width={iconSize} />
+      }
     case 'Wildlife Viewing':
       if (active) {
         return <WildlifeViewing height={iconSize} width={iconSize} />
@@ -213,6 +241,12 @@ export function getParkSvg(name, active, iconSize = 36) {
         return <WinterRecreation height={iconSize} width={iconSize} />
       } else {
         return <WinterRecreationNa height={iconSize} width={iconSize} />
+      }
+    case 'Accessibility Information':
+      if (active) {
+        return <Accessibility height={iconSize} width={iconSize} />
+      } else {
+        return <AccessibilityNa height={iconSize} width={iconSize} />
       }
     case 'Amphitheatre':
       if (active) {
@@ -286,6 +320,12 @@ export function getParkSvg(name, active, iconSize = 36) {
       } else {
         return <HorseshoesNa height={iconSize} width={iconSize} />
       }
+    case 'Hot Spring':
+      if (active) {
+        return <HotSpring height={iconSize} width={iconSize} />
+      } else {
+        return <HotSpringNa height={iconSize} width={iconSize} />
+      }
     case 'Information':
       if (active) {
         return <Information height={iconSize} width={iconSize} />
@@ -334,7 +374,7 @@ export function getParkSvg(name, active, iconSize = 36) {
       } else {
         return <SaniStationNa height={iconSize} width={iconSize} />
       }
-    case 'Shelters':
+    case 'Cabins/Huts':
       if (active) {
         return <Shelter height={iconSize} width={iconSize} />
       } else {

@@ -35,7 +35,7 @@ function AlertAccordion({ headline, description, type = 'alert' }) {
           </Content>
         </Accordion>
       ) : (
-        <Headline alert={type !== 'advisory'}>
+        <Headline type={type}>
           <HeadlineText type={type}>{headline}</HeadlineText>
         </Headline>
       )}

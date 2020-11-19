@@ -16,7 +16,9 @@ export const CardCover = styled(ImageBackground)`
 
 export const CardBanner = styled(View)`
   background-color: ${(props) =>
-    props.alert || props.closure
+    props.closure
+      ? theme.colors.error
+      : props.alert
       ? theme.colors.alert
       : theme.colors.secondary50};
   height: 30px;
@@ -40,7 +42,7 @@ export const AdvisoryText = styled(Text)`
   text-align: center;
   color: ${(props) => (props.alert || props.closure ? 'white' : 'black')};
   padding: 0 16px;
-  text-transform: ${(props) => (props.closure ? 'capitalize' : 'none')};
+  text-transform: ${(props) => (props.closure ? 'uppercase' : 'none')};
 `
 
 export const ParkTitle = styled(Text)`

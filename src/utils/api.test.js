@@ -46,15 +46,16 @@ describe('parks', () => {
     expect(results[0]).toHaveProperty('natureAndCulture')
     expect(results[0]).toHaveProperty('advisories')
     expect(results[0]).toHaveProperty('alerts')
-    /**
-     * NOTE: This assertion is very fragile as not every park will have
-     * advisories. Since the information is static data, this test will pass as
-     * long as the static data doesn't change. This data will eventually be
-     * pulled in from an API, so I didn't think it was worth spending too much
-     * time on it.
+    /*
+     * NOTE: These assertion are very fragile as not every park will have
+     * alerts, advisories, or 'partial closure' status. Since the information
+     * is static data, this test will pass as long as the static data doesn't
+     * change. This data will eventually be pulled in from an API, so I didn't
+     * think it was worth spending too much time on it.
      */
     expect(results[0].advisories.length).toBeGreaterThan(0)
     expect(results[0].alerts.length).toBeGreaterThan(0)
+    expect(results[0]).toHaveProperty('status', 'partial closure')
   })
 })
 

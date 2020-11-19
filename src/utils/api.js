@@ -43,6 +43,7 @@ export async function fetchParks() {
             latitude: park.Latitude,
             longitude: park.Longitude,
           },
+          status: park.AccessStatus,
           favorited: false,
           activities: [],
           facilities: [],

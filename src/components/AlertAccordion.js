@@ -9,18 +9,18 @@ import {
   HeadlineText,
 } from './AlertAccordion.styles'
 
-function AlertAccordion({ headline, description, alert = false }) {
+function AlertAccordion({ headline, description, type = 'alert' }) {
   const [expanded, setExpanded] = React.useState(false)
 
   const containsDesciption = description && description.match(/\w/)
-  const color = alert ? 'white' : 'black'
+  const color = type !== 'advisory' ? 'white' : 'black'
 
   return (
     <Container>
       {containsDesciption ? (
         <Accordion
           testID={'accordion'}
-          alert={alert}
+          alert={type !== 'advisory'}
           title={headline}
           expanded={expanded}
           onPress={() => setExpanded(!expanded)}
@@ -28,15 +28,15 @@ function AlertAccordion({ headline, description, alert = false }) {
           titleStyle={{
             color,
             fontSize: 14,
-            fontFamily: alert ? 'bcsans-bold' : 'bcsans',
+            fontFamily: type !== 'advisory' ? 'bcsans-bold' : 'bcsans',
           }}>
-          <Content alert={alert}>
+          <Content alert={type !== 'advisory'}>
             <HTMLContent content={description} color={color} size={14} />
           </Content>
         </Accordion>
       ) : (
-        <Headline>
-          <HeadlineText>{headline}</HeadlineText>
+        <Headline alert={type !== 'advisory'}>
+          <HeadlineText type={type}>{headline}</HeadlineText>
         </Headline>
       )}
     </Container>
@@ -46,7 +46,7 @@ function AlertAccordion({ headline, description, alert = false }) {
 AlertAccordion.propTypes = {
   headline: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  alert: PropTypes.bool,
+  type: PropTypes.string,
 }
 
 export default AlertAccordion

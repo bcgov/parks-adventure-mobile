@@ -17,6 +17,7 @@ export const Button = styled(Card)`
   ${(props) => (!props.absolute ? 'margin: 10px 0 20px 0;' : null)};
   align-items: center;
   padding-top: 15px;
+  z-index: 2;
 `
 
 export const Icon = styled(MCIcon)`

@@ -21,9 +21,12 @@ export const Headline = styled(View)`
 `
 
 export const HeadlineText = styled(Text)`
-  color: ${(props) => (props.alert ? 'white' : 'black')};
-  font-family: ${(props) => (props.alert ? 'bcsans-bold' : 'bcsans')};
+  color: ${(props) => (props.type !== 'advisory' ? 'white' : 'black')};
+  font-family: ${(props) =>
+    props.type !== 'advisory' ? 'bcsans-bold' : 'bcsans'};
   flex-wrap: wrap;
+  text-transform: ${(props) =>
+    props.type === 'closure' ? 'capitalize' : 'none'};
 `
 
 export const Content = styled(View)`

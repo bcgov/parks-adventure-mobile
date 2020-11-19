@@ -16,6 +16,7 @@ import {
   DetailsPage,
   ParkHeader,
   ParkImage,
+  BlackTransparentOverlay,
   TitleSection,
   TitleRow,
   Title,
@@ -28,9 +29,12 @@ import {
   FeesDividerTop,
   FeesDividerBottom,
 } from './ParkDetails.styles'
+import {} from '../components/CarouselCard.styles'
 
 function ParkDetails({ route }) {
-  const { location, activities, facilities } = React.useContext(DataContext)
+  const { location, activities, facilities, favoritePark } = React.useContext(
+    DataContext
+  )
   const { park } = route.params
   const theme = useTheme()
 
@@ -45,6 +49,14 @@ function ParkDetails({ route }) {
   return (
     <DetailsPage>
       <ScrollView showsVerticalScrollIndicator={false}>
+        {park.status !== 'open' && (
+          <AlertAccordion
+            key={'closure'}
+            headline={park.status}
+            description={''}
+            type={'closure'}
+          />
+        )}
         {park.alerts.length > 0
           ? park.alerts
               .sort(sortAdvisories)
@@ -53,15 +65,17 @@ function ParkDetails({ route }) {
                   key={alert.AdvisoryID}
                   headline={alert.Headline}
                   description={alert.Description}
-                  alert={true}
+                  type={'alert'}
                 />
               ))
           : null}
 
         <ParkHeader>
+          {park.status !== 'open' && <BlackTransparentOverlay />}
           <ParkImage
             source={park.imageUri ? { uri: park.imageUri } : defaultParkImage}
             defaultSource={defaultParkImage}
+            closure={park.status !== 'open'}
           />
           <MapButton absolute={true} location={park.location} />
         </ParkHeader>
@@ -73,6 +87,8 @@ function ParkDetails({ route }) {
               name={park.favorited ? 'heart' : 'heart-outline'}
               size={20}
               color={theme.colors.secondary500}
+              onPress={() => favoritePark(park.id)}
+              accessibilityLabel="favorite park"
             />
           </TitleRow>
           <Subtitle>{`Approx. ${distance}km from your current location`}</Subtitle>
@@ -86,7 +102,7 @@ function ParkDetails({ route }) {
                   key={advisory.AdvisoryID}
                   headline={advisory.Headline}
                   description={advisory.Description}
-                  alert={false}
+                  type={'advisory'}
                 />
               ))
           : null}

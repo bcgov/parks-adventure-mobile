@@ -19,10 +19,16 @@ const KEYS = {
   location: 'userLocation',
   activities: 'activities',
   facilities: 'facilities',
+  favorites: 'favorites',
 }
 
 export async function fetchParks() {
   try {
+    /*
+     * Get list of existing favorites to attach to new data
+     */
+    const favorites = await getStorageFavorites()
+
     /*
      * Get unique parks and sort by the parks basic name
      */
@@ -43,7 +49,8 @@ export async function fetchParks() {
             latitude: park.Latitude,
             longitude: park.Longitude,
           },
-          favorited: false,
+          status: park.AccessStatus,
+          favorited: favorites.includes(park.ORCSSite),
           activities: [],
           facilities: [],
           alerts: [],
@@ -261,6 +268,31 @@ export async function fetchFacilities() {
 export async function getFacilities() {
   try {
     const data = await AsyncStorage.getItem(KEYS.facilities)
+    return data ? JSON.parse(data) : []
+  } catch (error) {
+    console.warn(error)
+  }
+}
+
+export async function updateStorageFavorites(id) {
+  try {
+    const results = await AsyncStorage.getItem(KEYS.favorites)
+    let data = results ? JSON.parse(results) : []
+
+    if (data.includes(id)) {
+      data = data.filter((item) => item !== id)
+    } else {
+      data.push(id)
+    }
+    await AsyncStorage.setItem(KEYS.favorites, JSON.stringify(data))
+  } catch (error) {
+    console.warn(error)
+  }
+}
+
+export async function getStorageFavorites() {
+  try {
+    const data = await AsyncStorage.getItem(KEYS.favorites)
     return data ? JSON.parse(data) : []
   } catch (error) {
     console.warn(error)

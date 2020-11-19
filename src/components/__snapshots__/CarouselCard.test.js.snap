@@ -43,11 +43,13 @@ exports[`renders with no uri and favorited set to true 1`] = `
         Array [
           Object {
             "height": 135,
+            "position": "relative",
           },
         ]
       }
     >
       <Image
+        closure={false}
         defaultSource={1}
         index={0}
         resizeMode="cover"

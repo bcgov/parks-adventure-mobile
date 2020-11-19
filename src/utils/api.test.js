@@ -8,6 +8,8 @@ import {
   getActivities,
   fetchFacilities,
   getFacilities,
+  getStorageFavorites,
+  updateStorageFavorites,
 } from './api'
 
 describe('parks', () => {
@@ -46,15 +48,16 @@ describe('parks', () => {
     expect(results[0]).toHaveProperty('natureAndCulture')
     expect(results[0]).toHaveProperty('advisories')
     expect(results[0]).toHaveProperty('alerts')
-    /**
-     * NOTE: This assertion is very fragile as not every park will have
-     * advisories. Since the information is static data, this test will pass as
-     * long as the static data doesn't change. This data will eventually be
-     * pulled in from an API, so I didn't think it was worth spending too much
-     * time on it.
+    /*
+     * NOTE: These assertion are very fragile as not every park will have
+     * alerts, advisories, or 'partial closure' status. Since the information
+     * is static data, this test will pass as long as the static data doesn't
+     * change. This data will eventually be pulled in from an API, so I didn't
+     * think it was worth spending too much time on it.
      */
     expect(results[0].advisories.length).toBeGreaterThan(0)
     expect(results[0].alerts.length).toBeGreaterThan(0)
+    expect(results[0]).toHaveProperty('status', 'partial closure')
   })
 })
 
@@ -112,5 +115,22 @@ describe('facilities', () => {
   test('Verify getFacilities() calls AsyncStorage.getItem', async () => {
     await getFacilities()
     expect(AsyncStorage.getItem).toHaveBeenCalled()
+  })
+})
+
+describe('favorites', () => {
+  afterAll(() => {
+    jest.resetAllMocks()
+  })
+
+  test('Verify updateStorageFavorites() adds/removes existing favorites', async () => {
+    await updateStorageFavorites('1')
+    expect(AsyncStorage.getItem).toHaveBeenCalledWith('favorites')
+    expect(AsyncStorage.setItem).toHaveBeenCalledWith('favorites', '["1"]')
+  })
+
+  test('Verify getStorageFavorites() calls AsyncStorage.getItem', async () => {
+    await getStorageFavorites()
+    expect(AsyncStorage.getItem).toHaveBeenCalledWith('favorites')
   })
 })

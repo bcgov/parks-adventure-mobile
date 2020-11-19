@@ -8,7 +8,7 @@ test('Should render alert', () => {
     <AlertAccordion
       headline="This is the title"
       description="This is information about the alert"
-      alert={true}
+      type={'alert'}
     />
   )
 
@@ -23,7 +23,7 @@ test('Should render alert', () => {
 
 test('Should render headline without accordion if no advisory desciption', () => {
   const { queryByTestId } = render(
-    <AlertAccordion headline="Title" description=" " alert={true} />
+    <AlertAccordion headline="Title" description=" " type={'alert'} />
   )
 
   const accordion = queryByTestId('accordion')
@@ -33,7 +33,11 @@ test('Should render headline without accordion if no advisory desciption', () =>
 test('matches alert snapshot', () => {
   const tree = renderSnapshot
     .create(
-      <AlertAccordion headline="Title" description="Description" alert={true} />
+      <AlertAccordion
+        headline="Title"
+        description="Description"
+        type={'alert'}
+      />
     )
     .toJSON()
   expect(tree).toMatchSnapshot()
@@ -45,7 +49,7 @@ test('matches advisory snapshot', () => {
       <AlertAccordion
         headline="Title"
         description="Description"
-        alert={false}
+        type={'advisory'}
       />
     )
     .toJSON()

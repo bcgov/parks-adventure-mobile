@@ -12,17 +12,21 @@ import {
   ParkDistance,
   CardBanner,
   AdvisoryText,
+  BlackTransparentOverlay,
 } from './CarouselCard.styles'
 
 function CarouselCard({ onPress, onFavoritePress, park, distance }) {
   const theme = useTheme()
-  const { title, imageUri, favorited, alerts, advisories } = park
+  const { title, imageUri, status, favorited, alerts, advisories } = park
 
   //  Format advisory banner message text
+  const closure = status !== 'open'
   const totalAdvisoryCount = alerts.length + advisories.length
   let advisoryMessage
 
-  if (totalAdvisoryCount === 1 && alerts.length === 1) {
+  if (closure) {
+    advisoryMessage = status
+  } else if (totalAdvisoryCount === 1 && alerts.length === 1) {
     advisoryMessage = alerts[0].Headline
   } else if (totalAdvisoryCount === 1 && advisories.length === 1) {
     advisoryMessage = advisories[0].Headline
@@ -42,16 +46,26 @@ function CarouselCard({ onPress, onFavoritePress, park, distance }) {
       elevation={6}
       onPress={onPress}>
       <CardCover
-        imageStyle={{ borderTopLeftRadius: 13, borderTopRightRadius: 13 }}
+        imageStyle={{
+          borderTopLeftRadius: 13,
+          borderTopRightRadius: 13,
+        }}
+        closure={closure}
         defaultSource={defaultParkImage}
         source={imageUri ? { uri: imageUri } : defaultParkImage}
         resizeMode="cover">
-        {totalAdvisoryCount > 0 && (
-          <CardBanner alert={alerts.length > 0}>
-            <AdvisoryText numberOfLines={1} alert={alerts.length > 0}>
-              {advisoryMessage}
-            </AdvisoryText>
-          </CardBanner>
+        {(totalAdvisoryCount > 0 || closure) && (
+          <>
+            {closure && <BlackTransparentOverlay />}
+            <CardBanner alert={alerts.length > 0} closure={closure}>
+              <AdvisoryText
+                numberOfLines={1}
+                alert={alerts.length > 0}
+                closure={closure}>
+                {advisoryMessage}
+              </AdvisoryText>
+            </CardBanner>
+          </>
         )}
       </CardCover>
       <CardContent>
@@ -77,6 +91,7 @@ CarouselCard.propTypes = {
   distance: PropTypes.string.isRequired,
   park: PropTypes.shape({
     title: PropTypes.string.isRequired,
+    status: PropTypes.string.isRequired,
     imageUri: PropTypes.string,
     favorited: PropTypes.bool,
     alerts: PropTypes.arrayOf(

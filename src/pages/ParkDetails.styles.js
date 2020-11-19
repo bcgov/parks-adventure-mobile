@@ -17,6 +17,15 @@ export const ParkImage = styled(Image)`
   height: 180px;
 `
 
+export const BlackTransparentOverlay = styled(View)`
+  z-index: 1;
+  position: absolute;
+  background-color: ${theme.colors.grey};
+  opacity: 0.5;
+  height: 100%;
+  width: 100%;
+`
+
 export const TitleSection = styled(View)`
   margin: 20px;
 `

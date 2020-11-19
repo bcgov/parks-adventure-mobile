@@ -15,15 +15,23 @@ export const Accordion = styled(List.Accordion)`
 
 export const Headline = styled(View)`
   background-color: ${(props) =>
-    props.alert ? theme.colors.alert : theme.colors.secondary50};
+    props.type === 'alert'
+      ? theme.colors.alert
+      : props.type === 'closure'
+      ? theme.colors.error
+      : theme.colors.secondary50};
   width: 100%;
   padding: 16px;
 `
 
 export const HeadlineText = styled(Text)`
-  color: ${(props) => (props.alert ? 'white' : 'black')};
-  font-family: ${(props) => (props.alert ? 'bcsans-bold' : 'bcsans')};
+  color: ${(props) => (props.type !== 'advisory' ? 'white' : 'black')};
+  font-family: ${(props) =>
+    props.type !== 'advisory' ? 'bcsans-bold' : 'bcsans'};
   flex-wrap: wrap;
+  text-transform: ${(props) =>
+    props.type === 'closure' ? 'uppercase' : 'none'};
+  text-align: ${(props) => (props.type === 'closure' ? 'center' : 'left')};
 `
 
 export const Content = styled(View)`

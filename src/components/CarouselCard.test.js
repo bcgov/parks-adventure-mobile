@@ -10,6 +10,7 @@ test('Should render title and distance props', () => {
     favorited: false,
     alerts: [],
     advisories: [],
+    status: 'open',
   }
 
   const { getByText } = render(
@@ -34,6 +35,7 @@ test('renders with no uri and favorited set to true', () => {
     favorited: true,
     alerts: [],
     advisories: [],
+    status: 'open',
   }
 
   const tree = renderSnapshot
@@ -50,6 +52,29 @@ test('renders with no uri and favorited set to true', () => {
 })
 
 describe('advisory banner', () => {
+  test('if park access status is not "open" display status over advisories', () => {
+    const status = 'full closure'
+    const park = {
+      title: 'Adventure Park',
+      favorited: true,
+      advisories: [{ Headline: 'Advisory Headline' }],
+      alerts: [],
+      status,
+    }
+
+    const { getByText } = render(
+      <CarouselCard
+        park={park}
+        distance={'297'}
+        onPress={() => {}}
+        onFavoritePress={() => {}}
+      />
+    )
+    const message = getByText(status)
+
+    expect(message).toBeDefined()
+  })
+
   test('if only 1 advisory, display advisory headline', () => {
     const AdvisoryHeadline = 'Advisory Headline'
     const park = {
@@ -57,6 +82,7 @@ describe('advisory banner', () => {
       favorited: true,
       advisories: [{ Headline: AdvisoryHeadline }],
       alerts: [],
+      status: 'open',
     }
 
     const { getByText } = render(
@@ -78,6 +104,7 @@ describe('advisory banner', () => {
       favorited: true,
       advisories: [],
       alerts: [],
+      status: 'open',
     }
 
     //  Only Advisories
@@ -127,7 +154,12 @@ test('Should call onPress when pressed', () => {
   const onPress = jest.fn()
   const { getByA11yLabel } = render(
     <CarouselCard
-      park={{ title: 'Adventure Park', alerts: [], advisories: [] }}
+      park={{
+        title: 'Adventure Park',
+        alerts: [],
+        advisories: [],
+        status: 'open',
+      }}
       distance={'43'}
       onPress={onPress}
       onFavoritePress={() => {}}
@@ -146,6 +178,7 @@ test('favorites park when heart is pressed', () => {
     favorited: false,
     alerts: [],
     advisories: [],
+    status: 'open',
   }
   const onFavoritePress = jest.fn()
 

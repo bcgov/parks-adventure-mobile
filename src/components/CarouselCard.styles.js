@@ -11,22 +11,38 @@ export const Carousel = styled(Card)`
 
 export const CardCover = styled(ImageBackground)`
   height: 135px;
+  position: relative;
 `
 
 export const CardBanner = styled(View)`
   background-color: ${(props) =>
-    props.alert ? theme.colors.alert : theme.colors.secondary50};
+    props.closure
+      ? theme.colors.error
+      : props.alert
+      ? theme.colors.alert
+      : theme.colors.secondary50};
   height: 30px;
   border-top-left-radius: 13px;
   border-top-right-radius: 13px;
+`
+
+export const BlackTransparentOverlay = styled(View)`
+  background-color: ${theme.colors.grey};
+  opacity: 0.5;
+  height: 100%;
+  width: 100%;
+  border-top-left-radius: 13px;
+  border-top-right-radius: 13px;
+  position: absolute;
 `
 
 export const AdvisoryText = styled(Text)`
   min-height: 30px;
   line-height: 32px;
   text-align: center;
-  color: ${(props) => (props.alert ? 'white' : 'black')};
+  color: ${(props) => (props.alert || props.closure ? 'white' : 'black')};
   padding: 0 16px;
+  text-transform: ${(props) => (props.closure ? 'uppercase' : 'none')};
 `
 
 export const ParkTitle = styled(Text)`

@@ -49,6 +49,7 @@ export async function fetchParks() {
             latitude: park.Latitude,
             longitude: park.Longitude,
           },
+          status: park.AccessStatus,
           favorited: favorites.includes(park.ORCSSite),
           activities: [],
           facilities: [],

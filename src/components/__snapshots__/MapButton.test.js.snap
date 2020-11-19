@@ -23,6 +23,7 @@ exports[`matches MapButton snapshot 1`] = `
       "shadowRadius": 6,
       "top": 100,
       "width": 64,
+      "zIndex": 2,
     }
   }
 >

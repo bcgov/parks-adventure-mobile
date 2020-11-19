@@ -16,6 +16,7 @@ import {
   DetailsPage,
   ParkHeader,
   ParkImage,
+  BlackTransparentOverlay,
   TitleSection,
   TitleRow,
   Title,
@@ -28,6 +29,7 @@ import {
   FeesDividerTop,
   FeesDividerBottom,
 } from './ParkDetails.styles'
+import {} from '../components/CarouselCard.styles'
 
 function ParkDetails({ route }) {
   const { location, activities, facilities, favoritePark } = React.useContext(
@@ -47,6 +49,14 @@ function ParkDetails({ route }) {
   return (
     <DetailsPage>
       <ScrollView showsVerticalScrollIndicator={false}>
+        {park.status !== 'open' && (
+          <AlertAccordion
+            key={'closure'}
+            headline={park.status}
+            description={''}
+            type={'closure'}
+          />
+        )}
         {park.alerts.length > 0
           ? park.alerts
               .sort(sortAdvisories)
@@ -55,15 +65,17 @@ function ParkDetails({ route }) {
                   key={alert.AdvisoryID}
                   headline={alert.Headline}
                   description={alert.Description}
-                  alert={true}
+                  type={'alert'}
                 />
               ))
           : null}
 
         <ParkHeader>
+          {park.status !== 'open' && <BlackTransparentOverlay />}
           <ParkImage
             source={park.imageUri ? { uri: park.imageUri } : defaultParkImage}
             defaultSource={defaultParkImage}
+            closure={park.status !== 'open'}
           />
           <MapButton absolute={true} location={park.location} />
         </ParkHeader>
@@ -90,7 +102,7 @@ function ParkDetails({ route }) {
                   key={advisory.AdvisoryID}
                   headline={advisory.Headline}
                   description={advisory.Description}
-                  alert={false}
+                  type={'advisory'}
                 />
               ))
           : null}

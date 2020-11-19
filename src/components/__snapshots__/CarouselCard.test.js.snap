@@ -96,6 +96,7 @@ exports[`renders with no uri and favorited set to true 1`] = `
               "flexBasis": 0,
               "flexGrow": 1,
               "flexShrink": 1,
+              "justifyContent": "space-between",
               "marginTop": 15,
             },
           ],
@@ -157,29 +158,43 @@ exports[`renders with no uri and favorited set to true 1`] = `
           
         </Text>
       </View>
-      <Text
+      <View
         style={
           Array [
             Object {
-              "color": "#000000",
-              "fontFamily": "System",
-              "fontWeight": "400",
-              "textAlign": "left",
+              "alignItems": "center",
+              "flexDirection": "row",
+              "justifyContent": "space-between",
             },
-            Array [
-              Object {
-                "bottom": 15,
-                "fontSize": 12,
-                "opacity": 0.6,
-                "position": "absolute",
-                "right": 15,
-              },
-            ],
           ]
         }
       >
-        297km Away
-      </Text>
+        <SvgMock
+          accessibilityLabel="Conservancy"
+          height={26}
+          width={26}
+        />
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#000000",
+                "fontFamily": "System",
+                "fontWeight": "400",
+                "textAlign": "left",
+              },
+              Array [
+                Object {
+                  "fontSize": 12,
+                  "opacity": 0.6,
+                },
+              ],
+            ]
+          }
+        >
+          297KM AWAY
+        </Text>
+      </View>
     </View>
   </View>
 </View>

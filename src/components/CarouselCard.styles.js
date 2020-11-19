@@ -53,6 +53,7 @@ export const ParkTitle = styled(Text)`
 export const CardContent = styled(Card.Content)`
   margin-top: 15px;
   flex: 1;
+  justify-content: space-between;
 `
 
 export const ContentLine = styled(View)`
@@ -62,9 +63,6 @@ export const ContentLine = styled(View)`
 `
 
 export const ParkDistance = styled(Text)`
-  position: absolute;
-  bottom: 15px;
-  right: 15px;
   font-size: 12px;
   opacity: 0.6;
 `

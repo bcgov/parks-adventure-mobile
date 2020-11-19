@@ -58,6 +58,7 @@ describe('parks', () => {
     expect(results[0].advisories.length).toBeGreaterThan(0)
     expect(results[0].alerts.length).toBeGreaterThan(0)
     expect(results[0]).toHaveProperty('status', 'partial closure')
+    expect(results[0]).toHaveProperty('parkType', 'PK')
   })
 })
 

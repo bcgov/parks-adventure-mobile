@@ -32,7 +32,9 @@ import {
 import {} from '../components/CarouselCard.styles'
 
 function ParkDetails({ route }) {
-  const { location, activities, facilities } = React.useContext(DataContext)
+  const { location, activities, facilities, favoritePark } = React.useContext(
+    DataContext
+  )
   const { park } = route.params
   const theme = useTheme()
 
@@ -85,6 +87,8 @@ function ParkDetails({ route }) {
               name={park.favorited ? 'heart' : 'heart-outline'}
               size={20}
               color={theme.colors.secondary500}
+              onPress={() => favoritePark(park.id)}
+              accessibilityLabel="favorite park"
             />
           </TitleRow>
           <Subtitle>{`Approx. ${distance}km from your current location`}</Subtitle>

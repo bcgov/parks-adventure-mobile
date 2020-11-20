@@ -11,6 +11,7 @@ test('Should render title and distance props', () => {
     alerts: [],
     advisories: [],
     status: 'open',
+    parkType: 'CS',
   }
 
   const { getByText } = render(
@@ -23,7 +24,7 @@ test('Should render title and distance props', () => {
   )
 
   const title = getByText(park.title)
-  const distance = getByText('297km Away')
+  const distance = getByText('297KM AWAY')
 
   expect(title).toBeDefined()
   expect(distance).toBeDefined()
@@ -36,6 +37,7 @@ test('renders with no uri and favorited set to true', () => {
     alerts: [],
     advisories: [],
     status: 'open',
+    parkType: 'CS',
   }
 
   const tree = renderSnapshot

@@ -1,12 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { View } from 'react-native'
-import { getParkSvg } from '../images/svgs'
+import { getAmenityIcon } from '../images/svgs/amenities'
 import { Container, Title, Subheading } from './CarouselHeader.styles'
 
 const CarouselHeader = ({ title, subheading, icon }) => (
   <Container>
-    {getParkSvg(icon, true, 43)}
+    {getAmenityIcon(icon, true, 43)}
     <View style={{ paddingLeft: 8 }}>
       <Title>{title}</Title>
       <Subheading>{subheading}</Subheading>

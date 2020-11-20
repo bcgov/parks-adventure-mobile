@@ -42,6 +42,7 @@ export async function fetchParks() {
         keys.push(park.ORCSSite)
         parks[park.ORCSSite] = {
           id: park.ORCSSite,
+          parkType: park.ParkType,
           title: entities.decode(park.ParkSiteNameWeb),
           url: park.ParkURL,
           searchableTitle: park.ParkSiteNameBasic,

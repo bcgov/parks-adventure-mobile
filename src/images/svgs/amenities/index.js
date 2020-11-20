@@ -24,6 +24,8 @@ import InterpretiveProgramsNa from './activity/interpretive-programs-outside-na.
 import InterpretivePrograms from './activity/interpretive-programs-outside.svg'
 import MarineAccessibleCampingNa from './activity/marine-accessible-camping-na.svg'
 import MarineAccessibleCamping from './activity/marine-accessible-camping.svg'
+import MountainBikingNa from './activity/mountain-biking-na.svg'
+import MountainBiking from './activity/mountain-biking.svg'
 import PetsOnLeashNa from './activity/pets-on-leash-na.svg'
 import PetsOnLeash from './activity/pets-on-leash.svg'
 import SailingNa from './activity/sailing-na.svg'
@@ -61,6 +63,8 @@ import DrinkingWaterNa from './facility/drinking-water-na.svg'
 import DrinkingWater from './facility/drinking-water.svg'
 import ElectricalHookUpsNa from './facility/electrical-hook-ups-na.svg'
 import ElectricalHookUps from './facility/electrical-hook-ups.svg'
+import ElectricalOutletsNa from './facility/electrical-outlets-na.svg'
+import ElectricalOutlets from './facility/electrical-outlets.svg'
 import FoodCacheNa from './facility/food-cache-na.svg'
 import FoodCache from './facility/food-cache.svg'
 import GarbageNa from './facility/garbage-na.svg'
@@ -102,7 +106,7 @@ import WalkInCamping from './facility/walk-in-camping.svg'
 import WinterCampingNa from './facility/winter-camping-na.svg'
 import WinterCamping from './facility/winter-camping.svg'
 
-export function getParkSvg(name, active, iconSize = 36) {
+export function getAmenityIcon(name, active, iconSize = 36) {
   switch (name) {
     case 'ATVing':
       if (active) {
@@ -175,6 +179,12 @@ export function getParkSvg(name, active, iconSize = 36) {
         return <MarineAccessibleCamping height={iconSize} width={iconSize} />
       } else {
         return <MarineAccessibleCampingNa height={iconSize} width={iconSize} />
+      }
+    case 'Moutain Biking':
+      if (active) {
+        return <MountainBiking height={iconSize} width={iconSize} />
+      } else {
+        return <MountainBikingNa height={iconSize} width={iconSize} />
       }
     case 'Pets on Leash':
       if (active) {
@@ -289,6 +299,12 @@ export function getParkSvg(name, active, iconSize = 36) {
         return <ElectricalHookUps height={iconSize} width={iconSize} />
       } else {
         return <ElectricalHookUpsNa height={iconSize} width={iconSize} />
+      }
+    case 'Electrical Outlets':
+      if (active) {
+        return <ElectricalOutlets height={iconSize} width={iconSize} />
+      } else {
+        return <ElectricalOutletsNa height={iconSize} width={iconSize} />
       }
     case 'Food Cache':
       if (active) {

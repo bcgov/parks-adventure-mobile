@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { useTheme } from 'react-native-paper'
 import MCIcon from 'react-native-vector-icons/MaterialCommunityIcons'
 import defaultParkImage from '../../assets/defaultParkImage.jpg'
+import { getParkTypeIcon } from '../images/svgs/parkTypes'
 import {
   Carousel,
   CardCover,
@@ -17,7 +18,15 @@ import {
 
 function CarouselCard({ onPress, onFavoritePress, park, distance }) {
   const theme = useTheme()
-  const { title, imageUri, status, favorited, alerts, advisories } = park
+  const {
+    title,
+    parkType,
+    imageUri,
+    status,
+    favorited,
+    alerts,
+    advisories,
+  } = park
 
   //  Format advisory banner message text
   const closure = status !== 'open'
@@ -79,7 +88,10 @@ function CarouselCard({ onPress, onFavoritePress, park, distance }) {
             accessibilityLabel="favorite park"
           />
         </ContentLine>
-        <ParkDistance>{`${distance}km Away`}</ParkDistance>
+        <ContentLine>
+          {getParkTypeIcon(parkType)}
+          <ParkDistance>{`${distance}KM AWAY`}</ParkDistance>
+        </ContentLine>
       </CardContent>
     </Carousel>
   )
@@ -91,6 +103,7 @@ CarouselCard.propTypes = {
   distance: PropTypes.string.isRequired,
   park: PropTypes.shape({
     title: PropTypes.string.isRequired,
+    parkType: PropTypes.oneOf(['PK', 'RA', 'ER', 'CS', 'PA']),
     status: PropTypes.string.isRequired,
     imageUri: PropTypes.string,
     favorited: PropTypes.bool,

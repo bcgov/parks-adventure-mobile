@@ -5,7 +5,7 @@ import { ScrollView, Linking } from 'react-native'
 import { useTheme } from 'react-native-paper'
 import MCIcon from 'react-native-vector-icons/MaterialCommunityIcons'
 import { DataContext } from '../utils/DataContext'
-import { sortAdvisories } from '../utils/helpers'
+import { sortAdvisories, removeHTMLFormatting } from '../utils/helpers'
 import defaultParkImage from '../../assets/defaultParkImage.jpg'
 import AlertAccordion from '../components/AlertAccordion'
 import MapButton from '../components/MapButton'
@@ -23,15 +23,14 @@ import {
   Subtitle,
   InformationSection,
   SectionDivider,
+  DescriptionSection,
   ClippedText,
   Link,
-  FeesSection,
-  FeesDividerTop,
-  FeesDividerBottom,
 } from './ParkDetails.styles'
-import {} from '../components/CarouselCard.styles'
 
 function ParkDetails({ route }) {
+  const [descriptionExpanded, setDescriptionExpanded] = React.useState(false)
+  const [locationExpanded, setLocationExpanded] = React.useState(false)
   const { location, activities, facilities, favoritePark } = React.useContext(
     DataContext
   )
@@ -42,8 +41,8 @@ function ParkDetails({ route }) {
     ? haversine(location, park.location).toFixed(0)
     : 'unknown '
 
-  function linkToWebsite() {
-    Linking.openURL(park.url)
+  function onLinkPress(event, href) {
+    Linking.openURL(`${park.url}${href.replace('/', '')}`)
   }
 
   return (
@@ -109,63 +108,79 @@ function ParkDetails({ route }) {
 
         <InformationSection>
           {park.description.length > 0 && (
-            <>
-              <ClippedText
-                numberOfLines={3}
-                marginTop={park.advisories.length > 0}>
-                {park.description}
-              </ClippedText>
-              <Link onPress={linkToWebsite}>Read More</Link>
-            </>
+            <DescriptionSection marginTop={park.advisories.length > 0}>
+              {!descriptionExpanded ? (
+                <ClippedText numberOfLines={!descriptionExpanded ? 3 : null}>
+                  {removeHTMLFormatting(park.description)}
+                </ClippedText>
+              ) : (
+                <HTMLContent
+                  content={park.description}
+                  onLinkPress={onLinkPress}
+                />
+              )}
+              <Link
+                onPress={() => setDescriptionExpanded(!descriptionExpanded)}>
+                Read {!descriptionExpanded ? 'more' : 'less'}
+              </Link>
+            </DescriptionSection>
           )}
 
           {park.locationNotes.length > 0 && (
             <>
               <SectionDivider />
               <SectionTitle title="Location" icon="map-marker" />
-              <ClippedText numberOfLines={3}>{park.locationNotes}</ClippedText>
-              <Link onPress={linkToWebsite}>Read More</Link>
+              {!locationExpanded ? (
+                <ClippedText numberOfLines={3}>
+                  {removeHTMLFormatting(park.locationNotes)}
+                </ClippedText>
+              ) : (
+                <HTMLContent
+                  content={park.locationNotes}
+                  onLinkPress={onLinkPress}
+                />
+              )}
+              <Link onPress={() => setLocationExpanded(!locationExpanded)}>
+                Read {!locationExpanded ? 'more' : 'less'}
+              </Link>
               <MapButton absolute={false} location={park.location} />
             </>
           )}
         </InformationSection>
 
-        {park.fees && (
-          <>
-            <FeesDividerTop />
-            <FeesSection>
-              <SectionTitle title="User Fees" icon="map-marker" />
-            </FeesSection>
-            <FeesDividerBottom />
-          </>
-        )}
-
         <InformationSection>
-          <SectionTitle title="Activities" icon="walk" link={park.url} />
-          <AmenityList list={activities} selected={park.activities} />
-
-          <SectionTitle title="Facilities" icon="home" link={park.url} />
-          <AmenityList list={facilities} selected={park.facilities} />
-
-          {park.safetyInfo !== undefined && park.safetyInfo.length > 0 && (
+          {park.activities.length > 0 && (
             <>
-              <SectionTitle title="Park Safety Info" icon="map-marker" />
-              <HTMLContent content={park.safetyInfo} />
+              <SectionTitle title="Activities" icon="walk" link={park.url} />
+              <AmenityList list={activities} selected={park.activities} />
             </>
           )}
 
-          {park.specialNotes.length > 0 && (
+          {park.facilities.length > 0 && (
             <>
+              <SectionTitle title="Facilities" icon="home" link={park.url} />
+              <AmenityList list={facilities} selected={park.facilities} />
+            </>
+          )}
+
+          {park.safetyInfo !== undefined && park.safetyInfo.length > 0 && (
+            <>
+              <SectionTitle title="Park Safety Info" icon="first-aid" />
+              <HTMLContent
+                content={park.safetyInfo}
+                onLinkPress={onLinkPress}
+              />
               <SectionDivider />
-              <SectionTitle title="Special Notes" icon="map-marker" />
-              <HTMLContent content={park.specialNotes} />
             </>
           )}
 
           {park.natureAndCulture.length > 0 && (
             <>
-              <SectionDivider />
-              <SectionTitle title="Nature and Culture" icon="map-marker" />
+              <SectionTitle title="Nature and Culture" icon="nature" />
+              <HTMLContent
+                content={park.natureAndCulture}
+                onLinkPress={onLinkPress}
+              />
             </>
           )}
         </InformationSection>

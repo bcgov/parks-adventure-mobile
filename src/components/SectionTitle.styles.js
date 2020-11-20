@@ -8,6 +8,7 @@ export const Container = styled(View)`
   align-items: center;
   margin-bottom: 10px;
   width: 100%;
+  flex-wrap: wrap;
 `
 
 export const Icon = styled(MCIcon)`

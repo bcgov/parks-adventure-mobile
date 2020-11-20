@@ -19,7 +19,7 @@ const SectionTitle = ({ title, icon, link }) => (
     ) : icon === 'first-aid' ? (
       <SafetyInfo height={16} width={16} />
     ) : (
-      <Icon name={icon} size={24} />
+      <Icon name={icon} size={20} />
     )}
     <Title>{title}</Title>
     {link && (

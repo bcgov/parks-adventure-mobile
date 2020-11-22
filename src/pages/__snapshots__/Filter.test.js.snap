@@ -238,8 +238,7 @@ exports[`Filter page matches snapshot 1`] = `
                         ]
                       }
                     >
-                      100
-                      km
+                      All
                     </Text>
                   </View>
                 </View>

@@ -84,7 +84,9 @@ function Filter({ navigation }) {
             customMarker={(event) => (
               <DistanceMarker>
                 <DistanceMarkerSvg />
-                <DistanceText>{event.currentValue}km</DistanceText>
+                <DistanceText>
+                  {event.currentValue > 99 ? 'All' : `${event.currentValue}km`}
+                </DistanceText>
               </DistanceMarker>
             )}
             markerSize={60}

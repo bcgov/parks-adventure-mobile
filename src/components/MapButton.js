@@ -27,7 +27,7 @@ function MapButton({ location, absolute = true }) {
         elevation={6}
         absolute={absolute}>
         <Icon name={'map-outline'} size={18} />
-        <Text>Maps</Text>
+        <Text allowFontScaling={false}>Maps</Text>
       </Button>
 
       <Portal>

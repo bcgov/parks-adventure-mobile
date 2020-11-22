@@ -1,6 +1,5 @@
 import styled from 'styled-components/native'
 import {
-  SafeAreaView,
   View,
   ScrollView,
   FlatList,
@@ -8,7 +7,7 @@ import {
   Image,
 } from 'react-native'
 
-export const ExplorePage = styled(SafeAreaView)`
+export const ExplorePage = styled(View)`
   flex: 1;
   background-color: white;
 `
@@ -22,7 +21,6 @@ export const ExploreHeader = styled(ImageBackground)`
   width: 100%;
   height: 140px;
   margin-bottom: 25px;
-  display: flex;
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;

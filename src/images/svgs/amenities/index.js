@@ -78,9 +78,9 @@ import Horseshoes from './facility/horseshoes.svg'
 import HotSpringNa from './facility/hot-spring-na.svg'
 import HotSpring from './facility/hot-spring.svg'
 import InformationNa from './facility/information-na.svg'
-import Information from './facility/information-shelter-na.svg'
-import InformationShelterNa from './facility/information-shelter.svg'
-import InforamationShelter from './facility/information.svg'
+import Information from './facility/information.svg'
+import InformationShelterNa from './facility/information-shelter-na.svg'
+import InformationShelter from './facility/information-shelter.svg'
 import ParkingNa from './facility/parking-na.svg'
 import Parking from './facility/parking.svg'
 import PicnicAreaNa from './facility/picnic-area-na.svg'
@@ -348,9 +348,9 @@ export function getAmenityIcon(name, active, iconSize = 36) {
       } else {
         return <InformationNa height={iconSize} width={iconSize} />
       }
-    case 'Inforamation Shelter':
+    case 'Information Shelter':
       if (active) {
-        return <InforamationShelter height={iconSize} width={iconSize} />
+        return <InformationShelter height={iconSize} width={iconSize} />
       } else {
         return <InformationShelterNa height={iconSize} width={iconSize} />
       }

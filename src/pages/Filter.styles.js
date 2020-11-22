@@ -1,8 +1,8 @@
 import styled from 'styled-components/native'
-import { SafeAreaView, View, ScrollView } from 'react-native'
+import { View, ScrollView } from 'react-native'
 import { Text, Button, Surface } from 'react-native-paper'
 
-export const FilterContainer = styled(SafeAreaView)`
+export const FilterContainer = styled(View)`
   flex: 1;
   background-color: white;
 `

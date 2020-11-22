@@ -97,3 +97,12 @@ export function addDistanceToParks(location, park) {
       : 'unknown ',
   }
 }
+
+export function removeHTMLFormatting(string) {
+  return string
+    .replace(/<\/?p[^>]*>/g, '')
+    .replace(/<img[^>]*>/g, '')
+    .replace(/<\/?a[^>].*<\/a>/g, '')
+    .replace(/(<([^>]+)>)/g, '')
+    .trim()
+}

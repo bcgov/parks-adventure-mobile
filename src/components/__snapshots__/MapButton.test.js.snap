@@ -78,6 +78,7 @@ exports[`matches MapButton snapshot 1`] = `
       女
     </Text>
     <Text
+      allowFontScaling={false}
       index={1}
       siblings={
         Array [

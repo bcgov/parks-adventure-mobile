@@ -1,8 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Explore page matches snapshot 1`] = `
-<RCTSafeAreaView
-  emulateUnlessSupported={true}
+<View
   style={
     Array [
       Object {
@@ -35,7 +34,6 @@ exports[`Explore page matches snapshot 1`] = `
           Array [
             Object {
               "alignItems": "center",
-              "display": "flex",
               "flexDirection": "column",
               "height": 140,
               "justifyContent": "flex-end",
@@ -567,5 +565,5 @@ exports[`Explore page matches snapshot 1`] = `
       </RCTScrollView>
     </View>
   </RCTScrollView>
-</RCTSafeAreaView>
+</View>
 `;

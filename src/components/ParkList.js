@@ -1,8 +1,9 @@
 import React from 'react'
-import { TouchableWithoutFeedback } from 'react-native'
-import { useTheme, IconButton } from 'react-native-paper'
+import { Pressable } from 'react-native'
 import PropTypes from 'prop-types'
+import { useRoute } from '@react-navigation/native'
 import defaultParkImage from '../../assets/defaultParkImage.jpg'
+import FavoriteButton from './FavoriteButton'
 import {
   Container,
   ItemContainer,
@@ -14,13 +15,12 @@ import {
 } from './ParkList.styles'
 
 const ParkList = ({ parks, onPress, onFavoritePress }) => {
-  const theme = useTheme()
-
-  const renderParkItem = ({ item }) => (
-    <TouchableWithoutFeedback
+  const route = useRoute()
+  const renderParkItem = ({ item, index }) => (
+    <Pressable
       accessibilityLabel={'navigate to park details'}
       onPress={() => onPress(item)}>
-      <ItemContainer>
+      <ItemContainer noTopBorder={index === 0 && route.name === 'Favorites'}>
         <ItemImage
           source={item.imageUri ? { uri: item.imageUri } : defaultParkImage}
           defaultSource={defaultParkImage}
@@ -28,12 +28,10 @@ const ParkList = ({ parks, onPress, onFavoritePress }) => {
         <ColumnContainer>
           <RowContainer>
             <Title>{item.title}</Title>
-            <IconButton
-              icon={item.favorited ? 'heart' : 'heart-outline'}
-              size={24}
-              color={theme.colors.secondary500}
+            <FavoriteButton
               onPress={() => onFavoritePress(item.id)}
-              accessibilityLabel="favorite park"
+              favorited={item.favorited}
+              style={{ margin: 12 }}
             />
           </RowContainer>
           <DistanceText>
@@ -41,7 +39,7 @@ const ParkList = ({ parks, onPress, onFavoritePress }) => {
           </DistanceText>
         </ColumnContainer>
       </ItemContainer>
-    </TouchableWithoutFeedback>
+    </Pressable>
   )
 
   return (
@@ -50,7 +48,7 @@ const ParkList = ({ parks, onPress, onFavoritePress }) => {
       renderItem={renderParkItem}
       keyExtractor={(item) => item.title}
       showsVerticalScrollIndicator={false}
-      contentContainerStyle={{ paddingTop: 10, paddingBottom: 10 }}
+      contentContainerStyle={{ paddingBottom: 10 }}
     />
   )
 }

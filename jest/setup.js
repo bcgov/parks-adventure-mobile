@@ -19,6 +19,9 @@ jest.mock('@react-navigation/native', () => {
     useNavigation: () => ({
       navigate: jest.fn(),
     }),
+    useRoute: () => ({
+      name: 'Find',
+    }),
   }
 })
 
@@ -26,3 +29,10 @@ jest.mock('react-native-paper', () => ({
   ...jest.requireActual('react-native-paper'),
   IconButton: 'Icon',
 }))
+
+jest.mock('@expo/vector-icons', () => {
+  const { View } = require('react-native')
+  return {
+    MaterialCommunityIcons: View,
+  }
+})

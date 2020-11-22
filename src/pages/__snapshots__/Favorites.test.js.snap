@@ -1,8 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Favourites page matches snapshot 1`] = `
-<RCTSafeAreaView
-  emulateUnlessSupported={true}
+exports[`Favorites page matches snapshot 1`] = `
+<View
   style={
     Array [
       Object {
@@ -35,7 +34,6 @@ exports[`Favourites page matches snapshot 1`] = `
       contentContainerStyle={
         Object {
           "paddingBottom": 10,
-          "paddingTop": 10,
         }
       }
       data={
@@ -86,9 +84,10 @@ exports[`Favourites page matches snapshot 1`] = `
           <View
             accessibilityLabel="navigate to park details"
             accessible={true}
-            className="sc-gtssRu gRVnsh"
             focusable={true}
+            onBlur={[Function]}
             onClick={[Function]}
+            onFocus={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
             onResponderRelease={[Function]}
@@ -96,19 +95,72 @@ exports[`Favourites page matches snapshot 1`] = `
             onResponderTerminationRequest={[Function]}
             onStartShouldSetResponder={[Function]}
           >
-            <Image
-              className="sc-dlnjPT fmUCMd"
-              defaultSource={1}
-              source={1}
-            />
             <View
-              className="sc-jSFkmK glLnMI"
+              className="sc-gtssRu MnPZe"
+              noTopBorder={false}
             >
+              <Image
+                className="sc-dlnjPT fmUCMd"
+                defaultSource={1}
+                source={1}
+              />
               <View
-                className="sc-gKAblj bdPEsA"
+                className="sc-jSFkmK glLnMI"
               >
+                <View
+                  className="sc-gKAblj bdPEsA"
+                >
+                  <Text
+                    className="sc-hKFyIo jvWbbP"
+                    style={
+                      Array [
+                        Object {
+                          "color": "#000000",
+                          "fontFamily": "System",
+                          "fontWeight": "400",
+                          "textAlign": "left",
+                        },
+                        undefined,
+                      ]
+                    }
+                  >
+                    Adams Lake Provincial Park - Bush Creek Site
+                  </Text>
+                  <View
+                    accessible={true}
+                    focusable={true}
+                    hitSlop={
+                      Object {
+                        "bottom": 50,
+                        "left": 50,
+                        "right": 50,
+                        "top": 50,
+                      }
+                    }
+                    onBlur={[Function]}
+                    onClick={[Function]}
+                    onFocus={[Function]}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      Object {
+                        "margin": 12,
+                      }
+                    }
+                  >
+                    <View
+                      accessibilityLabel="favorite park"
+                      name="heart"
+                      size={24}
+                    />
+                  </View>
+                </View>
                 <Text
-                  className="sc-hKFyIo jvWbbP"
+                  className="sc-eCApGN fFLSlQ"
                   style={
                     Array [
                       Object {
@@ -121,36 +173,14 @@ exports[`Favourites page matches snapshot 1`] = `
                     ]
                   }
                 >
-                  Adams Lake Provincial Park - Bush Creek Site
+                  383KM AWAY
                 </Text>
-                <Icon
-                  accessibilityLabel="favorite park"
-                  icon="heart"
-                  onPress={[Function]}
-                  size={24}
-                />
               </View>
-              <Text
-                className="sc-eCApGN fFLSlQ"
-                style={
-                  Array [
-                    Object {
-                      "color": "#000000",
-                      "fontFamily": "System",
-                      "fontWeight": "400",
-                      "textAlign": "left",
-                    },
-                    undefined,
-                  ]
-                }
-              >
-                383KM AWAY
-              </Text>
             </View>
           </View>
         </View>
       </View>
     </RCTScrollView>
   </View>
-</RCTSafeAreaView>
+</View>
 `;

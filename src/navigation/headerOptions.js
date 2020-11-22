@@ -5,8 +5,8 @@ import NavigationHeader from './NavigationHeader'
 const headerOptions = {
   title: '',
   headerStyle: {
-    height: 60,
     backgroundColor: theme.colors.primary,
+    shadowColor: 'transparent',
   },
   headerLeft: () => <NavigationHeader />,
 }

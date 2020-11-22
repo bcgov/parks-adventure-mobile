@@ -1,9 +1,9 @@
 import styled from 'styled-components/native'
-import { SafeAreaView, View, Image, Dimensions } from 'react-native'
+import { View, Image, Dimensions } from 'react-native'
 import { Title as PaperTitle, Text, Divider } from 'react-native-paper'
 import theme from '../utils/theme'
 
-export const DetailsPage = styled(SafeAreaView)`
+export const DetailsPage = styled(View)`
   flex: 1;
   background-color: white;
 `
@@ -55,9 +55,13 @@ export const SectionDivider = styled(Divider)`
   margin: 10px 0 30px 0;
 `
 
-export const ClippedText = styled(Text)`
+export const DescriptionSection = styled(View)`
   margin-top: ${(props) => (props.marginTop ? 30 : 0)}px;
+`
+
+export const ClippedText = styled(Text)`
   font-size: 16px;
+  font-family: 'bcsans';
 `
 
 export const Link = styled(Text)`
@@ -65,19 +69,4 @@ export const Link = styled(Text)`
   text-decoration: underline;
   color: ${theme.colors.primary};
   margin: 10px 0;
-`
-
-export const FeesSection = styled(View)`
-  background-color: ${theme.colors.surface};
-  padding: 20px;
-  padding-bottom: 10px;
-`
-
-export const FeesDividerTop = styled(Divider)`
-  margin: 0 20px;
-`
-
-export const FeesDividerBottom = styled(Divider)`
-  margin: 0 20px;
-  margin-bottom: 20px;
 `

@@ -2,13 +2,12 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import haversine from 'haversine'
 import { ScrollView, Linking } from 'react-native'
-import { useTheme } from 'react-native-paper'
-import MCIcon from 'react-native-vector-icons/MaterialCommunityIcons'
 import { DataContext } from '../utils/DataContext'
 import { sortAdvisories, removeHTMLFormatting } from '../utils/helpers'
 import defaultParkImage from '../../assets/defaultParkImage.jpg'
 import AlertAccordion from '../components/AlertAccordion'
 import MapButton from '../components/MapButton'
+import FavoriteButton from '../components/FavoriteButton'
 import SectionTitle from '../components/SectionTitle'
 import AmenityList from '../components/AmenityList'
 import HTMLContent from '../components/HTMLContent'
@@ -82,12 +81,11 @@ function ParkDetails({ route }) {
         <TitleSection>
           <TitleRow>
             <Title>{park.title}</Title>
-            <MCIcon
-              name={park.favorited ? 'heart' : 'heart-outline'}
-              size={20}
-              color={theme.colors.secondary500}
-              onPress={() => favoritePark(park.id)}
-              accessibilityLabel="favorite park"
+            <FavoriteButton
+              onPress={() => {
+                favoritePark(park.id)
+              }}
+              favorited={park.favorited}
             />
           </TitleRow>
           <Subtitle>{`Approx. ${distance}km from your current location`}</Subtitle>

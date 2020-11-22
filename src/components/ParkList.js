@@ -3,6 +3,7 @@ import { TouchableWithoutFeedback } from 'react-native'
 import { useTheme, IconButton } from 'react-native-paper'
 import PropTypes from 'prop-types'
 import defaultParkImage from '../../assets/defaultParkImage.jpg'
+import FavoriteButton from './FavoriteButton'
 import {
   Container,
   ItemContainer,
@@ -28,12 +29,10 @@ const ParkList = ({ parks, onPress, onFavoritePress }) => {
         <ColumnContainer>
           <RowContainer>
             <Title>{item.title}</Title>
-            <IconButton
-              icon={item.favorited ? 'heart' : 'heart-outline'}
-              size={24}
-              color={theme.colors.secondary500}
+            <FavoriteButton
               onPress={() => onFavoritePress(item.id)}
-              accessibilityLabel="favorite park"
+              favorited={item.favorited}
+              style={{ margin: 12 }}
             />
           </RowContainer>
           <DistanceText>

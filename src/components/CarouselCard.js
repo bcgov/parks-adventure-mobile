@@ -1,9 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { useTheme } from 'react-native-paper'
-import MCIcon from 'react-native-vector-icons/MaterialCommunityIcons'
 import defaultParkImage from '../../assets/defaultParkImage.jpg'
 import { getParkTypeIcon } from '../images/svgs/parkTypes'
+import FavoriteButton from './FavoriteButton'
 import {
   Carousel,
   CardCover,
@@ -17,7 +16,6 @@ import {
 } from './CarouselCard.styles'
 
 function CarouselCard({ onPress, onFavoritePress, park, distance }) {
-  const theme = useTheme()
   const {
     title,
     parkType,
@@ -80,12 +78,10 @@ function CarouselCard({ onPress, onFavoritePress, park, distance }) {
       <CardContent>
         <ContentLine>
           <ParkTitle numberOfLines={3}>{title}</ParkTitle>
-          <MCIcon
-            name={favorited ? 'heart' : 'heart-outline'}
-            size={20}
-            color={theme.colors.secondary500}
+          <FavoriteButton
             onPress={onFavoritePress}
-            accessibilityLabel="favorite park"
+            favorited={favorited}
+            size={20}
           />
         </ContentLine>
         <ContentLine>

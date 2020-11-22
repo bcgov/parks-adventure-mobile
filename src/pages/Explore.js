@@ -22,7 +22,9 @@ import ExploreSvg from '../../assets/exploreTitle.svg'
 import risingSunSrc from '../../assets/sunWithShadow.png'
 
 function Explore({ navigation }) {
-  const { parks, location, favoritePark } = React.useContext(DataContext)
+  const { parks, location, favoritePark, setPark } = React.useContext(
+    DataContext
+  )
 
   const subheading = location
     ? `Within ${defaultDistanceFilter}km`
@@ -46,10 +48,14 @@ function Explore({ navigation }) {
     parks
   )
 
+  function navigateToPark(park) {
+    setPark(park)
+    navigation.navigate('ParkDetails')
+  }
+
   return (
     <ExplorePage>
       <LocationBanner />
-
       <ExploreScrollView
         showsVerticalScrollIndicator={false}
         locationNotAvailable={!location}>
@@ -75,7 +81,7 @@ function Explore({ navigation }) {
               index={index}
               length={hikingParks.length}>
               <CarouselCard
-                onPress={() => navigation.navigate('ParkDetails', { park })}
+                onPress={() => navigateToPark(park)}
                 onFavoritePress={() => favoritePark(park.id)}
                 distance={
                   location
@@ -105,7 +111,7 @@ function Explore({ navigation }) {
               index={index}
               length={swimmingParks.length}>
               <CarouselCard
-                onPress={() => navigation.navigate('ParkDetails', { park })}
+                onPress={() => navigateToPark(park)}
                 onFavoritePress={() => favoritePark(park.id)}
                 distance={
                   location
@@ -135,7 +141,7 @@ function Explore({ navigation }) {
               index={index}
               length={vehicleCampingParks.length}>
               <CarouselCard
-                onPress={() => navigation.navigate('ParkDetails', { park })}
+                onPress={() => setPark(park)}
                 onFavoritePress={() => favoritePark(park.id)}
                 distance={
                   location

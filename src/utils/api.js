@@ -148,9 +148,10 @@ export async function fetchParks() {
 export async function getParks() {
   try {
     const data = await AsyncStorage.getItem(KEYS.parks)
-    return data ? JSON.parse(data) : null
+    return data ? JSON.parse(data) : []
   } catch (error) {
     console.warn(error)
+    return []
   }
 }
 
@@ -222,6 +223,7 @@ export async function getActivities() {
     return data ? JSON.parse(data) : []
   } catch (error) {
     console.warn(error)
+    return []
   }
 }
 
@@ -263,6 +265,7 @@ export async function getFacilities() {
     return data ? JSON.parse(data) : []
   } catch (error) {
     console.warn(error)
+    return []
   }
 }
 
@@ -288,5 +291,6 @@ export async function getStorageFavorites() {
     return data ? JSON.parse(data) : []
   } catch (error) {
     console.warn(error)
+    return []
   }
 }

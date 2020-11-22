@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import haversine from 'haversine'
 import { ScrollView, Linking } from 'react-native'
 import { DataContext } from '../utils/DataContext'
@@ -27,14 +26,16 @@ import {
   Link,
 } from './ParkDetails.styles'
 
-function ParkDetails({ route }) {
+function ParkDetails() {
   const [descriptionExpanded, setDescriptionExpanded] = React.useState(false)
   const [locationExpanded, setLocationExpanded] = React.useState(false)
-  const { location, activities, facilities, favoritePark } = React.useContext(
-    DataContext
-  )
-  const { park } = route.params
-  const theme = useTheme()
+  const {
+    park,
+    location,
+    activities,
+    facilities,
+    favoritePark,
+  } = React.useContext(DataContext)
 
   const distance = location
     ? haversine(location, park.location).toFixed(0)
@@ -185,10 +186,6 @@ function ParkDetails({ route }) {
       </ScrollView>
     </DetailsPage>
   )
-}
-
-ParkDetails.propTypes = {
-  route: PropTypes.object.isRequired,
 }
 
 export default ParkDetails

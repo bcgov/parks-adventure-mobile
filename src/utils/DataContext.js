@@ -21,6 +21,7 @@ export function DataProvider({ children }) {
   const [facilities, updateFacilities] = React.useState([])
   const [originalFacilities, setOriginalFacilities] = React.useState([])
   const [filteredList, updateFilteredList] = React.useState([])
+  const [currentPark, setPark] = React.useState()
 
   React.useEffect(() => {
     async function loadData() {
@@ -93,6 +94,8 @@ export function DataProvider({ children }) {
   return (
     <DataContext.Provider
       value={{
+        park: currentPark,
+        setPark,
         parks,
         location,
         distance,

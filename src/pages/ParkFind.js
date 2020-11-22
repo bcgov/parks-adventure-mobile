@@ -5,7 +5,7 @@ import { sortParks, addDistanceToParks } from '../utils/helpers'
 import ParkFindHeader from '../components/ParkFindHeader'
 import ParkList from '../components/ParkList'
 import LocationBanner from '../components/LocationBanner'
-import { ParkFindContainer, ParkListContainer } from './ParkFind.styles'
+import { ParkFindPage, ParkListContainer } from './ParkFind.styles'
 
 function ParkFind({ navigation }) {
   const {
@@ -32,7 +32,7 @@ function ParkFind({ navigation }) {
     .sort((a, b) => sortParks(location, a, b))
 
   return (
-    <ParkFindContainer locationNotAvailable={!location}>
+    <ParkFindPage locationNotAvailable={!location}>
       <LocationBanner />
       <ParkFindHeader
         searchTerm={searchTerm}
@@ -52,7 +52,7 @@ function ParkFind({ navigation }) {
           }}
         />
       </ParkListContainer>
-    </ParkFindContainer>
+    </ParkFindPage>
   )
 }
 

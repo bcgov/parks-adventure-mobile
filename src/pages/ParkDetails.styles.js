@@ -1,9 +1,9 @@
 import styled from 'styled-components/native'
-import { SafeAreaView, View, Image, Dimensions } from 'react-native'
+import { View, Image, Dimensions } from 'react-native'
 import { Title as PaperTitle, Text, Divider } from 'react-native-paper'
 import theme from '../utils/theme'
 
-export const DetailsPage = styled(SafeAreaView)`
+export const DetailsPage = styled(View)`
   flex: 1;
   background-color: white;
 `

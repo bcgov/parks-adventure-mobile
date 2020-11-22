@@ -8,5 +8,5 @@ export const ParkFindPage = styled(View)`
 `
 
 export const ParkListContainer = styled(View)`
-  margin: 0 20px 100px 20px;
+  margin: 0 20px 90px 20px;
 `

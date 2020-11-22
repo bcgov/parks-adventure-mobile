@@ -27,6 +27,7 @@ const TabNavigator = () => {
         inactiveBackgroundColor: theme.colors.primary,
         activeTintColor: 'white',
         inactiveTintColor: theme.colors.whiteDisabled,
+        style: { borderTopWidth: 0 },
       }}>
       <Tab.Screen
         name="Explore"

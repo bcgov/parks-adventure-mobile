@@ -29,3 +29,10 @@ jest.mock('react-native-paper', () => ({
   ...jest.requireActual('react-native-paper'),
   IconButton: 'Icon',
 }))
+
+jest.mock('@expo/vector-icons', () => {
+  const { View } = require('react-native')
+  return {
+    MaterialCommunityIcons: View,
+  }
+})

@@ -7,17 +7,19 @@ import { sortParks, addDistanceToParks } from '../utils/helpers'
 import ParkList from '../components/ParkList'
 import LocationBanner from '../components/LocationBanner'
 import {
-  SafeArea,
+  FavoritePage,
   Container,
   Placeholder,
   Text,
-  FavouriteText,
+  FavoriteText,
   InlineIcon,
-} from './Favourites.styles'
+} from './Favorites.styles'
 
-function Favourites({ navigation }) {
+function Favorites({ navigation }) {
   const theme = useTheme()
-  const { parks, location, favoritePark } = React.useContext(DataContext)
+  const { parks, location, setPark, favoritePark } = React.useContext(
+    DataContext
+  )
 
   const favoriteParks = parks
     .filter((park) => park.favorited)
@@ -25,15 +27,17 @@ function Favourites({ navigation }) {
     .sort((a, b) => sortParks(location, a, b))
 
   return (
-    <SafeArea>
+    <FavoritePage>
       <LocationBanner />
-
       <Container locationNotAvailable={!location}>
         {favoriteParks.length > 0 ? (
           <ParkList
             parks={favoriteParks}
             onFavoritePress={favoritePark}
-            onPress={(park) => navigation.navigate('ParkDetails', { park })}
+            onPress={(park) => {
+              setPark(park)
+              navigation.navigate('ParkDetails')
+            }}
           />
         ) : (
           <Placeholder
@@ -45,7 +49,7 @@ function Favourites({ navigation }) {
             }}>
             <Text>
               <Text>Your </Text>
-              <FavouriteText>Favourite</FavouriteText>
+              <FavoriteText>Favourite</FavoriteText>
               <Text>
                 {' '}
                 parks live here for easy access. Add parks by tapping the
@@ -63,12 +67,12 @@ function Favourites({ navigation }) {
           </Placeholder>
         )}
       </Container>
-    </SafeArea>
+    </FavoritePage>
   )
 }
 
-Favourites.propTypes = {
+Favorites.propTypes = {
   navigation: PropTypes.object.isRequired,
 }
 
-export default Favourites
+export default Favorites

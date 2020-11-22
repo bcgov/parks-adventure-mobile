@@ -1,15 +1,15 @@
 import React from 'react'
 import { create, act } from 'react-test-renderer'
-import FavouritesPage from './Favourites'
+import FavoritesPage from './Favorites'
 import { DataProvider } from '../utils/DataContext.mock'
 
-test('Favourites page matches snapshot', () => {
+test('Favorites page matches snapshot', () => {
   let tree
 
   act(() => {
     tree = create(
       <DataProvider>
-        <FavouritesPage navigation={{}} />
+        <FavoritesPage navigation={{}} />
       </DataProvider>
     )
   })

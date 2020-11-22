@@ -3,7 +3,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { MaterialCommunityIcons as Icon } from '@expo/vector-icons'
 import { useTheme } from 'react-native-paper'
 import ExploreStack from './ExploreStack'
-import FavouritesStack from './FavouritesStack'
+import FavoritesStack from './FavoritesStack'
 import FindStack from './FindStack'
 import { Label } from './TabNavigator.styles'
 
@@ -38,8 +38,8 @@ const TabNavigator = () => {
         }}
       />
       <Tab.Screen
-        name="Favourites"
-        component={FavouritesStack}
+        name="Favorites"
+        component={FavoritesStack}
         options={{
           tabBarIcon: ({ color }) => (
             <Icon name="cards-heart" size={20} color={color} />

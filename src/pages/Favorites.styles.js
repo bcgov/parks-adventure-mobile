@@ -1,9 +1,9 @@
 import styled from 'styled-components/native'
-import { SafeAreaView, ScrollView, View } from 'react-native'
+import { ScrollView, View } from 'react-native'
 import { Headline } from 'react-native-paper'
 import theme from '../utils/theme'
 
-export const SafeArea = styled(SafeAreaView)`
+export const FavoritePage = styled(View)`
   flex: 1;
   background-color: white;
 `
@@ -24,7 +24,7 @@ export const Text = styled(Headline)`
   line-height: 34px;
 `
 
-export const FavouriteText = styled(Text)`
+export const FavoriteText = styled(Text)`
   font-family: bcsans-bold;
   color: ${theme.colors.secondary500};
 `

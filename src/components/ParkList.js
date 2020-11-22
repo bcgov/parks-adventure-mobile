@@ -1,7 +1,7 @@
 import React from 'react'
-import { TouchableWithoutFeedback } from 'react-native'
-import { useTheme, IconButton } from 'react-native-paper'
+import { Pressable } from 'react-native'
 import PropTypes from 'prop-types'
+import { useRoute } from '@react-navigation/native'
 import defaultParkImage from '../../assets/defaultParkImage.jpg'
 import FavoriteButton from './FavoriteButton'
 import {
@@ -15,13 +15,12 @@ import {
 } from './ParkList.styles'
 
 const ParkList = ({ parks, onPress, onFavoritePress }) => {
-  const theme = useTheme()
-
-  const renderParkItem = ({ item }) => (
-    <TouchableWithoutFeedback
+  const route = useRoute()
+  const renderParkItem = ({ item, index }) => (
+    <Pressable
       accessibilityLabel={'navigate to park details'}
       onPress={() => onPress(item)}>
-      <ItemContainer>
+      <ItemContainer noTopBorder={index === 0 && route.name === 'Favorites'}>
         <ItemImage
           source={item.imageUri ? { uri: item.imageUri } : defaultParkImage}
           defaultSource={defaultParkImage}
@@ -40,7 +39,7 @@ const ParkList = ({ parks, onPress, onFavoritePress }) => {
           </DistanceText>
         </ColumnContainer>
       </ItemContainer>
-    </TouchableWithoutFeedback>
+    </Pressable>
   )
 
   return (
@@ -49,7 +48,7 @@ const ParkList = ({ parks, onPress, onFavoritePress }) => {
       renderItem={renderParkItem}
       keyExtractor={(item) => item.title}
       showsVerticalScrollIndicator={false}
-      contentContainerStyle={{ paddingTop: 10, paddingBottom: 10 }}
+      contentContainerStyle={{ paddingBottom: 10 }}
     />
   )
 }

@@ -8,7 +8,8 @@ export const Container = styled(FlatList)`
 
 export const ItemContainer = styled(View)`
   border-color: rgba(0, 0, 0, 0.12);
-  border-top-width: 1px;
+  border-top-width: ${(props) => (props.noTopBorder ? 0 : 1)}px;
+  margin-top: ${(props) => (props.noTopBorder ? 10 : 0)}px;
   padding: 6px 0;
   flex-direction: row;
   align-items: center;

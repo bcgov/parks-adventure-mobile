@@ -6,7 +6,7 @@ exports[`Matches snapshot 1`] = `
     Array [
       Object {
         "backgroundColor": "white",
-        "minHeight": 100,
+        "minHeight": 80,
         "paddingBottom": 0,
         "paddingLeft": 30,
         "paddingRight": 30,
@@ -245,7 +245,6 @@ exports[`Matches snapshot 1`] = `
           "flexGrow": 1,
           "flexWrap": "wrap",
           "justifyContent": "flex-end",
-          "position": "relative",
         },
       ]
     }
@@ -270,41 +269,63 @@ exports[`Matches snapshot 1`] = `
     >
       4 matching parks
     </Text>
-    <Text
+    <View
+      accessible={true}
+      focusable={true}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
       style={
         Array [
           Object {
-            "color": "#000000",
-            "fontFamily": "System",
-            "fontWeight": "400",
-            "textAlign": "left",
+            "alignItems": "center",
+            "flexDirection": "row",
+            "position": "relative",
           },
-          Array [
-            Object {
-              "fontSize": 16,
-              "opacity": 0.6,
-            },
-          ],
         ]
       }
     >
-      Filter
-    </Text>
-    <Icon
-      accessibilityLabel="Filter Parks"
-      allowFontScaling={true}
-      icon="tune"
-      onPress={[Function]}
-      size={18}
-      style={
-        Array [
-          Object {
-            "marginRight": -4,
-            "opacity": 0.6,
-          },
-        ]
-      }
-    />
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#000000",
+              "fontFamily": "System",
+              "fontWeight": "400",
+              "textAlign": "left",
+            },
+            Array [
+              Object {
+                "fontSize": 16,
+                "opacity": 0.6,
+              },
+            ],
+          ]
+        }
+      >
+        Filter
+      </Text>
+      <Icon
+        accessibilityLabel="Filter Parks"
+        allowFontScaling={true}
+        icon="tune"
+        size={18}
+        style={
+          Array [
+            Object {
+              "marginRight": -4,
+              "opacity": 0.6,
+            },
+          ]
+        }
+      />
+    </View>
   </View>
 </View>
 `;

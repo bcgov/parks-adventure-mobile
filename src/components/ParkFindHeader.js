@@ -5,9 +5,10 @@ import {
   Search,
   Content,
   ParkCount,
-  FilterText,
   FilterButton,
-  FilterIndicator,
+  Text,
+  Icon,
+  Indicator,
 } from './ParkFindHeader.styles'
 
 const ParkFindHeader = ({
@@ -28,15 +29,16 @@ const ParkFindHeader = ({
     />
     <Content>
       <ParkCount>{`${count} matching park${count === 1 ? '' : 's'}`}</ParkCount>
-      <FilterText>Filter</FilterText>
-      <FilterButton
-        icon="tune"
-        size={18}
-        onPress={showFilter}
-        accessibilityLabel={'Filter Parks'}
-        allowFontScaling={true}
-      />
-      {filterApplied && <FilterIndicator />}
+      <FilterButton onPress={showFilter}>
+        <Text>Filter</Text>
+        <Icon
+          icon="tune"
+          size={18}
+          accessibilityLabel={'Filter Parks'}
+          allowFontScaling={true}
+        />
+        {filterApplied && <Indicator />}
+      </FilterButton>
     </Content>
   </Header>
 )

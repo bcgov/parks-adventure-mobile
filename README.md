@@ -43,6 +43,7 @@ and their _facilities_.
 ---
 
 ### 4. Details
+
 The `Details` page shows users **information about each park** such as a
 _description_, _location_, _activities_, _facilities_, _safety information_,
 and _nature and culture_.
@@ -53,6 +54,35 @@ and _nature and culture_.
 <kbd><img src="./assets/Details(4).png" width="175" /></kbd>
 
 ---
+
+## Development Dependencies
+
+### Requirements
+
+- **Node.js**: LTS release or greater
+- **Xcode**: if building for iOS
+
+### Tools
+
+- **Expo Cli**: The [Expo Cli](https://docs.expo.io/workflow/expo-cli/) allows
+developers to run the project server, open simulators, build binaries, and
+manage Apple and Google credentials.
+
+- **Expo App**: The Expo App for
+[Android](https://play.google.com/store/apps/details?id=host.exp.exponent&hl=en_CA&gl=US)
+and [iOS](https://apps.apple.com/ca/app/expo-client/id982107779) allows
+developers to run the app on their device during development.
+
+- **Android Studio**: If you do not have an Android device you can use [Android
+Studio](https://developer.android.com/studio) to run a simulator to test
+various Android versions.
+
+- **Test Flight**: [Test Flight](https://apps.apple.com/ca/app/testflight/id899247664)
+will allow external iPhone beta testers to test the app on their own devices.
+
+- **Transporter**: Although not strictly necessary,
+[Transporter](https://apps.apple.com/us/app/transporter/id1450874784?mt=12) is
+one of the tools that can be used to upload the `.ipa` file to App Store Connect.
 
 ## Scripts
 
@@ -127,7 +157,7 @@ separate behaviour for testing and production which this app currently does not
 require. Once you've followed the terminal steps it will print a url that can
 be used to access the builds. It will look like `expo.io/builds/some-unique-id`.
 From there, once the builds have finished, you can download both files. For iOS,
-you can use [Transporter](https://apps.apple.com/us/app/transporter/id1450874784?mt=12)
-to upload it to TestFlight. For Android the `.apk` file can be installed
-directly onto Android devices. You can find more information on distributing
-Android apps [here](https://developer.android.com/distribute/marketing-tools/alternative-distribution#email).
+you can use Transporter to upload it to TestFlight. For Android the `.apk` file
+can be installed directly onto Android devices. You can find more information
+on distributing Android apps
+[here](https://developer.android.com/distribute/marketing-tools/alternative-distribution#email).

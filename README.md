@@ -100,7 +100,7 @@ We are using React Native so that we can build this application for both iOS
 and Android with a single data set. To create those bundles we must follow two
 similar but slightly different workflows. For both operating systems we need
 Expo to build us the appropriate bundles, an `.apk` file for Android and a
-`.ipa` file for iOS. The following commands are used for that. I've created 4
+`.ipa` file for iOS. The following commands are used for that. We've created 4
 different commands, two for each OS. One allows us to create a build under the
 `Dev` release channel:
 

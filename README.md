@@ -1,19 +1,24 @@
 # Parks Adventure Mobile
 
-A mobile app to help users find and explore **BC Parks**.
+Find and explore the wonders of **BC Parks**.
 
 ## Features
 
-This functionality is provided across 3 main screens:
+Two of the main screens, `Explore` and `Find`, provide different ways to
+discover parks. Once a user finds a park they can find more information about
+that park by navigating to the `Details` page. Then if that park is of interest
+the `Favourites` page will help keep it close at hand. Users can also stay
+up-to-date on the access status of parks (open, close, etc.) and any alert or
+advisories they should be aware of before traveling.
 
 ---
 
 ### 1. Explore
 
 <div style="display:flex;align-items:center;">
-  <kbd><img src="./assets/ExplorePage.PNG" width="250" /></kbd>
-  <p style="width: 400px;margin-left: 50px;">The <code>Explore</code> page shows users nearby
-  parks which offer <strong>popular activities and facilities</strong>.</p>
+  <kbd><img src="./assets/ExplorePage.PNG" width="175" /></kbd>
+  <p style="width: 400px;margin-left: 50px;">The <code>Explore</code> page shows
+  users nearby parks which offer <strong>popular activities and facilities</strong>.</p>
 </div>
 
 ---
@@ -21,9 +26,10 @@ This functionality is provided across 3 main screens:
 ### 2. Favourites
 
 <div style="display:flex;align-items:center;">
-  <kbd><img src="./assets/FavouritesPage.PNG" width="250" /></kbd>
-  <p style="width: 400px;margin-left: 50px;">The <code>Favourite</code> page allows users
-  to <strong>keep the parks they are most interested in easily accessible</strong>.</p>
+  <kbd><img src="./assets/FavouritesPage.PNG" width="175" /></kbd>
+  <p style="width: 400px;margin-left: 50px;">The <code>Favourites</code> page
+  allows users to <strong>keep the parks they are most interested in easily
+  accessible</strong>.</p>
 </div>
 
 ---
@@ -31,13 +37,28 @@ This functionality is provided across 3 main screens:
 ### 3. Find
 
 <div style="display:flex;align-items:center;">
-  <kbd><img src="./assets/ParkFindPage.PNG" width="250" /></kbd>
-  <kbd><img src="./assets/FilterPage.PNG" width="250" /></kbd>
-  <p style="width: 300px;margin-left: 50px;">The <code>Find</code> page allows users to
-  <strong>search all of BCs parks</strong> based on a number of criteria, mainly
-  their <i>title</i>, <i>distance</i> from the user, their <i>activties</i>, and their
-  <i>facilities</i>.</p>
+  <kbd><img src="./assets/ParkFindPage.PNG" width="175" /></kbd>
+  <kbd><img src="./assets/FilterPage.PNG" width="175" /></kbd>
+  <p style="width: 300px;margin-left: 50px;">The <code>Find</code> page allows
+  users to <strong>search all of BCs parks</strong> based on a number of
+  criteria, namely their <i>name</i>, <i>distance</i> from the user, their
+  <i>activties</i>, and their <i>facilities</i>.</p>
 </div>
+
+---
+
+### 4. Details
+
+<div style="display:flex;align-items:center;">
+  <kbd><img src="./assets/Details(1).png" width="175" /></kbd>
+  <kbd><img src="./assets/Details(2).png" width="175" /></kbd>
+  <p style="width: 400px;margin-left: 50px;">The <code>Details</code> page
+  shows users <strong>information about each park</strong> such as a
+  <i>description</i>, <i>location</i>, <i>activities</i>, <i>facilities</i>
+  , <i>safety information</i>, and <i>nature and culture</i>.</p>
+</div>
+<kbd><img src="./assets/Details(3).png" width="175" /></kbd>
+<kbd><img src="./assets/Details(4).png" width="175" /></kbd>
 
 ---
 

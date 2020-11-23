@@ -15,48 +15,40 @@ advisories they should be aware of before traveling.
 
 ### 1. Explore
 
-<div style="display:flex;align-items:center;">
-  <kbd><img src="./assets/ExplorePage.png" width="175" /></kbd>
-  <p style="width: 400px;margin-left: 50px;">The <code>Explore</code> page shows
-  users nearby parks which offer <strong>popular activities and facilities</strong>.</p>
-</div>
+The `Explore` page shows users nearby parks which offer **popular activities
+and facilities**.
+
+<kbd><img src="./assets/ExplorePage.png" width="175" /></kbd>
 
 ---
 
 ### 2. Favourites
 
-<div style="display:flex;align-items:center;">
-  <kbd><img src="./assets/FavouritesPage.png" width="175" /></kbd>
-  <p style="width: 400px;margin-left: 50px;">The <code>Favourites</code> page
-  allows users to <strong>keep the parks they are most interested in easily
-  accessible</strong>.</p>
-</div>
+The `Favourites` page allows users to **keep the parks they are most interested
+in easily accessible**.
+
+<kbd><img src="./assets/FavouritesPage.png" width="175" /></kbd>
 
 ---
 
 ### 3. Find
 
-<div style="display:flex;align-items:center;">
-  <kbd><img src="./assets/ParkFindPage.png" width="175" /></kbd>
-  <kbd><img src="./assets/FilterPage.png" width="175" /></kbd>
-  <p style="width: 300px;margin-left: 50px;">The <code>Find</code> page allows
-  users to <strong>search all of BCs parks</strong> based on a number of
-  criteria, namely their <i>name</i>, <i>distance</i> from the user, their
-  <i>activties</i>, and their <i>facilities</i>.</p>
-</div>
+The `Find` page allows users to **search all of BCs parks** based on a number
+of criteria, namely their _name_, _distance_ from the user, their _activties_,
+and their _facilities_.
+
+<kbd><img src="./assets/ParkFindPage.png" width="175" /></kbd>
+<kbd><img src="./assets/FilterPage.png" width="175" /></kbd>
 
 ---
 
 ### 4. Details
+The `Details` page shows users **information about each park** such as a
+_description_, _location_, _activities_, _facilities_, _safety information_,
+and _nature and culture_.
 
-<div style="display:flex;align-items:center;">
-  <kbd><img src="./assets/Details(1).png" width="175" /></kbd>
-  <kbd><img src="./assets/Details(2).png" width="175" /></kbd>
-  <p style="width: 400px;margin-left: 50px;">The <code>Details</code> page
-  shows users <strong>information about each park</strong> such as a
-  <i>description</i>, <i>location</i>, <i>activities</i>, <i>facilities</i>
-  , <i>safety information</i>, and <i>nature and culture</i>.</p>
-</div>
+<kbd><img src="./assets/Details(1).png" width="175" /></kbd>
+<kbd><img src="./assets/Details(2).png" width="175" /></kbd>
 <kbd><img src="./assets/Details(3).png" width="175" /></kbd>
 <kbd><img src="./assets/Details(4).png" width="175" /></kbd>
 

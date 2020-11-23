@@ -16,7 +16,7 @@ advisories they should be aware of before traveling.
 ### 1. Explore
 
 <div style="display:flex;align-items:center;">
-  <kbd><img src="./assets/ExplorePage.PNG" width="175" /></kbd>
+  <kbd><img src="./assets/ExplorePage.png" width="175" /></kbd>
   <p style="width: 400px;margin-left: 50px;">The <code>Explore</code> page shows
   users nearby parks which offer <strong>popular activities and facilities</strong>.</p>
 </div>
@@ -26,7 +26,7 @@ advisories they should be aware of before traveling.
 ### 2. Favourites
 
 <div style="display:flex;align-items:center;">
-  <kbd><img src="./assets/FavouritesPage.PNG" width="175" /></kbd>
+  <kbd><img src="./assets/FavouritesPage.png" width="175" /></kbd>
   <p style="width: 400px;margin-left: 50px;">The <code>Favourites</code> page
   allows users to <strong>keep the parks they are most interested in easily
   accessible</strong>.</p>
@@ -37,8 +37,8 @@ advisories they should be aware of before traveling.
 ### 3. Find
 
 <div style="display:flex;align-items:center;">
-  <kbd><img src="./assets/ParkFindPage.PNG" width="175" /></kbd>
-  <kbd><img src="./assets/FilterPage.PNG" width="175" /></kbd>
+  <kbd><img src="./assets/ParkFindPage.png" width="175" /></kbd>
+  <kbd><img src="./assets/FilterPage.png" width="175" /></kbd>
   <p style="width: 300px;margin-left: 50px;">The <code>Find</code> page allows
   users to <strong>search all of BCs parks</strong> based on a number of
   criteria, namely their <i>name</i>, <i>distance</i> from the user, their

@@ -60,7 +60,7 @@ and _nature and culture_.
 ### Requirements
 
 - **Node.js**: LTS release or greater
-- **Xcode**: if building for iOS
+- **Xcode**: if developing using an iPhone simulator or using Transporter
 
 ### Tools
 

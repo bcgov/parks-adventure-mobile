@@ -55,34 +55,38 @@ and _nature and culture_.
 
 ---
 
-## Development Dependencies
+## Development Tools
 
-### Requirements
+### Required
 
 - **Node.js**: LTS release or greater
-- **Xcode**: if developing using an iPhone simulator or using Transporter
 
-### Tools
-
-- **Expo Cli**: The [Expo Cli](https://docs.expo.io/workflow/expo-cli/) allows
+- **Expo Cli**: The [Expo Cli](https://docs.expo.io/workflow/expo-cli/) enables
 developers to run the project server, open simulators, build binaries, and
 manage Apple and Google credentials.
+
+### Optional
 
 - **Expo App**: The Expo App for
 [Android](https://play.google.com/store/apps/details?id=host.exp.exponent&hl=en_CA&gl=US)
 and [iOS](https://apps.apple.com/ca/app/expo-client/id982107779) allows
-developers to run the app on their device during development.
+developers to run the app on their own device during development.
 
 - **Android Studio**: If you do not have an Android device you can use [Android
 Studio](https://developer.android.com/studio) to run a simulator to test
 various Android versions.
 
+- **MacOS and Xcode**: If you do not have an iOS mobile device but have MacOS,
+you can use [Xcode](https://developer.apple.com/xcode/) to run a simulator to
+test the iOS versions. Additionally, in order to use Transporter to upload
+bundles to App Store Connect, MacOS and Xcode are required.
+
+- **Transporter**: [Transporter](https://apps.apple.com/us/app/transporter/id1450874784?mt=12)
+is one of the tools that can be used to upload the `.ipa` file to App Store Connect.
+
 - **Test Flight**: [Test Flight](https://apps.apple.com/ca/app/testflight/id899247664)
 will allow external iPhone beta testers to test the app on their own devices.
 
-- **Transporter**: Although not strictly necessary,
-[Transporter](https://apps.apple.com/us/app/transporter/id1450874784?mt=12) is
-one of the tools that can be used to upload the `.ipa` file to App Store Connect.
 
 ## Scripts
 

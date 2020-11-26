@@ -17,7 +17,7 @@
     "assetBundlePatterns": ["**/*"],
     "ios": {
       "bundleIdentifier": "ca.bcparks.parks-adventure-mobile",
-      "buildNumber": "0.0.5",
+      "buildNumber": "0.0.6",
       "infoPlist": {
         "NSLocationWhenInUseUsageDescription": "This app uses the users location to filter their results based on proximity.",
       },

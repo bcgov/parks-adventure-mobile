@@ -25,6 +25,13 @@ jest.mock('@react-navigation/native', () => {
   }
 })
 
+jest.mock('@react-navigation/stack', () => {
+  return {
+    ...jest.requireActual('@react-navigation/stack'),
+    useHeaderHeight: () => 75,
+  }
+})
+
 jest.mock('react-native-paper', () => ({
   ...jest.requireActual('react-native-paper'),
   IconButton: 'Icon',

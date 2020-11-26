@@ -5,7 +5,7 @@ import theme from '../utils/theme'
 export const Banner = styled(Surface)`
   background-color: ${theme.colors.error};
   padding: 15px;
-  top: 60px;
+  top: ${(props) => props.headerHeight}px;
 `
 
 export const Message = styled(Text)`

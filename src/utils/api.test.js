@@ -17,12 +17,22 @@ describe('parks', () => {
     jest.resetAllMocks()
   })
 
-  test('Verify fetchPark() calls AsyncStorage.setItem', async () => {
+  test('Verify fetchPark() calls AsyncStorage and paginated the data', async () => {
     await fetchParks()
-    expect(AsyncStorage.setItem).toHaveBeenCalledWith(
-      'parks',
-      expect.anything()
-    )
+    expect(AsyncStorage.setItem).toHaveBeenCalledWith('pages', '11')
+    expect(AsyncStorage.multiSet).toHaveBeenCalledWith([
+      ['parks_p.0', expect.anything()],
+      ['parks_p.1', expect.anything()],
+      ['parks_p.2', expect.anything()],
+      ['parks_p.3', expect.anything()],
+      ['parks_p.4', expect.anything()],
+      ['parks_p.5', expect.anything()],
+      ['parks_p.6', expect.anything()],
+      ['parks_p.7', expect.anything()],
+      ['parks_p.8', expect.anything()],
+      ['parks_p.9', expect.anything()],
+      ['parks_p.10', expect.anything()],
+    ])
   })
 
   test('Verify getParks() calls AsyncStorage.getItem', async () => {

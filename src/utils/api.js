@@ -15,6 +15,7 @@ import { AllHtmlEntities } from 'html-entities'
 const entities = new AllHtmlEntities()
 
 const KEYS = {
+  pages: 'pages',
   parks: 'parks',
   location: 'userLocation',
   activities: 'activities',
@@ -139,7 +140,25 @@ export async function fetchParks() {
       }
     })
 
-    await AsyncStorage.setItem(KEYS.parks, JSON.stringify(Object.values(parks)))
+    /*
+     * Android uses SQL Lite storage under the hood and under the current
+     * implementaiton it throws a "Row too big to fit into CursorWindow" error
+     * so we've "paginated" the data for storage.
+     */
+    const storageData = Object.values(parks)
+    const pageLength = 100
+    const numOfPages = Math.ceil(storageData.length / pageLength)
+    await AsyncStorage.setItem(KEYS.pages, `${numOfPages}`)
+    const pages = Array.from(Array(numOfPages).keys())
+    const setPairs = pages.map((_, index) => {
+      return [
+        `${KEYS.parks}_p.${index}`,
+        JSON.stringify(
+          storageData.slice(pageLength * index, pageLength * index + pageLength)
+        ),
+      ]
+    })
+    await AsyncStorage.multiSet(setPairs)
   } catch (error) {
     console.warn('Failed to fetch park data', error)
   }
@@ -147,8 +166,18 @@ export async function fetchParks() {
 
 export async function getParks() {
   try {
-    const data = await AsyncStorage.getItem(KEYS.parks)
-    return data ? JSON.parse(data) : []
+    /*
+     * Android uses SQL Lite storage under the hood and under the current
+     * implementaiton it's throw a "Row too big to fit into CursorWindow" error
+     * so we've "paginated" the data for storage.
+     */
+    const numOfPages = await AsyncStorage.getItem(KEYS.pages)
+    const pages = Array.from(Array(parseInt(numOfPages)).keys())
+    const getPairs = pages.map((_, index) => `${KEYS.parks}_p.${index}`)
+    const data = await AsyncStorage.multiGet(getPairs)
+    const combined = []
+    data.forEach((value) => combined.push(...JSON.parse(value[1])))
+    return combined
   } catch (error) {
     console.warn(error)
     return []

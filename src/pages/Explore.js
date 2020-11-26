@@ -141,7 +141,7 @@ function Explore({ navigation }) {
               index={index}
               length={vehicleCampingParks.length}>
               <CarouselCard
-                onPress={() => setPark(park)}
+                onPress={() => navigateToPark(park)}
                 onFavoritePress={() => favoritePark(park.id)}
                 distance={
                   location

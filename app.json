@@ -16,15 +16,15 @@
     },
     "assetBundlePatterns": ["**/*"],
     "ios": {
-      "bundleIdentifier": "ca.bcparks.parks-adventure-mobile",
-      "buildNumber": "0.0.6",
+      "bundleIdentifier": "ca.bcparks.explore-bc-parks",
+      "buildNumber": "0.0.1",
       "infoPlist": {
         "NSLocationWhenInUseUsageDescription": "This app uses the users location to filter their results based on proximity.",
       },
       "backgroundColor": "#294071",
     },
     "android": {
-      "package": "ca.bcparks.parks_adventure_mobile",
+      "package": "ca.bcparks.explore_bc_parks",
       "permissions": [
         "ACCESS_COARSE_LOCATION",
         "ACCESS_FINE_LOCATION",

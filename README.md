@@ -142,7 +142,7 @@ yarn run build-dev-ios
 npm run build-dev-android
 ```
 
-and one allows us to creat a build under the `Prod` release channel:
+and one allows us to create a build under the `Prod` release channel:
 
 ```bash
 # Build a standalone IPA for your project, signed and ready for submission to

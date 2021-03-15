@@ -3,6 +3,7 @@
     "name": "Parks Adventure Mobile",
     "slug": "parks-adventure-mobile",
     "version": "0.0.1",
+    "sdkVersion": "40.0.0",
     "platforms": ["ios", "android"],
     "orientation": "portrait",
     "icon": "./assets/icon.png",

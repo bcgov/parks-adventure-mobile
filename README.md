@@ -1,6 +1,6 @@
 # Parks Adventure Mobile
 
-Find and explore the wonders of **BC Parks**. For more information about this project, please contacnt [Leah Wilcock](mailto:Leah.Wilcock@gov.bc.ca), Manager, Information Services, BC Parks.
+Find and explore the wonders of **BC Parks**. For more information about this project, please contact [Leah Wilcock](mailto:Leah.Wilcock@gov.bc.ca), Manager, Information Services, BC Parks.
 
 ## Features
 
